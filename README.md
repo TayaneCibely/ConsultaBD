@@ -1,6 +1,7 @@
 # ConsultaBD
 Repositório para o projeto de Banco de Dados
 
-![image](https://github.com/TayaneCibely/ConsultaBD/assets/87872064/2759bdce-44c3-4624-b168-346afba419fc)
+![image](https://github.com/TayaneCibely/ConsultaBD/assets/87872064/a1aa8205-9e89-4968-8337-6267b48e56e9)
+
 
 
