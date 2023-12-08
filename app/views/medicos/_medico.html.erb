@@ -1,0 +1,15 @@
+<div id="<%= dom_id(medico) %>">
+    <h1><strong>Nome:</strong> <%= medico.nome %></h1>
+
+    <p><strong>CPF:</strong><%= medico.cpf %></p>
+    <p><strong>CRM:</strong><%= medico.crm %></p>
+    <p><strong>UF-CRM</strong><%= medico.uf_crm %></p>
+    <p><strong>Especialidade:</strong><%= medico.especialidade %></p>
+    <p><strong>Email:</strong><%= medico.email %></p>
+
+    <p><strong>Horário de Atendimento:</strong>
+        <%= medico.inicio_consulta.strftime("%H:%M") %>
+        <%= medico.termino_consulta.strftime("%H:%m") %>
+    </p>
+
+</div>

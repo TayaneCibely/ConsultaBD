@@ -1,0 +1,16 @@
+<h1>Detalhes do Médico</h1>
+
+<div>
+  <h2><%= @medico.nome %></h2>
+  <p>CRM:<%= @medico.crm %></p>
+  <p>UF do CRM: <%= @medico.uf_crm %></p>
+  <p>Especialidade Médica:<%= @medico.especialidade %></p>  <p>
+  <p>CPF: <%= @medico.cpf %></p>
+  <p>EMAIL: <%= @medico.email %></p>
+</div>
+
+<div>
+  <%= link_to 'Voltar a lista de médicos', medicos_path %>
+ <%= link_to 'Editar Médico', edit_medico_path(@medico) %>
+  <%= button_to "Apagar Médico", @medico, method: :delete, data: { confirm: "Tem certeza que deseja apagar esse médico? "} %>
+</div>

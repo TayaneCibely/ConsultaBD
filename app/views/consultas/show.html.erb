@@ -1,0 +1,17 @@
+<h2>Detalhes do Agendamento</h2>
+<div id="consulta-details">
+    <p><span class="label">Paciente:</span> <span class="value"><%= @consulta.paciente.present? ? @consulta.paciente.nome_completo : "Paciente não associado" %></span></p>
+    
+    <p><span class="label">Data:</span><span class="value"><%= @consulta.data.present? ? @consulta.data.strftime("%d/%m/%Y") : "Data não definida" %></span></p>
+ 
+    <p><span class="label">Horário</span>:<span class="value"><%= @consulta.horario.present? ? @consulta.horario.strftime("%H:%M") : "Horário não definido " %></span></p>
+
+    <p><span class="label">Médico</span><span class="value"><%= @consulta.medico.present? ? @consulta.medico.nome_medico : "Médico não associado"%></span></p>
+
+    <div>
+      <%= link_to "Editar Consulta", edit_consulta_path(@consulta) %>
+      <%= button_to "Apagar Consulta", @consulta, method: :delete, data: { confirm: "Tem certeza que deseja apagar essa consulta? "} %>
+      <%= link_to "Voltar a lista de agendamentos", consultas_path %>
+    </div>
+
+</div>

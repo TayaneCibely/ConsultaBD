@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Consulta-sim</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+<% flash.each do |message_type, message| %>
+  <%= content_tag 'div', role: 'alert' do %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<%= yield %>
+</body>
+</html>

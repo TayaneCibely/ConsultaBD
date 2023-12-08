@@ -1,0 +1,58 @@
+  <%= form_with(model: medico, class: "medico-form") do |form| %>
+    <% if medico.errors.any? %>
+      <div class="error-messages">
+        <h2><%= pluralize(medico.errors.count, "error") %> Proibe o médico de ser salvo:</h2>
+        <ul>
+           <% medico.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+           <% end %>
+        </ul>
+     </div>
+    <% end %>
+
+
+  <div class="field">
+    <%= form.label :nome, "Nome do Médico:" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :crm, "CRM" %>
+    <%= form.text_field :crm %>
+  </div>
+
+  <div class="field">
+    <%= form.label :uf_crm, "UF-CRM" %>
+    <%= form.text_field :uf_crm %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :cpf, "CPF:" %>
+    <%= form.text_field :cpf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :especialidade, "Especialidade:" %>
+    <%= form.text_field :especialidade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email, "Email" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inicio_consulta, "Início Horário de Atendimento:" %>
+    <%= form.time_field :inicio_consulta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :termino_consulta, "Término Horário de Atendimento:" %>
+    <%= form.time_field :termino_consulta %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Salvar" %>
+    <%= link_to "Voltar para a página inicial", root_path %>
+  </div>
+<% end %>

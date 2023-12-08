@@ -1,0 +1,26 @@
+<h1>Pacientes</h1>
+
+<div id="pacientes">
+  <% if notice.present? %>
+    <p style="color: green;"><%= notice %></p>
+  <% end %>
+
+  <h2>Busque o paciente pelo nome ou CPF:</h2>
+  <%= form_tag search_pacientes_path, method: :get do %>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Buscar" %>
+  <% end %>
+
+  <% @pacientes.each do |paciente| %>
+    <div class="patient-card">
+      <div>Nome do paciente: <%= paciente.nome_completo %></div>
+      <div>CPF: <%= paciente.cpf %></div>
+      <p><%= link_to "Ver detalhes", paciente, class: "btn" %></p>
+    </div>
+  <% end %>
+
+  <div class="links">
+    <%= link_to "Novo Paciente", new_paciente_path, class: "btn" %>
+    <%= link_to "Voltar para a página principal", root_path, class: "btn" %>
+  </div>
+</div>

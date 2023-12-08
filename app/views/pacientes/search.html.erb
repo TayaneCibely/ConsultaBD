@@ -1,0 +1,20 @@
+<h1>Resultado da Busca de Paciente</h1>
+
+<div id="pacientes">
+    <% if notice.present? %>
+        <p style="color: green;"><%= notice %></p>
+    <% end %>
+
+    <% if @pacientes.present? %>
+      <% @pacientes.each do |paciente| %>
+        <div>Nome do paciente: <%= paciente.nome_completo %></div>
+        <div>CPF: <%= paciente.cpf %></div>
+        <p><%= link_to "Ver detalhes", paciente %></p>
+      <% end %>
+    <% else %>
+      <h1>Nenhum paciente encontrado!</h1>
+    <% end %>
+
+    <%= link_to "Novo Paciente", new_paciente_path %>
+    <%= link_to 'Voltar', :back %>
+</div>

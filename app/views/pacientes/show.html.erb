@@ -1,0 +1,45 @@
+<h1>Detalhes do Paciente</h1>
+
+<div>
+  <div>
+    <h2><%= @paciente.nome_completo %></h2>
+    <p>CPF: <%= @paciente.cpf %></p>
+    <p>Data de Nascimento: <%= @paciente.data_nascimento %></p>
+    <p>Telefone: <%= @paciente.telefone %></p>
+    <p>Email: <%= @paciente.email %></p>
+  </div>
+
+  <div>
+    <h2>Endereço</h2>
+    <p>
+      <strong>CEP:</strong>
+      <%= @paciente.endereco.cep %>
+    </p>
+
+    <p>
+      <strong>Cidade:</strong>
+      <%= @paciente.endereco.cidade %>
+    </p>
+
+    <p>
+      <strong>Bairro:</strong>
+      <%= @paciente.endereco.bairro %>
+    </p>
+
+    <p>
+      <strong>Logradouro:</strong>
+      <%= @paciente.endereco.logradouro %>
+    </p>
+
+    <p>
+      <strong>Complemento:</strong>
+      <%= @paciente.endereco.complemento %>
+    </p>
+  </div>
+
+  <div>
+    <%= link_to 'Editar dados', edit_paciente_path(@paciente) %>
+    <%= button_to "Deletar Paciente", @paciente, method: :delete, data: { confirm: "Tem certeza que deseja apagar o paciente?" } %>
+    <%= link_to "Sair", pacientes_path %>
+  </div>
+</div>

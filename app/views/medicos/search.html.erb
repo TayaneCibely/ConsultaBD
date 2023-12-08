@@ -1,0 +1,21 @@
+<h1>Resultado da Busca de Médico</h1>
+
+<div id="medico">
+    <% if notice.present? %>
+        <p style="color: green;"><%= notice %></p>
+    <% end %>
+
+    <%= link_to 'Voltar', :back %>
+
+    <% if @medicos.present? %>
+        <% @medicos.each do |medico| %>
+            <div>Nome do médico: <%= medico.nome %></div>
+            <div>CRM: <%= medico.crm %></div>
+            <p><%= link_to "Ver detalhes", medico %></p>
+        <% end %>
+    <% else %>
+        <h1>Nenhum médico encontrado!</h1>
+    <% end %>
+
+    <%= link_to "Novo Medico", new_medico_path %>
+</div>

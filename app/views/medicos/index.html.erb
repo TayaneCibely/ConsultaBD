@@ -1,0 +1,28 @@
+<h1>Médicos</h1>
+
+<div id="medicos">
+    <% if notice.present? %>
+        <p style="color: green;"><%= notice %></p>
+    <% end %>
+
+    <h2>Busque o médico pelo nome ou CPF:</h2>
+    <%= form_tag search_medicos_path, method: :get do %>
+        <%= text_field_tag :query, params[:query] %>
+        <%= submit_tag "Buscar" %>
+    <% end %>
+
+    <% @medico.each do |medico| %>
+      <div>
+        <div>Nome do Médico: <%= medico.nome %></div>
+        <div>Especialidade: <%= medico.especialidade %></div>
+        <p><%= link_to "Ver detalhes", medico %></p>
+      </div>
+    <% end %>
+
+
+    <div class="links">
+    </div>
+        <%= link_to "Novo Médico", new_medico_path %>
+        <%= link_to "Voltar para a página inicial", root_path %>
+    </div>
+</div>
