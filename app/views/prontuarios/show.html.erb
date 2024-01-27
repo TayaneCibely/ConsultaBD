@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @prontuario %>
+
+<div>
+  <%= link_to "Edit this prontuario", edit_prontuario_path(@prontuario) %> |
+  <%= link_to "Back to prontuarios", prontuarios_path %>
+
+  <%= button_to "Destroy this prontuario", @prontuario, method: :delete %>
+</div>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :prescricaos
+  resources :exames
+  resources :prontuarios
   root 'home#index'
 
   get '/consultas/search', to: 'consultas#search', as: 'search_consultas'

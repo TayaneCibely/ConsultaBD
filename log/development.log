@@ -1404,3 +1404,364 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 2661)
 
 
+Started GET "/" for 127.0.0.1 at 2023-12-20 19:43:50 -0300
+Started GET "/" for 127.0.0.1 at 2023-12-20 19:43:50 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 78.6ms | Allocations: 825)
+  Rendered home/index.html.erb within layouts/application (Duration: 69.2ms | Allocations: 1861)
+  Rendered layout layouts/application.html.erb (Duration: 823.0ms | Allocations: 26378)
+Completed 500 Internal Server Error in 1067ms (ActiveRecord: 0.0ms | Allocations: 30491)
+
+
+  
+ActionView::Template::Error (Permission denied @ rb_file_s_rename - (C:/ProjetoBD/ConsultaBD/tmp/cache/assets/sprockets/v4.0.0/uR/uRTR08JBHajfSL3pY3ZxyxyG6Ln_v9zAEylrbSzLJ1s.cache.13880.20848.476193, C:/ProjetoBD/ConsultaBD/tmp/cache/assets/sprockets/v4.0.0/uR/uRTR08JBHajfSL3pY3ZxyxyG6Ln_v9zAEylrbSzLJ1s.cache)):
+     6:   <%= csrf_meta_tags %>
+     7:   <%= csp_meta_tag %>
+     8: 
+     9:   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10: </head>
+    11: 
+    12: <body>
+  
+app/views/layouts/application.html.erb:9
+  Rendered layout layouts/application.html.erb (Duration: 3564.4ms | Allocations: 470626)
+Completed 500 Internal Server Error in 3766ms (ActiveRecord: 0.0ms | Allocations: 474319)
+
+
+  
+ActionView::Template::Error (Permission denied @ rb_file_s_rename - (C:/ProjetoBD/ConsultaBD/tmp/cache/assets/sprockets/v4.0.0/Qh/QhdJNrfUvMI5rKZ8WtY44EQSgbLbptJ9sbEUmOnrUOA.cache.24940.20848.120459, C:/ProjetoBD/ConsultaBD/tmp/cache/assets/sprockets/v4.0.0/Qh/QhdJNrfUvMI5rKZ8WtY44EQSgbLbptJ9sbEUmOnrUOA.cache)):
+  
+sprockets (4.2.1) lib/sprockets/path_utils.rb:362:in `rename'
+sprockets (4.2.1) lib/sprockets/path_utils.rb:362:in `atomic_write'
+sprockets (4.2.1) lib/sprockets/cache/file_store.rb:112:in `set'
+sprockets (4.2.1) lib/sprockets/cache.rb:227:in `set'
+sprockets (4.2.1) lib/sprockets/cache.rb:143:in `set'
+sprockets (4.2.1) lib/sprockets/loader.rb:265:in `store_asset'
+sprockets (4.2.1) lib/sprockets/loader.rb:228:in `load_from_unloaded'
+sprockets (4.2.1) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.1) lib/sprockets/loader.rb:339:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.1) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.1) lib/sprockets/bundle.rb:32:in `block in call'
+C:/Ruby31-x64/lib/ruby/3.1.0/set.rb:511:in `each_key'
+C:/Ruby31-x64/lib/ruby/3.1.0/set.rb:511:in `each'
+sprockets (4.2.1) lib/sprockets/bundle.rb:31:in `call'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.1) lib/sprockets/loader.rb:184:in `load_from_unloaded'
+sprockets (4.2.1) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.1) lib/sprockets/loader.rb:339:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.1) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.1) lib/sprockets/base.rb:81:in `find_asset'
+sprockets (4.2.1) lib/sprockets/base.rb:88:in `find_all_linked_assets'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-12-20 19:43:59 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-12-20 19:44:37 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 123)
+  Rendered layout layouts/application.html.erb (Duration: 110.3ms | Allocations: 21868)
+Completed 200 OK in 115ms (Views: 113.7ms | ActiveRecord: 0.0ms | Allocations: 22509)
+
+
+Started GET "/pacientes/new" for 127.0.0.1 at 2023-12-20 19:44:54 -0300
+Processing by PacientesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 45.7ms | Allocations: 8170)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 49.2ms | Allocations: 8452)
+  Rendered layout layouts/application.html.erb (Duration: 61.2ms | Allocations: 10122)
+Completed 200 OK in 316ms (Views: 71.9ms | ActiveRecord: 5.0ms | Allocations: 30317)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-20 19:45:07 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 76)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 1713)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.0ms | Allocations: 2016)
+
+
+Started GET "/medicos/new" for 127.0.0.1 at 2023-12-20 19:45:09 -0300
+Processing by MedicosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering medicos/new.html.erb within layouts/application
+  Rendered medicos/_form.html.erb (Duration: 27.2ms | Allocations: 2690)
+  Rendered medicos/new.html.erb within layouts/application (Duration: 30.4ms | Allocations: 2967)
+  Rendered layout layouts/application.html.erb (Duration: 46.6ms | Allocations: 4637)
+Completed 200 OK in 87ms (Views: 56.9ms | ActiveRecord: 1.9ms | Allocations: 11979)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-20 19:45:25 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 77)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 1713)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms | Allocations: 2016)
+
+
+Started GET "/pacientes" for 127.0.0.1 at 2023-12-20 19:45:27 -0300
+Processing by PacientesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/index.html.erb within layouts/application
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/pacientes/index.html.erb:14
+  Rendered pacientes/index.html.erb within layouts/application (Duration: 11.5ms | Allocations: 1524)
+  Rendered layout layouts/application.html.erb (Duration: 25.6ms | Allocations: 2992)
+Completed 200 OK in 32ms (Views: 28.5ms | ActiveRecord: 0.5ms | Allocations: 3436)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-20 19:45:37 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 76)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 1724)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms | Allocations: 1994)
+
+
+Started GET "/medicos" for 127.0.0.1 at 2023-12-20 19:45:39 -0300
+Processing by MedicosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering medicos/index.html.erb within layouts/application
+  [1m[36mMedico Load (0.5ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/medicos/index.html.erb:14
+  Rendered medicos/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1365)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 2833)
+Completed 200 OK in 24ms (Views: 19.8ms | ActiveRecord: 0.5ms | Allocations: 3236)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-20 19:45:42 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 76)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 1727)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 1997)
+
+
+Started GET "/consultas/new" for 127.0.0.1 at 2023-12-20 19:45:44 -0300
+Processing by ConsultasController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/new.html.erb within layouts/application
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/consultas/_form.html.erb:15
+  [1m[36mPaciente Load (0.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/consultas/_form.html.erb:20
+  Rendered consultas/_form.html.erb (Duration: 60.9ms | Allocations: 8058)
+  Rendered consultas/new.html.erb within layouts/application (Duration: 65.0ms | Allocations: 8334)
+  Rendered layout layouts/application.html.erb (Duration: 85.4ms | Allocations: 10004)
+Completed 200 OK in 116ms (Views: 95.9ms | ActiveRecord: 2.5ms | Allocations: 15770)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-20 19:45:54 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 76)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 1734)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 2037)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProntuarios (20240118035209)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "prontuarios" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dataCriacao" date, "codigo" varchar, "historico" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240118035209"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateExames (20240118035648)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "exames" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" varchar, "data" date, "nomeExame" varchar, "descricao" text, "resultado" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240118035648"]]
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePrescricaos (20240118040641)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "prescricaos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" varchar, "data" date, "dosagem" varchar, "observacoes" text, "listaMedicamentos" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240118040641"]]
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-01-26 17:21:25 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 20.9ms | Allocations: 657)
+  Rendered layout layouts/application.html.erb (Duration: 217.4ms | Allocations: 26098)
+Completed 200 OK in 286ms (Views: 253.2ms | ActiveRecord: 0.0ms | Allocations: 28614)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-01-26 17:21:32 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/pacientes/new" for 127.0.0.1 at 2024-01-26 17:21:50 -0300
+Processing by PacientesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 7.9ms | Allocations: 7804)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 8084)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 9773)
+Completed 200 OK in 88ms (Views: 25.5ms | ActiveRecord: 1.1ms | Allocations: 27373)
+
+
+Started GET "/exames" for 127.0.0.1 at 2024-01-26 17:22:05 -0300
+Processing by ExamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering exames/index.html.erb within layouts/application
+  [1m[36mExame Load (0.2ms)[0m  [1m[34mSELECT "exames".* FROM "exames"[0m
+  ↳ app/views/exames/index.html.erb:6
+  Rendered exames/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1305)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 2984)
+Completed 200 OK in 28ms (Views: 18.3ms | ActiveRecord: 0.2ms | Allocations: 4756)
+
+
+Started GET "/exames/new" for 127.0.0.1 at 2024-01-26 17:22:08 -0300
+Processing by ExamesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering exames/new.html.erb within layouts/application
+  Rendered exames/_form.html.erb (Duration: 23.8ms | Allocations: 3300)
+  Rendered exames/new.html.erb within layouts/application (Duration: 26.3ms | Allocations: 3586)
+  Rendered layout layouts/application.html.erb (Duration: 34.4ms | Allocations: 5194)
+Completed 200 OK in 46ms (Views: 35.6ms | ActiveRecord: 1.9ms | Allocations: 9360)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-01-27 10:36:25 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 16.8ms | Allocations: 5819)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 5927)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.0ms | Allocations: 8365)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_exame' for #<ActionView::Base:0x0000000000d638>
+Did you mean?  new_exame_url):
+    81:     <div class="actions">
+    82:       <a href="<%= new_paciente_path %>" class="btn"><i class="fas fa-user"></i>Cadastrar Paciente</a>
+    83:       <a href="<%= new_medico_path %>" class="btn"><i class="fas fa-user"></i>Cadastrar Médico</a>
+    84:       <a href="<%= new_exame %>" class="btn"><i class="fas fa-user"></i>Adicionar Exame</a>
+    85:       <a href="<%= new_prontuario %>" class="btn"><i class="fas fa-user"></i>Adicionar Prontuario</a>
+    86:       <a href="<%= new_prescricao %>" class="btn"><i class="fas fa-user"></i>Adicionar Prescrição</a>
+    87:     </div>
+  
+app/views/home/index.html.erb:84
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-01-27 10:36:28 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2024-01-27 10:37:29 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 467)
+  Rendered layout layouts/application.html.erb (Duration: 244.5ms | Allocations: 33282)
+Completed 200 OK in 257ms (Views: 255.3ms | ActiveRecord: 0.0ms | Allocations: 34050)
+
+
+Started GET "/prontuarios/new" for 127.0.0.1 at 2024-01-27 10:37:45 -0300
+Processing by ProntuariosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 23.1ms | Allocations: 3030)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 25.5ms | Allocations: 3376)
+  Rendered layout layouts/application.html.erb (Duration: 36.6ms | Allocations: 5068)
+Completed 200 OK in 64ms (Views: 42.0ms | ActiveRecord: 1.1ms | Allocations: 11479)
+
+
+Started GET "/prontuarios" for 127.0.0.1 at 2024-01-27 10:37:48 -0300
+Processing by ProntuariosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/index.html.erb within layouts/application
+  [1m[36mProntuario Load (0.7ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prontuarios/index.html.erb:6
+  Rendered prontuarios/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1122)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 2602)
+Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 0.7ms | Allocations: 3094)
+
+
+Started GET "/prontuarios/new" for 127.0.0.1 at 2024-01-27 10:37:50 -0300
+Processing by ProntuariosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 3.7ms | Allocations: 1204)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1295)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 2782)
+Completed 200 OK in 23ms (Views: 21.3ms | ActiveRecord: 0.0ms | Allocations: 3072)
+
+
+Started GET "/prontuarios" for 127.0.0.1 at 2024-01-27 10:37:52 -0300
+Processing by ProntuariosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/index.html.erb within layouts/application
+  [1m[36mProntuario Load (0.2ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prontuarios/index.html.erb:6
+  Rendered prontuarios/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 746)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 2235)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.2ms | Allocations: 2520)
+
+
+Started GET "/prontuarios/new" for 127.0.0.1 at 2024-01-27 10:37:54 -0300
+Processing by ProntuariosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 2.8ms | Allocations: 1159)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1246)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 2734)
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.0ms | Allocations: 3022)
+
+

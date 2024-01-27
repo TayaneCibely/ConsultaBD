@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Prontuarios</h1>
+
+<div id="prontuarios">
+  <% @prontuarios.each do |prontuario| %>
+    <%= render prontuario %>
+    <p>
+      <%= link_to "Show this prontuario", prontuario %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New prontuario", new_prontuario_path %>

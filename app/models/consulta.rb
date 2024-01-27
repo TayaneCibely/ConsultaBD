@@ -4,6 +4,7 @@ class Consulta < ApplicationRecord
 
   validates :data, presence: true
   validates :horario, presence: true
+  validates :descricao, presence: true
 
   validate :data_e_horario_valido
   validate :consulta_ocupada

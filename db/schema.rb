@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_08_022126) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_18_040641) do
   create_table "consulta", force: :cascade do |t|
     t.date "data"
     t.time "horario"
@@ -35,6 +35,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_022126) do
     t.integer "paciente_id"
   end
 
+  create_table "exames", force: :cascade do |t|
+    t.string "cod"
+    t.date "data"
+    t.string "nomeExame"
+    t.text "descricao"
+    t.string "resultado"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "medicos", force: :cascade do |t|
     t.string "nome"
     t.string "crm"
@@ -54,6 +64,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_022126) do
     t.string "cpf"
     t.string "email"
     t.string "telefone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prescricaos", force: :cascade do |t|
+    t.string "cod"
+    t.date "data"
+    t.string "dosagem"
+    t.text "observacoes"
+    t.text "listaMedicamentos"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prontuarios", force: :cascade do |t|
+    t.date "dataCriacao"
+    t.string "codigo"
+    t.text "historico"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
