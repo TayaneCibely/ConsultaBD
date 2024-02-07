@@ -8,5 +8,5 @@ class Paciente < ApplicationRecord
   validates :cpf, presence: true, uniqueness: true, format: { with: /\A\d+\z/, message: "deve conter apenas dígitos numéricos" }
   validates :email, presence: true, length: { maximum: 100 }, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: { case_sensitive: true }
   validates :telefone, presence: true, length: { minimum: 11 }, numericality: { only_integer: true }
-
+  attribute :data_nascimento, :date
 end
