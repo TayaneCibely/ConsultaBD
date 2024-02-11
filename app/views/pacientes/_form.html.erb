@@ -58,6 +58,11 @@
     </div>
 
     <div class="form-group">
+      <%= endereco_form.label :numero, "Número", class: "form-label" %>
+      <%= endereco_form.number_field :numero, class: "form-input" %>
+    </div>
+
+    <div class="form-group">
       <%= endereco_form.label :complemento, "Complemento", class: "form-label" %>
       <%= endereco_form.text_field :complemento, class: "form-input" %>
     </div>

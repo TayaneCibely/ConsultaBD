@@ -1765,3 +1765,824 @@ Processing by ProntuariosController#new as HTML
 Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.0ms | Allocations: 3022)
 
 
+Started GET "/" for 127.0.0.1 at 2024-02-07 03:29:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 13.1ms | Allocations: 879)
+  Rendered layout layouts/application.html.erb (Duration: 544.3ms | Allocations: 89231)
+Completed 200 OK in 563ms (Views: 553.9ms | ActiveRecord: 0.0ms | Allocations: 92808)
+
+
+Started GET "/consultas/search" for 127.0.0.1 at 2024-02-07 03:29:15 -0300
+Processing by ConsultasController#search as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.2ms)[0m  [1m[34mSELECT "consulta".* FROM "consulta"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  Rendered consultas/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1742)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3547)
+Completed 200 OK in 20ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 7135)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-02-07 03:29:15 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/consultas/new" for 127.0.0.1 at 2024-02-07 03:29:20 -0300
+Processing by ConsultasController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/new.html.erb within layouts/application
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/consultas/_form.html.erb:15
+  [1m[36mPaciente Load (0.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/consultas/_form.html.erb:20
+  Rendered consultas/_form.html.erb (Duration: 39.1ms | Allocations: 13836)
+  Rendered consultas/new.html.erb within layouts/application (Duration: 39.9ms | Allocations: 14112)
+  Rendered layout layouts/application.html.erb (Duration: 42.1ms | Allocations: 15618)
+Completed 200 OK in 55ms (Views: 43.1ms | ActiveRecord: 1.0ms | Allocations: 21744)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/exames/new" for 127.0.0.1 at 2024-02-07 03:43:29 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExamesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering exames/new.html.erb within layouts/application
+  Rendered exames/_form.html.erb (Duration: 14.9ms | Allocations: 4233)
+  Rendered exames/new.html.erb within layouts/application (Duration: 16.0ms | Allocations: 4854)
+  Rendered layout layouts/application.html.erb (Duration: 46.1ms | Allocations: 27574)
+Completed 200 OK in 62ms (Views: 48.1ms | ActiveRecord: 0.4ms | Allocations: 38888)
+
+
+Started GET "/consultas/new" for 127.0.0.1 at 2024-02-07 03:43:40 -0300
+Processing by ConsultasController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/new.html.erb within layouts/application
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/consultas/_form.html.erb:15
+  [1m[36mPaciente Load (0.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/consultas/_form.html.erb:20
+  Rendered consultas/_form.html.erb (Duration: 17.7ms | Allocations: 12458)
+  Rendered consultas/new.html.erb within layouts/application (Duration: 18.3ms | Allocations: 12752)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 14312)
+Completed 200 OK in 34ms (Views: 20.9ms | ActiveRecord: 0.8ms | Allocations: 20747)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-07 03:43:42 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 503)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 2301)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 3038)
+
+
+Started GET "/consultas/search" for 127.0.0.1 at 2024-02-07 03:43:44 -0300
+Processing by ConsultasController#search as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.1ms)[0m  [1m[34mSELECT "consulta".* FROM "consulta"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  Rendered consultas/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1525)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 3058)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.1ms | Allocations: 3502)
+
+
+Started GET "/consultas" for 127.0.0.1 at 2024-02-07 03:43:47 -0300
+Processing by ConsultasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  Rendered consultas/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 2602)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 2695)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2981)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass
+
+'.freeze;       @consulta.each do |consulta| 
+                         ^^^^^):
+    15:     <% end %>
+    16: 
+    17:     <div id="consultas-list">
+    18:       <% @consulta.each do |consulta| %>
+    19:         <p><span class="consulta-medico">
+    20:           <%= consulta.paciente.present? ? consulta.paciente.nome_completo : "Nome do paciente não associado" %>
+    21:         </span></p>
+  
+app/views/consultas/index.html.erb:18
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-02-07 03:43:47 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2024-02-07 03:43:56 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 115)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1790)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 2075)
+
+
+Started GET "/pacientes/new" for 127.0.0.1 at 2024-02-07 03:43:57 -0300
+Processing by PacientesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 5.6ms | Allocations: 7137)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 7421)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 8975)
+Completed 200 OK in 51ms (Views: 11.6ms | ActiveRecord: 0.7ms | Allocations: 24507)
+
+
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 03:44:41 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"vinicius", "cpf"=>"123.000.999-12", "data_nascimento(1i)"=>"2002", "data_nascimento(2i)"=>"4", "data_nascimento(3i)"=>"7", "email"=>"123@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"678910", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 8196)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "678910", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-02-07 03:45:06 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/medicos/new" for 127.0.0.1 at 2024-02-07 03:45:08 -0300
+Processing by MedicosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering medicos/new.html.erb within layouts/application
+  Rendered medicos/_form.html.erb (Duration: 9.4ms | Allocations: 2457)
+  Rendered medicos/new.html.erb within layouts/application (Duration: 10.0ms | Allocations: 2752)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 4328)
+Completed 200 OK in 23ms (Views: 14.9ms | ActiveRecord: 0.4ms | Allocations: 10257)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-02-07 03:45:08 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/medicos" for 127.0.0.1 at 2024-02-07 03:45:30 -0300
+Processing by MedicosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "medico"=>{"nome"=>"Garanhuns", "crm"=>"123355", "uf_crm"=>"Garanhuns", "cpf"=>"00088877767", "especialidade"=>"teste", "email"=>"asdas@gmail.com", "inicio_consulta"=>"01:00", "termino_consulta"=>"01:00"}, "commit"=>"Salvar"}
+[31mUnpermitted parameters: :inicio_consulta, :termino_consulta. Context: { controller: MedicosController, action: create, request: #<ActionDispatch::Request:0x00007f6445096860>, params: {"authenticity_token"=>"[FILTERED]", "medico"=>{"nome"=>"Garanhuns", "crm"=>"123355", "uf_crm"=>"Garanhuns", "cpf"=>"00088877767", "especialidade"=>"teste", "email"=>"asdas@gmail.com", "inicio_consulta"=>"01:00", "termino_consulta"=>"01:00"}, "commit"=>"Salvar", "controller"=>"medicos", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 7287)
+
+
+  
+NoMethodError (undefined method `lincenca' for #<Medico id: nil, nome: "Garanhuns", crm: "123355", uf_crm: "Garanhuns", especialidade: "teste", cpf: "00088877767", email: "asdas@gmail.com", inicio_consulta: nil, termino_consulta: nil, created_at: nil, updated_at: nil>):
+  
+app/controllers/medicos_controller.rb:27:in `block in create'
+app/controllers/medicos_controller.rb:26:in `create'
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-02-07 03:46:17 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/consultas/new" for 127.0.0.1 at 2024-02-07 03:46:19 -0300
+Processing by ConsultasController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/new.html.erb within layouts/application
+  [1m[36mMedico Load (0.1ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/consultas/_form.html.erb:15
+  [1m[36mPaciente Load (0.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/consultas/_form.html.erb:20
+  Rendered consultas/_form.html.erb (Duration: 6.5ms | Allocations: 6293)
+  Rendered consultas/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 6353)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 7747)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.2ms | Allocations: 8032)
+
+
+Started GET "/consultas/search" for 127.0.0.1 at 2024-02-07 03:46:23 -0300
+Processing by ConsultasController#search as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.1ms)[0m  [1m[34mSELECT "consulta".* FROM "consulta"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  Rendered consultas/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 897)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 2413)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.1ms | Allocations: 2677)
+
+
+Started GET "/consultas/new" for 127.0.0.1 at 2024-02-07 03:58:01 -0300
+Processing by ConsultasController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/new.html.erb within layouts/application
+  [1m[36mMedico Load (0.1ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/consultas/_form.html.erb:15
+  [1m[36mPaciente Load (0.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/consultas/_form.html.erb:20
+  Rendered consultas/_form.html.erb (Duration: 9.0ms | Allocations: 6416)
+  Rendered consultas/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 6476)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 7871)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.7ms | Allocations: 8139)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-07 03:58:02 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1661)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 1913)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-02-07 03:58:02 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/consultas/search" for 127.0.0.1 at 2024-02-07 03:58:06 -0300
+Processing by ConsultasController#search as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.1ms)[0m  [1m[34mSELECT "consulta".* FROM "consulta"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  Rendered consultas/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 932)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 2469)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.1ms | Allocations: 2729)
+
+
+Started GET "/pacientes/new" for 127.0.0.1 at 2024-02-07 03:58:08 -0300
+Processing by PacientesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 5.3ms | Allocations: 6018)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 6078)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 7472)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 7937)
+
+
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 03:58:27 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"123.000.999-12", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 7092)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "2345678", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:03:23 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"123.000.999-12", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.9ms | Allocations: 17276)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "2345678", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:03:27 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"123.000.999-12", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 7157)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "2345678", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:04:04 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"123.000.999-12", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.2ms | Allocations: 17273)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "2345678", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:04:07 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"123.000.999-12", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 7160)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "2345678", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:13:31 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"123.000.999-12", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms | Allocations: 7209)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "2345678", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:13:34 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"123.000.999-12", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 7068)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "2345678", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:24:56 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"123.000.999-12", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.5ms | Allocations: 7179)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "2345678", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:24:59 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"123.000.999-12", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 7065)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "2345678", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:26:59 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"123.000.999-12", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 1.0ms | Allocations: 27372)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "2345678", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:27:03 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"123.000.999-12", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 7311)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "2345678", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "consulta"[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "consulta" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "data" date, "horario" time, "medicos_id" integer NOT NULL, "pacientes_id" integer, "{:null=>false, :foreign_keys=>true}_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE INDEX "index_consulta_on_medicos_id" ON "consulta" ("medicos_id")[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE INDEX "index_consulta_on_pacientes_id" ON "consulta" ("pacientes_id")[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE INDEX "index_consulta_on_{:null=>false, :foreign_keys=>true}_id" ON "consulta" ("{:null=>false, :foreign_keys=>true}_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "enderecos"[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "enderecos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cep" varchar, "cidade" varchar, "bairro" varchar, "logradouro" varchar, "complemento" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "paciente_id" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "exames"[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "exames" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" varchar, "data" date, "nomeExame" varchar, "descricao" text, "resultado" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "medicos"[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "medicos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "crm" varchar, "uf_crm" varchar, "especialidade" varchar, "cpf" varchar, "email" varchar, "inicio_consulta" time, "termino_consulta" time, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "pacientes"[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "pacientes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome_completo" varchar, "data_nascimento" varchar, "cpf" varchar, "email" varchar, "telefone" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "prescricaos"[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "prescricaos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" varchar, "data" date, "dosagem" varchar, "observacoes" text, "listaMedicamentos" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "prontuarios"[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "prontuarios" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dataCriacao" date, "codigo" varchar, "historico" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aconsulta" ("id" integer NOT NULL PRIMARY KEY, "data" date DEFAULT NULL, "horario" time DEFAULT NULL, "medicos_id" integer NOT NULL, "pacientes_id" integer DEFAULT NULL, "{:null=>false, :foreign_keys=>true}_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aconsulta_on_{:null=>false, :foreign_keys=>true}_id" ON "aconsulta" ("{:null=>false, :foreign_keys=>true}_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aconsulta_on_pacientes_id" ON "aconsulta" ("pacientes_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aconsulta_on_medicos_id" ON "aconsulta" ("medicos_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aconsulta" ("id","data","horario","medicos_id","pacientes_id","{:null=>false, :foreign_keys=>true}_id","created_at","updated_at")
+                     SELECT "id","data","horario","medicos_id","pacientes_id","{:null=>false, :foreign_keys=>true}_id","created_at","updated_at" FROM "consulta"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "consulta"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "consulta" ("id" integer NOT NULL PRIMARY KEY, "data" date DEFAULT NULL, "horario" time DEFAULT NULL, "medicos_id" integer NOT NULL, "pacientes_id" integer DEFAULT NULL, "{:null=>false, :foreign_keys=>true}_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_463bb78ddf"
+FOREIGN KEY ("medicos_id")
+  REFERENCES "medicos" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_consulta_on_medicos_id" ON "consulta" ("medicos_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_consulta_on_pacientes_id" ON "consulta" ("pacientes_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_consulta_on_{:null=>false, :foreign_keys=>true}_id" ON "consulta" ("{:null=>false, :foreign_keys=>true}_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "consulta" ("id","data","horario","medicos_id","pacientes_id","{:null=>false, :foreign_keys=>true}_id","created_at","updated_at")
+                     SELECT "id","data","horario","medicos_id","pacientes_id","{:null=>false, :foreign_keys=>true}_id","created_at","updated_at" FROM "aconsulta"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aconsulta"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240118040641)[0m
+  [1m[35m (4.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230904231042),
+(20230904231057),
+(20230904231111),
+(20230904231125),
+(20231208022126),
+(20240118035209),
+(20240118035648);
+
+[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-02-07 07:28:14.342409"], ["updated_at", "2024-02-07 07:28:14.342409"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "06a4bf6db5d3c67b711de68bd60aa1124bd9c0cc"], ["created_at", "2024-02-07 07:28:14.351475"], ["updated_at", "2024-02-07 07:28:14.351475"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "consulta"[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "consulta" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "data" date, "horario" time, "medicos_id" integer NOT NULL, "pacientes_id" integer, "{:null=>false, :foreign_keys=>true}_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_consulta_on_medicos_id" ON "consulta" ("medicos_id")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE INDEX "index_consulta_on_pacientes_id" ON "consulta" ("pacientes_id")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE INDEX "index_consulta_on_{:null=>false, :foreign_keys=>true}_id" ON "consulta" ("{:null=>false, :foreign_keys=>true}_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "enderecos"[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "enderecos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cep" varchar, "cidade" varchar, "bairro" varchar, "logradouro" varchar, "complemento" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "paciente_id" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "exames"[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "exames" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" varchar, "data" date, "nomeExame" varchar, "descricao" text, "resultado" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "medicos"[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "medicos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "crm" varchar, "uf_crm" varchar, "especialidade" varchar, "cpf" varchar, "email" varchar, "inicio_consulta" time, "termino_consulta" time, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "pacientes"[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "pacientes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome_completo" varchar, "data_nascimento" varchar, "cpf" varchar, "email" varchar, "telefone" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "prescricaos"[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "prescricaos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cod" varchar, "data" date, "dosagem" varchar, "observacoes" text, "listaMedicamentos" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "prontuarios"[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "prontuarios" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dataCriacao" date, "codigo" varchar, "historico" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aconsulta" ("id" integer NOT NULL PRIMARY KEY, "data" date DEFAULT NULL, "horario" time DEFAULT NULL, "medicos_id" integer NOT NULL, "pacientes_id" integer DEFAULT NULL, "{:null=>false, :foreign_keys=>true}_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aconsulta_on_{:null=>false, :foreign_keys=>true}_id" ON "aconsulta" ("{:null=>false, :foreign_keys=>true}_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aconsulta_on_pacientes_id" ON "aconsulta" ("pacientes_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aconsulta_on_medicos_id" ON "aconsulta" ("medicos_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aconsulta" ("id","data","horario","medicos_id","pacientes_id","{:null=>false, :foreign_keys=>true}_id","created_at","updated_at")
+                     SELECT "id","data","horario","medicos_id","pacientes_id","{:null=>false, :foreign_keys=>true}_id","created_at","updated_at" FROM "consulta"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "consulta"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "consulta" ("id" integer NOT NULL PRIMARY KEY, "data" date DEFAULT NULL, "horario" time DEFAULT NULL, "medicos_id" integer NOT NULL, "pacientes_id" integer DEFAULT NULL, "{:null=>false, :foreign_keys=>true}_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_463bb78ddf"
+FOREIGN KEY ("medicos_id")
+  REFERENCES "medicos" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_consulta_on_medicos_id" ON "consulta" ("medicos_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_consulta_on_pacientes_id" ON "consulta" ("pacientes_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_consulta_on_{:null=>false, :foreign_keys=>true}_id" ON "consulta" ("{:null=>false, :foreign_keys=>true}_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "consulta" ("id","data","horario","medicos_id","pacientes_id","{:null=>false, :foreign_keys=>true}_id","created_at","updated_at")
+                     SELECT "id","data","horario","medicos_id","pacientes_id","{:null=>false, :foreign_keys=>true}_id","created_at","updated_at" FROM "aconsulta"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aconsulta"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240118040641)[0m
+  [1m[35m (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230904231042),
+(20230904231057),
+(20230904231111),
+(20230904231125),
+(20231208022126),
+(20240118035209),
+(20240118035648);
+
+[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-02-07 07:28:14.443371"], ["updated_at", "2024-02-07 07:28:14.443371"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2024-02-07 07:28:14.450022"], ["key", "environment"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "06a4bf6db5d3c67b711de68bd60aa1124bd9c0cc"], ["created_at", "2024-02-07 07:28:14.456769"], ["updated_at", "2024-02-07 07:28:14.456769"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:28:33 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"123.000.999-12", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 1.1ms | Allocations: 27371)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "2345678", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:28:36 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"123.000.999-12", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 7311)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "2345678", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:28:43 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"12300099912", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 7075)
+
+
+  
+NoMethodError (undefined method `numero' for #<Endereco id: nil, cep: "2345678", cidade: "Garanhuns", bairro: "Garanhuns", logradouro: "Garanhuns", complemento: "Garanhuns", created_at: nil, updated_at: nil, paciente_id: nil>):
+  
+app/controllers/pacientes_controller.rb:28:in `block in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:32:10 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20240207073147_add_numero_to_enderecos.rb
+
+
+):
+  
+activerecord (7.0.8) lib/active_record/migration.rb:662:in `check_pending!'
+activerecord (7.0.8) lib/active_record/migration.rb:627:in `block (2 levels) in call'
+activesupport (7.0.8) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.8) lib/active_record/migration.rb:632:in `block in call'
+activerecord (7.0.8) lib/active_record/migration.rb:624:in `synchronize'
+activerecord (7.0.8) lib/active_record/migration.rb:624:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/method_override.rb:24:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8) lib/rails/engine.rb:530:in `call'
+puma (5.6.7) lib/puma/configuration.rb:252:in `call'
+puma (5.6.7) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.7) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.7) lib/puma/server.rb:443:in `process_client'
+puma (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddNumeroToEnderecos (20240207073147)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "enderecos" ADD "numero" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240207073147"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/__web_console/repl_sessions/d04927014dc76b985ef2724744af6f39/trace" for 127.0.0.1 at 2024-02-07 04:33:17 -0300
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:33:19 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"12300099912", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."cpf" = ? LIMIT ?[0m  [["cpf", "12300099912"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."email" = ? LIMIT ?[0m  [["email", "paciente@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 24.8ms | Allocations: 13057)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 25.8ms | Allocations: 13590)
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 13686)
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 1.2ms | Allocations: 42411)
+
+
+  
+ActionView::Template::Error (undefined method `day' for "{1=>1900, 2=>2, 3=>7}":String
+
+            else @datetime.send(method)
+                          ^^^^^):
+    22: 
+    23:     <div class="form-group">
+    24:       <%= form.label :data_nascimento, "Data de Nascimento", class: "form-label" %>
+    25:       <%= form.date_select(:data_nascimento, start_year: 1900, end_year: 2023, class: "form-input") %>
+    26:     </div>
+    27: 
+    28:   <div class="form-group">
+  
+app/views/pacientes/_form.html.erb:25
+app/views/pacientes/_form.html.erb:1
+app/views/pacientes/new.html.erb:4
+app/controllers/pacientes_controller.rb:32:in `block (2 levels) in create'
+app/controllers/pacientes_controller.rb:27:in `create'
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:38:05 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"12300099912", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+[31mUnpermitted parameters: :data_nascimento(1i), :data_nascimento(2i), :data_nascimento(3i). Context: { controller: PacientesController, action: create, request: #<ActionDispatch::Request:0x00007fdae91c3628>, params: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"12300099912", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar", "controller"=>"pacientes", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."cpf" = ? LIMIT ?[0m  [["cpf", "12300099912"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."email" = ? LIMIT ?[0m  [["email", "paciente@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 17.2ms | Allocations: 12768)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 18.9ms | Allocations: 13047)
+  Rendered layout layouts/application.html.erb (Duration: 59.6ms | Allocations: 35734)
+Completed 422 Unprocessable Entity in 125ms (Views: 61.6ms | ActiveRecord: 3.5ms | Allocations: 52155)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-02-07 04:38:05 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:39:57 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"12300099912", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+[31mUnpermitted parameters: :data_nascimento(1i), :data_nascimento(2i), :data_nascimento(3i). Context: { controller: PacientesController, action: create, request: #<ActionDispatch::Request:0x00007fdae9128650>, params: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"12300099912", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar", "controller"=>"pacientes", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."cpf" = ? LIMIT ?[0m  [["cpf", "12300099912"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."email" = ? LIMIT ?[0m  [["email", "paciente@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 11.8ms | Allocations: 11330)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 12.0ms | Allocations: 11390)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 12884)
+Completed 422 Unprocessable Entity in 42ms (Views: 14.0ms | ActiveRecord: 0.3ms | Allocations: 17959)
+
+
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:40:01 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"12300099912", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+[31mUnpermitted parameters: :data_nascimento(1i), :data_nascimento(2i), :data_nascimento(3i). Context: { controller: PacientesController, action: create, request: #<ActionDispatch::Request:0x00007fdaeaf41b00>, params: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"VInicius", "cpf"=>"12300099912", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"2345678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar", "controller"=>"pacientes", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."cpf" = ? LIMIT ?[0m  [["cpf", "12300099912"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."email" = ? LIMIT ?[0m  [["email", "paciente@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 10.9ms | Allocations: 11211)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 11.2ms | Allocations: 11271)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 12657)
+Completed 422 Unprocessable Entity in 24ms (Views: 13.3ms | ActiveRecord: 0.5ms | Allocations: 17411)
+
+
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:40:35 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"Vinicius Leite", "cpf"=>"12300099912", "data_nascimento(1i)"=>"2002", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"778966789", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "numero"=>"13131203213", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+[31mUnpermitted parameters: :data_nascimento(1i), :data_nascimento(2i), :data_nascimento(3i). Context: { controller: PacientesController, action: create, request: #<ActionDispatch::Request:0x00007fdae947ce00>, params: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"Vinicius Leite", "cpf"=>"12300099912", "data_nascimento(1i)"=>"2002", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"778966789", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "numero"=>"13131203213", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar", "controller"=>"pacientes", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."cpf" = ? LIMIT ?[0m  [["cpf", "12300099912"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."email" = ? LIMIT ?[0m  [["email", "paciente@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 7.7ms | Allocations: 8641)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 8701)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 10070)
+Completed 422 Unprocessable Entity in 19ms (Views: 11.0ms | ActiveRecord: 0.4ms | Allocations: 14343)
+
+
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:40:38 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"Vinicius Leite", "cpf"=>"12300099912", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"77896678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "numero"=>"13131203213", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+[31mUnpermitted parameters: :data_nascimento(1i), :data_nascimento(2i), :data_nascimento(3i). Context: { controller: PacientesController, action: create, request: #<ActionDispatch::Request:0x00007fdae9389480>, params: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"Vinicius Leite", "cpf"=>"12300099912", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"77896678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "numero"=>"13131203213", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar", "controller"=>"pacientes", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."cpf" = ? LIMIT ?[0m  [["cpf", "12300099912"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."email" = ? LIMIT ?[0m  [["email", "paciente@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 5.2ms | Allocations: 7748)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 7808)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 9175)
+Completed 422 Unprocessable Entity in 15ms (Views: 8.0ms | ActiveRecord: 0.3ms | Allocations: 13425)
+
+
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:40:42 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"Vinicius Leite", "cpf"=>"12300099912", "data_nascimento(1i)"=>"2008", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"77896678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "numero"=>"13131203213", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+[31mUnpermitted parameters: :data_nascimento(1i), :data_nascimento(2i), :data_nascimento(3i). Context: { controller: PacientesController, action: create, request: #<ActionDispatch::Request:0x00007fdae92ae9e8>, params: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"Vinicius Leite", "cpf"=>"12300099912", "data_nascimento(1i)"=>"2008", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"77896678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "numero"=>"13131203213", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar", "controller"=>"pacientes", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."cpf" = ? LIMIT ?[0m  [["cpf", "12300099912"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."email" = ? LIMIT ?[0m  [["email", "paciente@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 6.5ms | Allocations: 7749)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 7809)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 9178)
+Completed 422 Unprocessable Entity in 16ms (Views: 8.8ms | ActiveRecord: 0.3ms | Allocations: 13445)
+
+
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:40:49 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"Vinicius Leite", "cpf"=>"12300099912", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"6", "data_nascimento(3i)"=>"11", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"77896678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "numero"=>"13131203213", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+[31mUnpermitted parameters: :data_nascimento(1i), :data_nascimento(2i), :data_nascimento(3i). Context: { controller: PacientesController, action: create, request: #<ActionDispatch::Request:0x00007fdae91e29d8>, params: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"Vinicius Leite", "cpf"=>"12300099912", "data_nascimento(1i)"=>"1900", "data_nascimento(2i)"=>"6", "data_nascimento(3i)"=>"11", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"77896678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "numero"=>"13131203213", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar", "controller"=>"pacientes", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."cpf" = ? LIMIT ?[0m  [["cpf", "12300099912"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."email" = ? LIMIT ?[0m  [["email", "paciente@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 9.7ms | Allocations: 7748)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 10.0ms | Allocations: 7808)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 9194)
+Completed 422 Unprocessable Entity in 22ms (Views: 12.0ms | ActiveRecord: 0.5ms | Allocations: 13417)
+
+
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-07 04:40:55 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"Vinicius Leite", "cpf"=>"12300099912", "data_nascimento(1i)"=>"2002", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"77896678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "numero"=>"13131203213", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar"}
+[31mUnpermitted parameters: :data_nascimento(1i), :data_nascimento(2i), :data_nascimento(3i). Context: { controller: PacientesController, action: create, request: #<ActionDispatch::Request:0x00007fdaec37dd80>, params: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"Vinicius Leite", "cpf"=>"12300099912", "data_nascimento(1i)"=>"2002", "data_nascimento(2i)"=>"2", "data_nascimento(3i)"=>"7", "email"=>"paciente@gmail.com", "telefone"=>"12345678910", "endereco_attributes"=>{"cep"=>"77896678", "cidade"=>"Garanhuns", "bairro"=>"Garanhuns", "logradouro"=>"Garanhuns", "numero"=>"13131203213", "complemento"=>"Garanhuns"}}, "commit"=>"Salvar", "controller"=>"pacientes", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."cpf" = ? LIMIT ?[0m  [["cpf", "12300099912"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mPaciente Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."email" = ? LIMIT ?[0m  [["email", "paciente@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pacientes_controller.rb:28:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 5.6ms | Allocations: 7748)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 7808)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 9194)
+Completed 422 Unprocessable Entity in 16ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 13450)
+
+
