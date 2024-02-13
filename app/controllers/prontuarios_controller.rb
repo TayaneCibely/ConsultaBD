@@ -3,11 +3,13 @@ class ProntuariosController < ApplicationController
 
   # GET /prontuarios or /prontuarios.json
   def index
-    @prontuarios = Prontuario.all
+    @prontuarios = policy_scope(Prontuario)
   end
 
   # GET /prontuarios/1 or /prontuarios/1.json
   def show
+    @prontuario = Prontuario.find(params[:id])
+    authorize @prontuario
   end
 
   # GET /prontuarios/new

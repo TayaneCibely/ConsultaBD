@@ -1,4 +1,9 @@
 pt-BR:
+  date:
+    order:
+      - :day
+      - :month
+      - :year
   activerecord:
     errors:
       messages:

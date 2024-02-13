@@ -1,7 +1,12 @@
 class Paciente < ApplicationRecord
+  belongs_to :user
+
+  has_one :endereco
+  has_one :prontuario
   has_many :consultas, dependent: :destroy
-  has_one :endereco, dependent: :destroy
-  accepts_nested_attributes_for :endereco
+  has_many :medicos, through: :consultas
+  has_many :exames
+  has_many :prescricoes
 
   validates :nome_completo, presence: true, length: { minimum: 10 }, numericality: false
   validates :data_nascimento, presence: true, inclusion: { in: Date.new(1900)..Date.current }

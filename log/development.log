@@ -2586,3 +2586,501 @@ Processing by PacientesController#create as HTML
 Completed 422 Unprocessable Entity in 16ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 13450)
 
 
+Started GET "/" for 127.0.0.1 at 2024-02-13 12:41:48 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 21.9ms | Allocations: 741)
+  Rendered layout layouts/application.html.erb (Duration: 449.4ms | Allocations: 42074)
+Completed 200 OK in 494ms (Views: 480.2ms | ActiveRecord: 0.0ms | Allocations: 44589)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-02-13 12:41:50 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/pacientes/new" for 127.0.0.1 at 2024-02-13 12:41:51 -0300
+Processing by PacientesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 10.0ms | Allocations: 9557)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 11.7ms | Allocations: 9842)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 9926)
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 1.6ms | Allocations: 28317)
+
+
+  
+ActionView::Template::Error (undefined method `map' for "Translation missing: pt-BR.date.order":String
+
+          date_order = date_order.map(&:to_sym)
+                                 ^^^^
+Did you mean?  tap):
+    22: 
+    23:     <div class="form-group">
+    24:       <%= form.label :data_nascimento, "Data de Nascimento", class: "form-label" %>
+    25:       <%= form.date_select(:data_nascimento, start_year: 1900, end_year: 2023, class: "form-input") %>
+    26:     </div>
+    27: 
+    28:   <div class="form-group">
+  
+app/views/pacientes/_form.html.erb:25
+app/views/pacientes/_form.html.erb:1
+app/views/pacientes/new.html.erb:4
+Started GET "/medicos/new" for 127.0.0.1 at 2024-02-13 12:41:56 -0300
+Processing by MedicosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering medicos/new.html.erb within layouts/application
+  Rendered medicos/_form.html.erb (Duration: 10.2ms | Allocations: 2606)
+  Rendered medicos/new.html.erb within layouts/application (Duration: 12.1ms | Allocations: 2886)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 4568)
+Completed 200 OK in 41ms (Views: 22.5ms | ActiveRecord: 0.8ms | Allocations: 11904)
+
+
+Started GET "/exames/new" for 127.0.0.1 at 2024-02-13 12:42:00 -0300
+Processing by ExamesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering exames/new.html.erb within layouts/application
+  Rendered exames/_form.html.erb (Duration: 28.1ms | Allocations: 3151)
+  Rendered exames/new.html.erb within layouts/application (Duration: 32.9ms | Allocations: 3498)
+  Rendered layout layouts/application.html.erb (Duration: 39.3ms | Allocations: 5169)
+Completed 200 OK in 56ms (Views: 42.9ms | ActiveRecord: 0.6ms | Allocations: 10707)
+
+
+Started GET "/prontuarios/new" for 127.0.0.1 at 2024-02-13 12:42:02 -0300
+Processing by ProntuariosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 3.3ms | Allocations: 1924)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2258)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 3922)
+Completed 200 OK in 26ms (Views: 14.5ms | ActiveRecord: 0.7ms | Allocations: 8221)
+
+
+Started GET "/prescricaos/new" for 127.0.0.1 at 2024-02-13 12:42:05 -0300
+Processing by PrescricaosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering prescricaos/new.html.erb within layouts/application
+  Rendered prescricaos/_form.html.erb (Duration: 3.3ms | Allocations: 2495)
+  Rendered prescricaos/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2829)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4495)
+Completed 200 OK in 25ms (Views: 16.4ms | ActiveRecord: 0.5ms | Allocations: 9405)
+
+
+Started GET "/pacientes" for 127.0.0.1 at 2024-02-13 12:42:08 -0300
+Processing by PacientesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/index.html.erb within layouts/application
+  [1m[36mPaciente Load (0.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/pacientes/index.html.erb:14
+  Rendered pacientes/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1543)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 3079)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 3526)
+
+
+Started GET "/medicos" for 127.0.0.1 at 2024-02-13 12:42:10 -0300
+Processing by MedicosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering medicos/index.html.erb within layouts/application
+  [1m[36mMedico Load (0.2ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/medicos/index.html.erb:14
+  Rendered medicos/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1385)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 2851)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.2ms | Allocations: 3252)
+
+
+Started GET "/pacientes/new" for 127.0.0.1 at 2024-02-13 12:42:16 -0300
+Processing by PacientesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 8.6ms | Allocations: 7982)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 8044)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 8121)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 8595)
+
+
+  
+ActionView::Template::Error (undefined method `map' for "Translation missing: pt-BR.date.order":String
+
+          date_order = date_order.map(&:to_sym)
+                                 ^^^^
+Did you mean?  tap):
+    22: 
+    23:     <div class="form-group">
+    24:       <%= form.label :data_nascimento, "Data de Nascimento", class: "form-label" %>
+    25:       <%= form.date_select(:data_nascimento, start_year: 1900, end_year: 2023, class: "form-input") %>
+    26:     </div>
+    27: 
+    28:   <div class="form-group">
+  
+app/views/pacientes/_form.html.erb:25
+app/views/pacientes/_form.html.erb:1
+app/views/pacientes/new.html.erb:4
+Started GET "/pacientes/new" for 127.0.0.1 at 2024-02-13 12:43:55 -0300
+Processing by PacientesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 30.9ms | Allocations: 7823)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 31.4ms | Allocations: 7907)
+  Rendered layout layouts/application.html.erb (Duration: 38.4ms | Allocations: 9586)
+Completed 200 OK in 71ms (Views: 41.3ms | ActiveRecord: 2.3ms | Allocations: 19841)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-13 12:43:58 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 161)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 2061)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 2670)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20240213154958)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240213154958"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-02-13 12:53:27 -0300
+  
+NoMethodError (undefined method `devise_for' for #<ActionDispatch::Routing::Mapper:0x000002831022b308 @set=#<ActionDispatch::Routing::RouteSet:0x000002830f4ba7a0>, @draw_paths=[#<Pathname:C:/Users/tayan/RubymineProjects/ConsultaBD/config/routes>], @scope=#<ActionDispatch::Routing::Mapper::Scope:0x000002831022b2b8 @hash={:path_names=>{:new=>"new", :edit=>"edit"}}, @parent=#<ActionDispatch::Routing::Mapper::Scope:0x000002830ef5af80 @hash=nil, @parent=nil, @scope_level=nil>, @scope_level=nil>, @concerns={}>
+
+  devise_for :users
+  ^^^^^^^^^^):
+  
+config/routes.rb:2:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2024-02-13 12:55:36 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+Started GET "/" for 127.0.0.1 at 2024-02-13 12:58:07 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-02-13 12:59:51 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-02-13 12:59:51 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.6ms | Allocations: 677)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 32.0ms | Allocations: 4272)
+  Rendered layout layouts/application.html.erb (Duration: 97.5ms | Allocations: 29246)
+Completed 200 OK in 145ms (Views: 120.4ms | ActiveRecord: 0.6ms | Allocations: 39364)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-02-13 13:00:07 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 200)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 132)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2115)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 3789)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.0ms | Allocations: 5056)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-02-13 13:00:20 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 3.6ms | Allocations: 907)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 79)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 34.0ms | Allocations: 3204)
+  Rendered layout layouts/application.html.erb (Duration: 55.1ms | Allocations: 4808)
+Completed 422 Unprocessable Entity in 86ms (Views: 56.3ms | ActiveRecord: 0.0ms | Allocations: 7810)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-02-13 13:10:56 -0300
+  
+NameError (uninitialized constant Devise::Models::UserType
+
+          mod = Devise::Models.const_get(m.to_s.classify)
+                              ^^^^^^^^^^):
+  
+app/models/user.rb:4:in `<class:User>'
+app/models/user.rb:3:in `<main>'
+config/routes.rb:2:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started POST "/users" for 127.0.0.1 at 2024-02-13 13:13:35 -0300
+  
+NoMethodError (undefined method `attr_acessible' for User:Class
+Did you mean?  attr_accessor):
+  
+app/models/user.rb:4:in `<class:User>'
+app/models/user.rb:3:in `<main>'
+config/routes.rb:2:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started POST "/users" for 127.0.0.1 at 2024-02-13 13:19:47 -0300
+  
+NoMethodError (undefined method `before_action' for ApplicationRecord:Class
+Did you mean?  before_commit):
+  
+app/models/application_record.rb:4:in `<class:ApplicationRecord>'
+app/models/application_record.rb:1:in `<main>'
+app/models/user.rb:1:in `<main>'
+config/routes.rb:2:in `block in <main>'
+config/routes.rb:1:in `<main>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserTypeToUsers (20240213165232)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "users" ADD "user_type" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240213165232"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users" for 127.0.0.1 at 2024-02-13 13:54:36 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant UsersController
+
+      Object.const_get(camel_cased_word)
+            ^^^^^^^^^^
+
+            raise MissingController.new(error.message, error.name)
+            ^^^^^):
+  
+Started POST "/users" for 127.0.0.1 at 2024-02-13 13:57:04 -0300
+Processing by RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1396)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1483)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.8ms | Allocations: 8893)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_type %><br />
+    <%= f.select :user_type, options_for_select([['Médico','medico'],['Paciente', 'paciente']) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Sign up</h2>
+2:    
+3:    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+4:      <%= render "devise/shared/error_messages", resource: resource %>
+5:    
+6:      <div class="field">
+7:        <%= f.label :email %><br />
+8:        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+9:      </div>
+10:    
+11:      <div class="field">
+12:        <%= f.label :user_type %><br />
+13:        <%= f.select :user_type, options_for_select([['Médico','medico'],['Paciente', 'paciente']) %>
+14:      </div>
+15:    
+16:      <div class="field">
+17:        <%= f.label :password %>
+18:        <% if @minimum_password_length %>
+19:        <em>(<%= @minimum_password_length %> characters minimum)</em>
+20:        <% end %><br />
+21:        <%= f.password_field :password, autocomplete: "new-password" %>
+22:      </div>
+23:    
+24:      <div class="field">
+25:        <%= f.label :password_confirmation %><br />
+26:        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+27:      </div>
+28:    
+29:      <div class="actions">
+30:        <%= f.submit "Sign up" %>
+31:      </div>
+32:    <% end %>
+33:    
+34:    <%= render "devise/shared/links" %>
+  
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected ')', expecting ']'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:37: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected ')', expecting ']'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:37: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected ')', expecting ']'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:37: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected ')', expecting ']'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:37: syntax error, unexpected `end', expecting ')'
+app/controllers/registrations_controller.rb:3:in `create'
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-02-13 13:57:06 -0300
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1391)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1469)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2126)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_type %><br />
+    <%= f.select :user_type, options_for_select([['Médico','medico'],['Paciente', 'paciente']) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Sign up</h2>
+2:    
+3:    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+4:      <%= render "devise/shared/error_messages", resource: resource %>
+5:    
+6:      <div class="field">
+7:        <%= f.label :email %><br />
+8:        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+9:      </div>
+10:    
+11:      <div class="field">
+12:        <%= f.label :user_type %><br />
+13:        <%= f.select :user_type, options_for_select([['Médico','medico'],['Paciente', 'paciente']) %>
+14:      </div>
+15:    
+16:      <div class="field">
+17:        <%= f.label :password %>
+18:        <% if @minimum_password_length %>
+19:        <em>(<%= @minimum_password_length %> characters minimum)</em>
+20:        <% end %><br />
+21:        <%= f.password_field :password, autocomplete: "new-password" %>
+22:      </div>
+23:    
+24:      <div class="field">
+25:        <%= f.label :password_confirmation %><br />
+26:        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+27:      </div>
+28:    
+29:      <div class="actions">
+30:        <%= f.submit "Sign up" %>
+31:      </div>
+32:    <% end %>
+33:    
+34:    <%= render "devise/shared/links" %>
+  
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected ')', expecting ']'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:37: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected ')', expecting ']'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:37: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected ')', expecting ']'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:37: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected ')', expecting ']'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:37: syntax error, unexpected `end', expecting ')'
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-02-13 13:58:49 -0300
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.1ms | Allocations: 191)
+  Rendered devise/shared/_links.html.erb (Duration: 4.0ms | Allocations: 531)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 128.5ms | Allocations: 10004)
+  Rendered layout layouts/application.html.erb (Duration: 138.2ms | Allocations: 11985)
+Completed 200 OK in 163ms (Views: 159.1ms | ActiveRecord: 0.0ms | Allocations: 13474)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-02-13 13:59:09 -0300
+Processing by RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ana_castro@gmail.com", "user_type"=>"paciente", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :user_type. Context: { controller: RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000001e703a35d40>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ana_castro@gmail.com", "user_type"=>"paciente", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/registrations_controller.rb:3:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ana_castro@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:3:in `create'
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "user_type") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "ana_castro@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-02-13 16:59:09.500693"], ["updated_at", "2024-02-13 16:59:09.500693"], ["user_type", nil]]
+  ↳ app/controllers/registrations_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/registrations_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/registrations_controller.rb:5:in `block in create'
+  [1m[36mUser Update (2.4ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "user_type" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-02-13 16:59:09.514284"], ["user_type", "paciente"], ["id", 1]]
+  ↳ app/controllers/registrations_controller.rb:5:in `block in create'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/registrations_controller.rb:5:in `block in create'
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 283ms (ActiveRecord: 16.1ms | Allocations: 10071)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-13 13:59:09 -0300
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 491)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 2258)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 3006)
+
+

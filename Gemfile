@@ -14,9 +14,14 @@ gem "sqlite3", "~> 1.4"
 
 gem "tzinfo-data"
 
+gem 'devise'
+
+gem 'pundit'
+
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'sassc'
+
 
 # Gemfile
 gem 'timeliness'

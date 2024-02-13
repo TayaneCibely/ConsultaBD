@@ -1,6 +1,12 @@
 class Medico < ApplicationRecord
+  belongs_to :user
+
+  has_one :endereco
   has_many :consultas
   has_many :pacientes, through: :consultas
+  has_many :prontuarios, through: :pacientes
+  has_many :exames, through: :pacientes
+  has_many :prescricoes, through: :pacientes
 
   validates :nome, presence: true, length: { minimum: 10 }, format: { with: /\A[^0-9]+\z/}
   validates :lincenca, presence: true, uniqueness: true

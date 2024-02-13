@@ -2,6 +2,9 @@ class Consulta < ApplicationRecord
   belongs_to :paciente
   belongs_to :medico
 
+  has_many :prescricoes
+  has_many :exames
+
   validates :data, presence: true
   validates :horario, presence: true
   validates :descricao, presence: true
