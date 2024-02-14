@@ -63,6 +63,6 @@ class MedicosController < ApplicationController
   end
 
   def medico_params
-    params.require(:medico).permit(:nome, :crm, :uf_crm, :especialidade,:cpf, :email)
+    params.require(:medico).permit(:nome, :licenca, :especialidade, :cpf, :email, endereco_attributes: [:cep, :cidade, :bairro, :logradouro, :numero, :complemento])
   end
 end

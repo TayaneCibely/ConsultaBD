@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <div class="field">
+     <%= form.label :paciente_id %>
+     <%= form.collection_select :paciente_id, Paciente.all, :id, :nome_completo, prompt: "Selecione um paciente" %>
+  </div>
+
   <div>
     <%= form.label :cod, style: "display: block" %>
     <%= form.text_field :cod %>

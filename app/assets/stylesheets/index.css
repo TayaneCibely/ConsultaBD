@@ -1,0 +1,63 @@
+body {
+    font-family: Verdana, arial, sans-serif;
+    text-align: center;
+    background-color: #fff; /* Cor de fundo branca */
+}
+
+header {
+    background-color: #aaffaa; /* Cor verde clara para o banner */
+    color: #000; /* Cor preta para o texto do banner */
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lists {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px; /* Espaçamento à esquerda das listas */
+}
+
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #aaffaa; /* Cor verde clara para os botões */
+    color: #000; /* Cor preta para o texto dos botões */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s; /* Transição suave da cor de fundo */
+}
+
+.btn i {
+    margin-right: 5px;
+}
+
+.btn.highlight {
+    background-color: #4CAF50; /* Cor de destaque para os botões de agendamento e busca */
+    color: #fff; /* Texto branco para botões de destaque */
+}
+
+.btn.highlight:hover {
+    background-color: #45a049; /* Cor de destaque mais escura no hover */
+}

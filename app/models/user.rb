@@ -1,13 +1,11 @@
 class User < ApplicationRecord
-
-  validates :role, inclusion: { in: %w[medico paciente]}
-  has_one :paciente, dependent: :destroy
-  has_one :medico, dependent: :destroy
-
+  # Include default devise modules.
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :user_type, inclusion: { in: %w(medico paciente), message: "%{value} não é um tipo válido"}
 
+  # Métodos para verificar o tipo, se necessário
   def medico?
     user_type == 'medico'
   end

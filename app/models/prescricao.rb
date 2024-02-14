@@ -7,5 +7,4 @@ class Prescricao < ApplicationRecord
   validates :observacoes, presence: true, length: { maximum: 500 }
   validates :dosagem, presence: true
   validates :listaMedicamentos, presence: true
-
 end

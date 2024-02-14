@@ -6,6 +6,15 @@ pt-BR:
       - :year
   activerecord:
     errors:
+      models:
+        paciente:
+          attributes:
+            user:
+              required: "É necessário"
+        endereco:
+          attributes:
+            medico:
+              required: "É necessário"
       messages:
         record_invalid: "Contém erros."
         restrict_dependent_destroy:

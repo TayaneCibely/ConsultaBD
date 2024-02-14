@@ -1,7 +1,7 @@
-class Medico < ApplicationRecord
-  belongs_to :user
+class Medico < User
 
   has_one :endereco
+  accepts_nested_attributes_for :endereco
   has_many :consultas
   has_many :pacientes, through: :consultas
   has_many :prontuarios, through: :pacientes

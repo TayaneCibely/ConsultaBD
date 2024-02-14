@@ -1,99 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Consulta-Sim</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <style>
-    body {
-      font-family: Verdana, arial, sans-serif;
-      text-align: center;
-      background-color: #fff; /* Cor de fundo branca */
-    }
-
-    header {
-      background-color: #aaffaa; /* Cor verde clara para o banner */
-      color: #000; /* Cor preta para o texto do banner */
-      padding: 20px;
-    }
-
-    h1 {
-      font-size: 36px;
-    }
-
-    p {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    .actions {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .lists {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-left: 20px; /* Espaçamento à esquerda das listas */
-    }
-
-    .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background-color: #aaffaa; /* Cor verde clara para os botões */
-      color: #000; /* Cor preta para o texto dos botões */
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s; /* Transição suave da cor de fundo */
-    }
-
-    .btn i {
-      margin-right: 5px;
-    }
-
-    .btn.highlight {
-      background-color: #4CAF50; /* Cor de destaque para os botões de agendamento e busca */
-      color: #fff; /* Texto branco para botões de destaque */
-    }
-
-    .btn.highlight:hover {
-      background-color: #45a049; /* Cor de destaque mais escura no hover */
-    }
-  </style>
-</head>
-
-<body>
-  <header>
+<%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
     <h1>Bem-Vindo ao Consulta-Sim</h1>
-  </header>
+
 
   <p>Aqui você pode agendar sua consulta.</p>
 
   <div class="container">
-    <div class="actions">
-      <a href="<%= new_paciente_path %>" class="btn"><i class="fas fa-user"></i>Cadastrar Paciente</a>
-      <a href="<%= new_medico_path %>" class="btn"><i class="fas fa-user"></i>Cadastrar Médico</a>
-      <a href="<%= new_exame_path %>" class="btn"><i class="fas fa-user"></i>Adicionar Exame</a>
-      <a href="<%= new_prontuario_path %>" class="btn"><i class="fas fa-user"></i>Adicionar Prontuario</a>
-      <a href="<%= new_prescricao_path %>" class="btn"><i class="fas fa-user"></i>Adicionar Prescrição</a>
-    </div>
-    <div class="lists">
-      <a href="<%= pacientes_path %>" class="btn"><i class="fas fa-list"></i>Ver a lista de Pacientes Cadastrados</a>
-      <a href="<%= medicos_path %>" class="btn"><i class="fas fa-list"></i>Ver a lista de Médicos Cadastrados</a>
-    </div>
+
+    <% if current_user.medico? %>
+        <div class="actions">
+           <a href="<%= new_paciente_path %>" class="btn"><i class="fas fa-user"></i>Cadastrar Paciente</a>
+           <a href="<%= new_medico_path %>" class="btn"><i class="fas fa-user"></i>Cadastrar Médico</a>
+           <a href="<%= new_exame_path %>" class="btn"><i class="fas fa-user"></i>Adicionar Exame</a>
+           <a href="<%= new_prontuario_path %>" class="btn"><i class="fas fa-user"></i>Adicionar Prontuario</a>
+           <a href="<%= new_prescrico_path %>" class="btn"><i class="fas fa-user"></i>Adicionar Prescrição</a>
+        <div />
+        <br/>
+        <div class="lists">
+          <a href="<%= pacientes_path %>" class="btn"><i class="fas fa-list"></i>Ver a lista de Pacientes Cadastrados</a>
+          <a href="<%= medicos_path %>" class="btn"><i class="fas fa-list"></i>Ver a lista de Médicos Cadastrados</a>
+        </div>
+
+    <% elsif current_user.paciente? %>
+        <div class="actions">
+            <a href="<%= new_paciente_path %>" class="btn"><i class="fas fa-user"></i>Faça seu Cadastro</a>
+            <%= link_to "Ver seus Exames", exames_path %>
+        </div>
+
+        <div class="lists">
+            <a href="<%= medicos_path %>" class="btn"><i class="fas fa-list"></i>Ver a lista de Médicos Cadastrados</a>
+        </div>
+    <% end %>
+
+
   </div>
 
   <div class="container">
     <a href="<%= new_consulta_path %>" class="btn highlight"><i class="fas fa-calendar-plus"></i>Agende sua consulta</a>
-    <a href="<%= search_consultas_path %>" class="btn highlight"><i class="fas fa-search"></i>Busque consultas agendadas</a>
+    <a href="<%= search_consultas_path %>" class="btn highlight"><i class="fas fa-search"></i>Busque suas consultas agendadas</a>
   </div>
-</body>
-</html>
+

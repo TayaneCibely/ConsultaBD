@@ -1,6 +1,8 @@
 class Consulta < ApplicationRecord
+  self.table_name = 'Consultas'
   belongs_to :paciente
   belongs_to :medico
+  belongs_to :prontuario
 
   has_many :prescricoes
   has_many :exames

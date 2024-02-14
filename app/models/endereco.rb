@@ -1,6 +1,6 @@
 class Endereco < ApplicationRecord
   belongs_to :paciente
-  belongs_to :paciente
+  belongs_to :medico
 
   validates :cep, presence: true, length: { is: 8 }, numericality: { only_integer: true }
   validates :cidade, presence: true, length: { minimum: 3 }, format: { with: /\A[A-Za-z\s]+\z/, message: "deve conter apenas letras e espaços" }
@@ -9,9 +9,3 @@ class Endereco < ApplicationRecord
   validates :logradouro, presence: true, length: { minimum: 8 }
   validates :complemento, presence: true, length: { minimum: 3 }
 end
-
-
-
-
-
-

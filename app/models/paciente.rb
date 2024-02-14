@@ -1,11 +1,12 @@
-class Paciente < ApplicationRecord
+class Paciente < User
+
   belongs_to :user
 
   has_one :endereco
+  accepts_nested_attributes_for :endereco
   has_one :prontuario
   has_many :consultas, dependent: :destroy
   has_many :medicos, through: :consultas
-  has_many :exames
   has_many :prescricoes
 
   validates :nome_completo, presence: true, length: { minimum: 10 }, numericality: false
@@ -13,5 +14,4 @@ class Paciente < ApplicationRecord
   validates :cpf, presence: true, uniqueness: true, format: { with: /\A\d+\z/, message: "deve conter apenas dígitos numéricos" }
   validates :email, presence: true, length: { maximum: 100 }, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: { case_sensitive: true }
   validates :telefone, presence: true, length: { minimum: 11 }, numericality: { only_integer: true }
-  attribute :data_nascimento, :date
 end

@@ -10,95 +10,127 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_13_165232) do
-  create_table "consulta", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2024_02_13_185752) do
+  create_table "consultas", force: :cascade do |t|
     t.date "data"
     t.time "horario"
-    t.integer "medicos_id", null: false
-    t.integer "pacientes_id"
-    t.integer "{:null=>false, :foreign_keys=>true}_id"
+    t.text "descricao"
+    t.integer "paciente_id", null: false
+    t.integer "medico_id", null: false
+    t.integer "prontuario_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["medicos_id"], name: "index_consulta_on_medicos_id"
-    t.index ["pacientes_id"], name: "index_consulta_on_pacientes_id"
-    t.index ["{:null=>false, :foreign_keys=>true}_id"], name: "index_consulta_on_{:null=>false, :foreign_keys=>true}_id"
+    t.index ["medico_id"], name: "index_consultas_on_medico_id"
+    t.index ["paciente_id", "data", "horario"], name: "index_consultas_on_paciente_id_and_data_and_horario", unique: true
+    t.index ["paciente_id"], name: "index_consultas_on_paciente_id"
+    t.index ["prontuario_id"], name: "index_consultas_on_prontuario_id"
   end
 
   create_table "enderecos", force: :cascade do |t|
-    t.string "cep"
+    t.integer "cep"
     t.string "cidade"
     t.string "bairro"
+    t.integer "numero"
     t.string "logradouro"
     t.string "complemento"
+    t.integer "paciente_id", null: false
+    t.integer "medico_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "paciente_id"
-    t.string "numero"
+    t.index ["medico_id"], name: "index_enderecos_on_medico_id"
+    t.index ["paciente_id"], name: "index_enderecos_on_paciente_id"
   end
 
   create_table "exames", force: :cascade do |t|
-    t.string "cod"
+    t.integer "cod"
     t.date "data"
     t.string "nomeExame"
     t.text "descricao"
     t.string "resultado"
+    t.integer "prontuario_id", null: false
+    t.integer "consulta_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["consulta_id"], name: "index_exames_on_consulta_id"
+    t.index ["prontuario_id"], name: "index_exames_on_prontuario_id"
   end
 
   create_table "medicos", force: :cascade do |t|
     t.string "nome"
-    t.string "crm"
-    t.string "uf_crm"
+    t.string "lincenca"
     t.string "especialidade"
     t.string "cpf"
     t.string "email"
-    t.time "inicio_consulta"
-    t.time "termino_consulta"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cpf"], name: "index_medicos_on_cpf"
+    t.index ["email"], name: "index_medicos_on_email"
+    t.index ["lincenca"], name: "index_medicos_on_lincenca"
+    t.index ["user_id"], name: "index_medicos_on_user_id"
   end
 
   create_table "pacientes", force: :cascade do |t|
     t.string "nome_completo"
     t.string "data_nascimento"
     t.string "cpf"
-    t.string "email"
+    t.string "email", limit: 100
     t.string "telefone"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cpf"], name: "index_pacientes_on_cpf", unique: true
+    t.index ["email"], name: "index_pacientes_on_email", unique: true
+    t.index ["user_id"], name: "index_pacientes_on_user_id"
   end
 
-  create_table "prescricaos", force: :cascade do |t|
-    t.string "cod"
+  create_table "prescricoes", force: :cascade do |t|
+    t.integer "cod"
     t.date "data"
-    t.string "dosagem"
     t.text "observacoes"
+    t.string "dosagem"
     t.text "listaMedicamentos"
+    t.integer "prontuario_id", null: false
+    t.integer "consulta_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["consulta_id"], name: "index_prescricoes_on_consulta_id"
+    t.index ["prontuario_id"], name: "index_prescricoes_on_prontuario_id"
   end
 
   create_table "prontuarios", force: :cascade do |t|
-    t.date "dataCriacao"
-    t.string "codigo"
+    t.integer "codigo"
+    t.datetime "datacriaco"
     t.text "historico"
+    t.integer "paciente_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["paciente_id"], name: "index_prontuarios_on_paciente_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "user_type"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "user_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "consulta", "medicos", column: "medicos_id"
+  add_foreign_key "consultas", "medicos"
+  add_foreign_key "consultas", "pacientes"
+  add_foreign_key "consultas", "prontuarios"
+  add_foreign_key "enderecos", "medicos"
+  add_foreign_key "enderecos", "pacientes"
+  add_foreign_key "exames", "consulta", column: "consulta_id"
+  add_foreign_key "exames", "prontuarios"
+  add_foreign_key "medicos", "users"
+  add_foreign_key "pacientes", "users"
+  add_foreign_key "prescricoes", "consulta", column: "consulta_id"
+  add_foreign_key "prescricoes", "prontuarios"
+  add_foreign_key "prontuarios", "pacientes"
 end
