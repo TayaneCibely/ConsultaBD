@@ -10,7 +10,6 @@
      </div>
     <% end %>
 
-
   <div class="field">
     <%= form.label :nome, "Nome do Médico:" %>
     <%= form.text_field :nome %>
@@ -36,6 +35,39 @@
     <%= form.label :email, "Email" %>
     <%= form.text_field :email %>
   </div>
+
+  <!-- Campos de endereço com classes CSS -->
+    <%= form.fields_for :endereco do |endereco_form| %>
+      <div class="form-group">
+        <%= endereco_form.label :cep, "CEP", class: "form-label" %>
+        <%= endereco_form.text_field :cep, class: "form-input" %>
+      </div>
+
+      <div class="form-group">
+        <%= endereco_form.label :cidade, "Cidade", class: "form-label" %>
+        <%= endereco_form.text_field :cidade, class: "form-input" %>
+      </div>
+
+      <div class="form-group">
+        <%= endereco_form.label :bairro, "Bairro", class: "form-label" %>
+        <%= endereco_form.text_field :bairro, class: "form-input" %>
+      </div>
+
+      <div class="form-group">
+        <%= endereco_form.label :logradouro, "Logradouro", class: "form-label" %>
+        <%= endereco_form.text_field :logradouro, class: "form-input" %>
+      </div>
+
+      <div class="form-group">
+        <%= endereco_form.label :numero, "Número", class: "form-label" %>
+        <%= endereco_form.number_field :numero, class: "form-input" %>
+      </div>
+
+      <div class="form-group">
+        <%= endereco_form.label :complemento, "Complemento", class: "form-label" %>
+        <%= endereco_form.text_field :complemento, class: "form-input" %>
+      </div>
+    <% end %>
 
   <div class="field">
     <%= form.label :inicio_consulta, "Início Horário de Atendimento:" %>

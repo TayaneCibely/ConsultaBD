@@ -14,6 +14,8 @@ gem "sqlite3", "~> 1.4"
 
 gem "tzinfo-data"
 
+gem "pg"
+
 gem 'devise'
 
 gem 'bcrypt', '~> 3.1.7'

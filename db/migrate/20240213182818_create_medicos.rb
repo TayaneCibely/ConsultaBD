@@ -9,6 +9,7 @@ class CreateMedicos < ActiveRecord::Migration[7.0]
       t.string :email
 
       t.references :user, foreign_key: true
+      t.references :endereco, foreign_key: true
 
       t.timestamps
     end

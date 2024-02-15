@@ -1,6 +1,6 @@
 class Medico < User
 
-  has_one :endereco
+  belongs_to :endereco
   accepts_nested_attributes_for :endereco
   has_many :consultas
   has_many :pacientes, through: :consultas
