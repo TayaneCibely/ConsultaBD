@@ -11,7 +11,7 @@ gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
-
+gem 'pg', '~> 1.5', '>= 1.5.5'
 gem "tzinfo-data"
 
 gem 'devise'
