@@ -2,7 +2,7 @@ class Paciente < User
 
   belongs_to :user
 
-  has_one :endereco
+  belongs_to :endereco
   accepts_nested_attributes_for :endereco
   has_one :prontuario
   has_many :consultas, dependent: :destroy

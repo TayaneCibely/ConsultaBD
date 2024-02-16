@@ -8,6 +8,7 @@ class CreatePacientes < ActiveRecord::Migration[7.0]
       t.string :telefone
 
       t.references :user, foreign_key: true
+      t.references :endereco, foreign_key: true
 
       t.timestamps
     end

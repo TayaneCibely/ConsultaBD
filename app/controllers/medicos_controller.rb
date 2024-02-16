@@ -22,6 +22,7 @@ class MedicosController < ApplicationController
 
   def create
     @medico = Medico.new(medico_params)
+    @medico.build_endereco
 
     respond_to do |format|
       if @medico.save
