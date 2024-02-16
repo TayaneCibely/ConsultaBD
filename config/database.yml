@@ -10,9 +10,11 @@ default: &default
        timeout: 5000
 
 development:
-       <<: *default
-       database: db/development.sqlite3
-
+  adapter: postgresql
+  username: postgres
+  password: 07081981
+  host: localhost
+  port: 5432
 test:
        <<: *default
        database: db/test.sqlite3
