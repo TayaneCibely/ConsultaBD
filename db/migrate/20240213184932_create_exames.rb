@@ -6,6 +6,7 @@ class CreateExames < ActiveRecord::Migration[7.0]
       t.string :nomeExame
       t.text :descricao
       t.string :resultado
+
       t.references :prontuario, null: false, foreign_key: true
       t.references :consulta, null: false, foreign_key: true
 

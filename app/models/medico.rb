@@ -1,4 +1,8 @@
-class Medico < User
+class Medico <  ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, authentication_keys: [:email]
 
   belongs_to :endereco
   accepts_nested_attributes_for :endereco
@@ -9,16 +13,17 @@ class Medico < User
   has_many :prescricoes, through: :pacientes
 
   validates :nome, presence: true, length: { minimum: 10 }, format: { with: /\A[^0-9]+\z/}
-  validates :lincenca, presence: true, uniqueness: true
+  validates :licenca, presence: true, uniqueness: true
   validates :especialidade, presence: true, length: { minimum: 5 }, numericality: false
   validates :cpf, presence: true, uniqueness: true, length: { is: 11 }, numericality: { only_integer: true }
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: { case_sensitive: true }
+  #validate :horario_atendimento_valido
 
   private
 
-  def horario_atendimento_valido
-    if termino_consulta? && inicio_consulta? && inicio_consulta  >= termino_consulta
-      errors.add(:base, "Início precisa ser antes do término do horário de atendimento")
-    end
-  end
+#{  def horario_atendimento_valido
+  #  if termino_consulta? && inicio_consulta? && inicio_consulta  >= termino_consulta
+  #   errors.add(:base, "Início precisa ser antes do término do horário de atendimento")
+  #  end
+  # end}"
 end

@@ -1,0 +1,63 @@
+/* assets/stylesheets/theme.css */
+
+:root {
+    --lavanda: #957DAD;
+    --branco: #FFFFFF;
+    --cinza-claro: #F2F2F2;
+    --lavanda-claro: #CAB8FF;
+}
+
+body {
+    background-color: var(--cinza-claro);
+    font-family: 'Arial', sans-serif;
+}
+
+.form-container {
+    background-color: var(--branco);
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.field label {
+    color: var(--lavanda);
+    font-weight: bold;
+}
+
+.field input[type=email] {
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid var(--lavanda-claro);
+    border-radius: 4px;
+}
+
+.field input[type=password] {
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid var(--lavanda-claro);
+    border-radius: 4px;
+}
+
+
+.actions input[type=submit] {
+    background-color: var(--lavanda);
+    color: var(--branco);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.actions input[type=submit]:hover {
+    background-color: var(--lavanda-claro);
+}
+
+a {
+    color: var(--lavanda);
+    text-decoration: none;
+}

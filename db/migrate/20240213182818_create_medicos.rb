@@ -3,7 +3,7 @@ class CreateMedicos < ActiveRecord::Migration[7.0]
     create_table :medicos do |t|
 
       t.string :nome
-      t.string :lincenca
+      t.string :licenca
       t.string :especialidade
       t.string :cpf
       t.string :email

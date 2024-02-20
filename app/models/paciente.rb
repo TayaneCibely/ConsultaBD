@@ -1,6 +1,8 @@
-class Paciente < User
-
-  belongs_to :user
+class Paciente <  ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, authentication_keys: [:email]
 
   belongs_to :endereco
   accepts_nested_attributes_for :endereco

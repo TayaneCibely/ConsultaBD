@@ -1,4 +1,40 @@
 pt-BR:
+  devise:
+    sessions:
+      signed_in: 'Login efetuado com sucesso.'
+      signed_out: 'Sessão encerrada com sucesso.'
+      already_signed_out: 'Sessão já foi encerrada.'
+      remember_me: "Lembrar-me."
+    registrations:
+      signed_up: 'Cadastro realizado com sucesso.'
+      updated: 'Seus dados foram atualizados com sucesso.'
+      destroyed: 'Sua conta foi cancelada com sucesso.'
+    Confirmations:
+      confirmed: 'Seu endereço de e-mail foi confirmado com sucesso.'
+      send_instructions: 'Você receberá um e-mail com instruções para confirmar sua conta em alguns minutos.'
+      send_paranoid_instructions: 'Se seu endereço de e-mail existir em nosso banco de dados, você receberá um e-mail com instruções para confirmar sua conta em alguns minutos.'
+    unlocks:
+      unlocked: 'Sua conta foi desbloqueada com sucesso, agora você pode efetuar login.'
+      send_instructions: 'Você receberá um e-mail com instruções para desbloquear sua conta em alguns minutos.'
+      send_paranoid_instructions: 'Se seu endereço de e-mail existir em nosso banco de dados, você receberá um e-mail com instruções para desbloquear sua conta em alguns minutos.'
+    passwords:
+      no_token: 'Você não pode acessar esta página diretamente.'
+      send_instructions: 'Você receberá um e-mail com instruções para alterar sua senha em alguns minutos.'
+      send_paranoid_instructions: 'Se seu e-mail existir em nosso banco de dados, você receberá um e-mail com instruções para alterar sua senha em alguns minutos.'
+      updated: 'Sua senha foi alterada com sucesso, agora você pode efetuar login.'
+      updated_not_active: 'Sua senha foi alterada com sucesso.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instruções de confirmação'
+      reset_password_instructions:
+        subject: 'Instruções para redefinição de senha'
+      unlock_instructions:
+        subject: 'Instruções para desbloqueio de conta'
+    helpers:
+      submit:
+        create: 'Criar %{model}'
+        update: 'Atualizar %{model}'
+        submit: 'Salvar %{model}'
   date:
     order:
       - :day

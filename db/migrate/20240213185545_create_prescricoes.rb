@@ -6,8 +6,9 @@ class CreatePrescricoes < ActiveRecord::Migration[7.0]
       t.text :observacoes
       t.string :dosagem
       t.text :listaMedicamentos
+
       t.references :prontuario, null: false, foreign_key: true
-      t.references :consulta, null: false, foreign_key: true
+      t.references :consultas, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -1,17 +1,30 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'registrations' }
+  resources :consulta
+  resources :medico
 
-  authenticate :user do
+  get 'auth_page/index'
+  get 'home/index'
 
-    root 'home#index'
-    get '/consultas/search', to: 'consultas#search', as: 'search_consultas'
-    get '/medicos/search', to: 'medicos#search', as: 'search_medicos'
-    get '/pacientes/search', to: 'pacientes#search', as: 'search_pacientes'
-    resources :prescricoes
-    resources :exames
-    resources :prontuarios
-    resources :consultas
-    resources :pacientes
-    resources :medicos
+  devise_scope :paciente do
+    authenticated :paciente do
+      get "/pacientes/sign_out" => "devise/sessions#destroy"
+      get "/minhas_consultas/:id" => "pacientes#minhas_consultas"
+    end
   end
+
+  devise_scope :medico do
+    authenticated :medico do
+      get "/medicos/sign_out" => 'devise/sessions#destroy'
+    end
+  end
+
+  devise_for :pacientes
+  devise_for :medicos
+
+  resources :prescricoes
+  resources :exames
+  resources :prontuarios
+  resources :pacientes
+
+  root to: 'auth_page#index'
 end
