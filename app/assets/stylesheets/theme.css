@@ -1,24 +1,81 @@
 /* assets/stylesheets/theme.css */
 
 :root {
-    --lavanda: #957DAD;
-    --branco: #FFFFFF;
-    --cinza-claro: #F2F2F2;
-    --lavanda-claro: #CAB8FF;
+    --lavanda: #957DAD; /* Lavender base color */
+    --branco: #FFFFFF;   /* White */
+    --cinza-claro: #F2F2F2; /* Light gray */
+    --lavanda-claro: #CAB8FF; /* Light lavender */
 }
 
 body {
     background-color: var(--cinza-claro);
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
 }
 
-.form-container {
-    background-color: var(--branco);
-    max-width: 400px;
-    margin: 40px auto;
+header {
+    background-color: var(--lavanda);
+    color: var(--branco);
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.actions {
+    display: flex;
+    color: var(--branco);
+    flex-direction: column;
+    align-items: center;
+}
+
+.lists {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+}
+
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: var(--lavanda);
+    color: var(--branco);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn i {
+    margin-right: 5px;
+}
+
+.btn.highlight {
+    background-color: var(--lavanda);; /* Keep green highlight for now */
+    color: var(--branco); /* Text white for buttons of highlight */
+}
+
+.btn.highlight:hover {
+    background-color: var(--lavanda);; /* Darker green on hover */
+}
+
+/* You can adjust or replace the `.form-container` section later if needed */
+
+.form-container {
+    /* ... existing styles ... */
 }
 
 .field label {
@@ -26,14 +83,7 @@ body {
     font-weight: bold;
 }
 
-.field input[type=email] {
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    border: 1px solid var(--lavanda-claro);
-    border-radius: 4px;
-}
-
+.field input[type=email],
 .field input[type=password] {
     padding: 10px;
     margin-top: 5px;
@@ -41,7 +91,6 @@ body {
     border: 1px solid var(--lavanda-claro);
     border-radius: 4px;
 }
-
 
 .actions input[type=submit] {
     background-color: var(--lavanda);

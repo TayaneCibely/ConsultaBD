@@ -10,66 +10,66 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+  <div class="field">
     <%= form.label :nome_completo, "Nome do Paciente", class: "form-label" %>
     <%= form.text_field :nome_completo, class: "form-input" %>
   </div>
 
-  <div class="form-group">
+  <div class="field">
     <%= form.label :cpf, "CPF", class: "form-label" %>
     <%= form.text_field :cpf, class: "form-input" %>
   </div>
 
-    <div class="form-group">
+    <div class="field">
       <%= form.label :data_nascimento, "Data de Nascimento", class: "form-label" %>
       <%= form.date_field :data_nascimento, class: "form-input" %>
     </div>
 
-  <div class="form-group">
+  <div class="field">
     <%= form.label :email, "Email", class: "form-label" %>
     <%= form.text_field :email, class: "form-input" %>
   </div>
 
-  <div class="form-group">
+  <div class="field">
     <%= form.label :telefone, "Telefone", class: "form-label" %>
     <%= form.text_field :telefone, class: "form-input" %>
   </div>
 
   <!-- Campos de endereço com classes CSS -->
   <%= form.fields_for :endereco do |endereco_form| %>
-    <div class="form-group">
+    <div class="field">
       <%= endereco_form.label :cep, "CEP", class: "form-label" %>
       <%= endereco_form.text_field :cep, class: "form-input" %>
     </div>
 
-    <div class="form-group">
+    <div class="field">
       <%= endereco_form.label :cidade, "Cidade", class: "form-label" %>
       <%= endereco_form.text_field :cidade, class: "form-input" %>
     </div>
 
-    <div class="form-group">
+    <div class="field">
       <%= endereco_form.label :bairro, "Bairro", class: "form-label" %>
       <%= endereco_form.text_field :bairro, class: "form-input" %>
     </div>
 
-    <div class="form-group">
+    <div class="field">
       <%= endereco_form.label :logradouro, "Logradouro", class: "form-label" %>
       <%= endereco_form.text_field :logradouro, class: "form-input" %>
     </div>
 
-    <div class="form-group">
+    <div class="field">
       <%= endereco_form.label :numero, "Número", class: "form-label" %>
       <%= endereco_form.number_field :numero, class: "form-input" %>
     </div>
 
-    <div class="form-group">
+    <div class="field">
       <%= endereco_form.label :complemento, "Complemento", class: "form-label" %>
       <%= endereco_form.text_field :complemento, class: "form-input" %>
     </div>
   <% end %>
 
   <div class="actions">
-    <%= form.submit "Salvar", class: "btn btn-primary" %>
+    <%= form.submit "Salvar Paciente", class: "btn btn-primary" %>
     <%= link_to "Voltar para a página inicial", root_path, class: "btn btn-secondary" %>
   </div>
 <% end %>

@@ -1,30 +1,22 @@
 Rails.application.routes.draw do
-  resources :consulta
-  resources :medico
 
-  get 'auth_page/index'
-  get 'home/index'
-
-  devise_scope :paciente do
-    authenticated :paciente do
-      get "/pacientes/sign_out" => "devise/sessions#destroy"
-      get "/minhas_consultas/:id" => "pacientes#minhas_consultas"
-    end
-  end
-
-  devise_scope :medico do
-    authenticated :medico do
-      get "/medicos/sign_out" => 'devise/sessions#destroy'
-    end
-  end
-
-  devise_for :pacientes
-  devise_for :medicos
+  root 'home#index'
 
   resources :prescricoes
   resources :exames
   resources :prontuarios
-  resources :pacientes
 
-  root to: 'auth_page#index'
+  resources :pacientes do
+    resources :exames, path: 'exames_do_paciente', as: 'exames_do_paciente'
+    resources :prontuarios, path: 'prontuario_do_paciente', as: 'prontuario_do_paciente'
+    resources :prescricoes, path: 'prescricoes_do_paciente', as: 'prescricoes_do_paciente'
+  end
+
+  get '/consultas/search', to: 'consultas#search', as: 'search_consultas'
+  get '/medicos/search', to: 'medicos#search', as: 'search_medicos'
+  get '/pacientes/search', to: 'pacientes#search', as: 'search_pacientes'
+
+  resources :consultas
+  resources :pacientes
+  resources :medicos
 end

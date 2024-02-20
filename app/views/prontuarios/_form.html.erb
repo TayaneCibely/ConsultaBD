@@ -16,22 +16,23 @@
      <%= form.collection_select :paciente_id, Paciente.all, :id, :nome_completo, prompt: "Selecione um paciente" %>
   </div>
 
-  <div>
-    <%= form.label :dataCriacao, style: "display: block" %>
+  <div class="field">
+    <%= form.label :dataCriacao, "Data da Criação do Prontuário:", style: "display: block" %>
     <%= form.date_field :dataCriacao %>
   </div>
 
-  <div>
-    <%= form.label :codigo, style: "display: block" %>
+  <div class="field">
+    <%= form.label :codigo, "Código do Prontuário", style: "display: block" %>
     <%= form.text_field :codigo %>
   </div>
 
-  <div>
-    <%= form.label :historico, style: "display: block" %>
+  <div class="field">
+    <%= form.label :historico, "Histórico do Paciente", style: "display: block" %>
     <%= form.text_area :historico %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit "Salvar Prontuário" %>
+    <%= link_to "Voltar para a página inicial", root_path, class: "btn btn-secondary" %>
   </div>
 <% end %>

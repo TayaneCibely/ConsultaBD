@@ -1,25 +1,25 @@
 class PrescricoesController < ApplicationController
   before_action :set_prescricao, only: %i[ show edit update destroy ]
 
-  # GET /prescricaos or /prescricaos.json
+  # GET /prescricoes or /prescricoes.json
   def index
     @prescricaos = Prescricao.all
   end
 
-  # GET /prescricaos/1 or /prescricaos/1.json
+  # GET /prescricoes/1 or /prescricoes/1.json
   def show
   end
 
-  # GET /prescricaos/new
+  # GET /prescricoes/new
   def new
     @prescricao = Prescricao.new
   end
 
-  # GET /prescricaos/1/edit
+  # GET /prescricoes/1/edit
   def edit
   end
 
-  # POST /prescricaos or /prescricaos.json
+  # POST /prescricoes or /prescricoes.json
   def create
     @prescricao = Prescricao.new(prescricao_params)
 
@@ -34,7 +34,7 @@ class PrescricoesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /prescricaos/1 or /prescricaos/1.json
+  # PATCH/PUT /prescricoes/1 or /prescricoes/1.json
   def update
     respond_to do |format|
       if @prescricao.update(prescricao_params)
@@ -47,7 +47,7 @@ class PrescricoesController < ApplicationController
     end
   end
 
-  # DELETE /prescricaos/1 or /prescricaos/1.json
+  # DELETE /prescricoes/1 or /prescricoes/1.json
   def destroy
     @prescricao.destroy
 

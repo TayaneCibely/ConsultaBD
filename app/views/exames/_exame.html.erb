@@ -5,11 +5,6 @@
   </p>
 
   <p>
-    <%= form.label :paciente_id %>
-    <%= form.collection_select :paciente_id, Paciente.all, :id, :nome_completo, prompt: "Selecione um paciente" %>
-  </p>
-
-  <p>
     <strong>Data:</strong>
     <%= exame.data %>
   </p>

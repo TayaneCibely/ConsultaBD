@@ -1,0 +1,48 @@
+<%= form_with(model: prescricao, url: prescricoes_path) do |form| %>
+  <% if prescricao.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(prescricao.errors.count, "error") %> prohibited this prescricao from being saved:</h2>
+
+      <ul>
+        <% prescricao.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+     <%= form.label :paciente_id %>
+     <%= form.collection_select :paciente_id, Paciente.all, :id, :nome_completo, prompt: "Selecione um paciente" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cod, "Código da Prescrição:", style: "display: block" %>
+    <%= form.text_field :cod %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data, "Data da Prescrição", style: "display: block" %>
+    <%= form.date_field :data %>
+  </div>
+
+  <div class="field">
+    <%= form.label :observacoes, "Observações", style: "display: block" %>
+    <%= form.text_area :observacoes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :listaMedicamentos, "Lista de Medicamentos", style: "display: block" %>
+    <%= form.text_area :listaMedicamentos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dosagem, "Dosagem da Medicação", style: "display: block" %>
+    <%= form.text_field :dosagem %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit  "Salvar Prescrição" %>
+    <%= link_to "Voltar para a página inicial", root_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>

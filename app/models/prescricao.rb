@@ -1,4 +1,5 @@
 class Prescricao < ApplicationRecord
+  self.table_name = "prescricoes"
   belongs_to :prontuario
   belongs_to :consulta
 

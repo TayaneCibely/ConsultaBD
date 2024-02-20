@@ -1,20 +1,18 @@
-<%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag 'theme' %>
 
-<h1>Bem-Vindo ao Consulta-Sim</h1>
+<header>
+    <h1>Bem-Vindo ao ConsultaBD</h1>
+    <p>Aqui você pode agendar sua consulta.</p>
+</header>
 
-<p>Aqui você pode agendar sua consulta.</p>
-
+<body>
 <div class="container">
-
-<% if medico_signed_in? %>
   <div class="actions">
-    <%= link_to "Gerenciar Pacientes", pacientes_path, class: "btn" %>
-    <%= link_to "Gerenciar Consultas", consulta_path, class: "btn" %>
-    <%= link_to "Gerenciar Medicos", medicos_path, class: "btn" %>
     <%= link_to "Cadastrar Paciente", new_paciente_path, class: "btn" %>
     <%= link_to "Cadastrar Médico", new_medico_path, class: "btn" %>
     <%= link_to "Adicionar Exame", new_exame_path, class: "btn" %>
-    <%= link_to "Adicionar Prontuario", new_prontuario_path, class: "btn" %>
+    <%= link_to "Adicionar Prontuário", new_prontuario_path, class: "btn" %>
     <%= link_to "Adicionar Prescrição", new_prescrico_path, class: "btn" %>
   </div>
   <br/>
@@ -22,22 +20,9 @@
     <%= link_to "Ver a lista de Pacientes Cadastrados", pacientes_path, class: "btn" %>
     <%= link_to "Ver a lista de Médicos Cadastrados", medicos_path, class: "btn" %>
   </div>
-<% end %>
-
-<% if paciente_signed_in? %>
-  <div class="actions">
-    <%= link_to "Faça seu Cadastro", new_paciente_path, class: "btn" %>
-    <%= link_to "Ver seus Exames", exames_path %>
-  </div>
-
-  <div class="lists">
-    <%= link_to "Ver a lista de Médicos Cadastrados", medicos_path, class: "btn" %>
-  </div>
-<% end %>
-
 </div>
-
 <div class="container">
   <%= link_to "Agende sua consulta", new_consulta_path, class: "btn highlight" %>
   <%= link_to "Busque suas consultas agendadas", search_consultas_path, class: "btn highlight" %>
 </div>
+</body>
