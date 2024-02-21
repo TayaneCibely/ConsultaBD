@@ -9,7 +9,7 @@
 </div>
 
 <div>
-  <%= link_to 'Voltar a lista de médicos', medicos_path %>
+  <%= link_to 'Voltar a lista de médicos', medicos_path,  %>
  <%= link_to 'Editar Médico', edit_medico_path(@medico) %>
   <%= button_to "Apagar Médico", @medico, method: :delete, data: { confirm: "Tem certeza que deseja apagar esse médico? "} %>
 </div>

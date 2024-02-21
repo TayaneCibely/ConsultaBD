@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_20_104221) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_21_222957) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
   enable_extension "plpgsql"
@@ -117,7 +117,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_20_104221) do
 
   create_table "prontuarios", force: :cascade do |t|
     t.integer "codigo"
-    t.datetime "datacriaco"
+    t.date "datacriacao"
     t.text "historico"
     t.bigint "paciente_id", null: false
     t.datetime "created_at", null: false

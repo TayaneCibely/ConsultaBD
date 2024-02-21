@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :pacientes do
     resources :exames, path: 'exames_do_paciente', as: 'exames_do_paciente'
-    resources :prontuarios, only: [:new, :create]
+    resources :prontuarios
     resources :prescricoes, path: 'prescricoes_do_paciente', as: 'prescricoes_do_paciente'
   end
 

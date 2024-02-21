@@ -2,9 +2,7 @@
 
 <%= render @prontuario %>
 
-<div>
-  <%= link_to "Edit this prontuario", edit_prontuario_path(@prontuario) %> |
-  <%= link_to "Back to prontuarios", prontuarios_path %>
-
-  <%= button_to "Destroy this prontuario", @prontuario, method: :delete %>
+<div class="links">
+  <%= link_to "Editar esse prontuário", edit_paciente_prontuario_path(@prontuario) %> |
+  <%= link_to "Voltar para prontuarios", paciente_prontuarios_path %>
 </div>

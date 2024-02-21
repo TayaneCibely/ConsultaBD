@@ -1,5 +1,5 @@
 class ProntuariosController < ApplicationController
-  before_action :set_paciente, only: [:show, :edit, :update, :destroy]
+  before_action :set_paciente, only: [:show, :create, :edit, :update, :destroy]
   before_action :set_prontuario, only: %i[ show edit update destroy ]
 
   # GET /prontuarios or /prontuarios.json
@@ -27,24 +27,31 @@ class ProntuariosController < ApplicationController
   # POST /prontuarios or /prontuarios.json
   def create
     @paciente = Paciente.find(params[:paciente_id])
-    @prontuario = @paciente.prontuarios.build(prontuario_params)
+    @prontuario_existente = @paciente.prontuario
 
-    respond_to do |format|
-      if @prontuario.save
-        format.html { redirect_to prontuario_url(@prontuario), notice: "Prontuario was successfully created." }
-        format.json { render :show, status: :created, location: @prontuario }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @prontuario.errors, status: :unprocessable_entity }
+    if @prontuario_existente
+      flash[:notice] = 'Paciente já possui um prontuário.'
+      redirect_to paciente_prontuario_path(@paciente, @prontuario_existente)
+    else
+      @prontuario = @paciente.build_prontuario(prontuario_params)
+
+      respond_to do |format|
+        if @prontuario.save
+          format.html { redirect_to paciente_prontuarios_url(@paciente), notice: 'Prontuario was successfully created.' }
+          format.json { render :show, status: :created, location: @prontuario }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+        end
       end
     end
   end
+
 
   # PATCH/PUT /prontuarios/1 or /prontuarios/1.json
   def update
     respond_to do |format|
       if @prontuario.update(prontuario_params)
-        format.html { redirect_to prontuario_url(@prontuario), notice: "Prontuario was successfully updated." }
+        format.html { redirect_to paciente_prontuarios_url(@paciente, @prontuario), notice: "Prontuario was successfully updated." }
         format.json { render :show, status: :ok, location: @prontuario }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -58,7 +65,7 @@ class ProntuariosController < ApplicationController
     @prontuario.destroy
 
     respond_to do |format|
-      format.html { redirect_to prontuarios_url, notice: "Prontuario was successfully destroyed." }
+      format.html { redirect_to paciente_prontuarios_url, notice: "Prontuario was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -83,6 +90,6 @@ class ProntuariosController < ApplicationController
 
 
   def prontuario_params
-    params.require(:prontuario).permit(:dataCriacao, :codigo, :historico)
+    params.require(:prontuario).permit(:datacriacao, :codigo, :historico)
   end
 end

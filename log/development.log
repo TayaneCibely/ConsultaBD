@@ -5956,3 +5956,1716 @@ Completed 500 Internal Server Error in 316ms (ActiveRecord: 21.4ms | Allocations
 NoMethodError (undefined method `prontuarios' for #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>):
   
 app/controllers/prontuarios_controller.rb:30:in `create'
+Started GET "/" for 127.0.0.1 at 2024-02-21 17:49:43 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (19.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 91.4ms | Allocations: 25433)
+  Rendered layout layouts/application.html.erb (Duration: 102.1ms | Allocations: 26880)
+Completed 200 OK in 119ms (Views: 110.3ms | ActiveRecord: 0.0ms | Allocations: 29339)
+
+
+Started GET "/pacientes/new" for 127.0.0.1 at 2024-02-21 17:49:50 -0300
+Processing by PacientesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 14.2ms | Allocations: 4121)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 16.9ms | Allocations: 4382)
+  Rendered layout layouts/application.html.erb (Duration: 37.7ms | Allocations: 5948)
+Completed 200 OK in 136ms (Views: 43.4ms | ActiveRecord: 26.6ms | Allocations: 26550)
+
+
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-21 17:51:39 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"José Bezerra", "cpf"=>"12345678902", "data_nascimento"=>"2000-06-12", "email"=>"josebezerra@gmai.com", "telefone"=>"8799791247561", "endereco_attributes"=>{"cep"=>"55345000", "cidade"=>"Ponte Preta", "bairro"=>"Bela Vista", "logradouro"=>"Rua do Sertão", "numero"=>"15", "complemento"=>"Apartamento "}}, "commit"=>"Salvar Paciente"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pacientes_controller.rb:30:in `block in create'
+  [1m[36mPaciente Exists? (8.4ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."cpf" = $1 LIMIT $2[0m  [["cpf", "12345678902"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:30:in `block in create'
+  [1m[36mPaciente Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."email" = $1 LIMIT $2[0m  [["email", "josebezerra@gmai.com"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:30:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/pacientes_controller.rb:30:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 7.0ms | Allocations: 3199)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 3261)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 4758)
+Completed 422 Unprocessable Entity in 38ms (Views: 14.4ms | ActiveRecord: 10.0ms | Allocations: 11290)
+
+
+Started POST "/pacientes" for 127.0.0.1 at 2024-02-21 17:51:50 -0300
+Processing by PacientesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente"=>{"nome_completo"=>"José Bezerra", "cpf"=>"12345678123", "data_nascimento"=>"2000-06-12", "email"=>"josebezerra@gmai.com", "telefone"=>"8799791247561", "endereco_attributes"=>{"cep"=>"55345000", "cidade"=>"Ponte Preta", "bairro"=>"Bela Vista", "logradouro"=>"Rua do Sertão", "numero"=>"15", "complemento"=>"Apartamento "}}, "commit"=>"Salvar Paciente"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pacientes_controller.rb:30:in `block in create'
+  [1m[36mPaciente Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."cpf" = $1 LIMIT $2[0m  [["cpf", "12345678123"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:30:in `block in create'
+  [1m[36mPaciente Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "pacientes" WHERE "pacientes"."email" = $1 LIMIT $2[0m  [["email", "josebezerra@gmai.com"], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:30:in `block in create'
+  [1m[36mEndereco Create (6.6ms)[0m  [1m[32mINSERT INTO "enderecos" ("cep", "cidade", "bairro", "numero", "logradouro", "complemento", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["cep", 55345000], ["cidade", "Ponte Preta"], ["bairro", "Bela Vista"], ["numero", 15], ["logradouro", "Rua do Sertão"], ["complemento", "Apartamento "], ["created_at", "2024-02-21 20:51:50.050539"], ["updated_at", "2024-02-21 20:51:50.050539"]]
+  ↳ app/controllers/pacientes_controller.rb:30:in `block in create'
+  [1m[36mPaciente Create (3.6ms)[0m  [1m[32mINSERT INTO "pacientes" ("nome_completo", "data_nascimento", "cpf", "email", "telefone", "user_id", "endereco_id", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["nome_completo", "José Bezerra"], ["data_nascimento", "2000-06-12"], ["cpf", "12345678123"], ["email", "josebezerra@gmai.com"], ["telefone", "8799791247561"], ["user_id", nil], ["endereco_id", 7], ["created_at", "2024-02-21 20:51:50.061661"], ["updated_at", "2024-02-21 20:51:50.061661"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  ↳ app/controllers/pacientes_controller.rb:30:in `block in create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/pacientes_controller.rb:30:in `block in create'
+Redirected to http://127.0.0.1:3000/pacientes/4
+Completed 302 Found in 38ms (ActiveRecord: 12.9ms | Allocations: 7328)
+
+
+Started GET "/pacientes/4" for 127.0.0.1 at 2024-02-21 17:51:50 -0300
+Processing by PacientesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:64:in `set_paciente'
+  [1m[36mProntuario Load (2.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:15:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/show.html.erb within layouts/application
+  [1m[36mEndereco Load (0.4ms)[0m  [1m[34mSELECT "enderecos".* FROM "enderecos" WHERE "enderecos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/pacientes/show.html.erb:30
+  Rendered pacientes/show.html.erb within layouts/application (Duration: 8.6ms | Allocations: 2634)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 4162)
+Completed 200 OK in 39ms (Views: 14.3ms | ActiveRecord: 5.6ms | Allocations: 9955)
+
+
+Started GET "/pacientes" for 127.0.0.1 at 2024-02-21 17:54:31 -0300
+Processing by PacientesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/index.html.erb within layouts/application
+  [1m[36mPaciente Load (0.7ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/pacientes/index.html.erb:14
+  Rendered pacientes/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 1777)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 3262)
+Completed 200 OK in 21ms (Views: 17.4ms | ActiveRecord: 0.7ms | Allocations: 3630)
+
+
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-02-21 17:58:19 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 2316)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 3107)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 3626)
+
+
+Started GET "/pacientes/new" for 127.0.0.1 at 2024-02-21 17:58:22 -0300
+Processing by PacientesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 5.1ms | Allocations: 2286)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2353)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 3915)
+Completed 200 OK in 44ms (Views: 10.7ms | ActiveRecord: 10.3ms | Allocations: 15261)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-21 17:58:24 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2184)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 2948)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 3217)
+
+
+Started GET "/pacientes" for 127.0.0.1 at 2024-02-21 17:58:25 -0300
+Processing by PacientesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/index.html.erb within layouts/application
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/pacientes/index.html.erb:14
+  Rendered pacientes/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1429)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 2912)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.4ms | Allocations: 3232)
+
+
+Started GET "/pacientes/1" for 127.0.0.1 at 2024-02-21 17:58:26 -0300
+Processing by PacientesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPaciente Load (0.7ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:64:in `set_paciente'
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:15:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/show.html.erb within layouts/application
+  [1m[36mEndereco Load (0.3ms)[0m  [1m[34mSELECT "enderecos".* FROM "enderecos" WHERE "enderecos"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pacientes/show.html.erb:30
+  Rendered pacientes/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2106)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 3597)
+Completed 200 OK in 21ms (Views: 8.1ms | ActiveRecord: 3.0ms | Allocations: 8699)
+
+
+Started GET "/pacientes/1/prontuarios/new" for 127.0.0.1 at 2024-02-21 17:58:28 -0300
+Processing by ProntuariosController#new as HTML
+  Parameters: {"paciente_id"=>"1"}
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:16:in `new'
+  [1m[36mProntuario Load (0.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:17:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 11.3ms | Allocations: 2355)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 12.7ms | Allocations: 2597)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 4149)
+Completed 200 OK in 33ms (Views: 19.7ms | ActiveRecord: 3.0ms | Allocations: 9420)
+
+
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 18:00:05 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.5ms | Allocations: 1428)
+
+
+  
+NoMethodError (undefined method `prontuarios' for #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>):
+  
+app/controllers/prontuarios_controller.rb:30:in `create'
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 18:06:25 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+  [1m[36mPaciente Load (2.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (2.7ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000021985400d30>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+Completed 500 Internal Server Error in 379ms (ActiveRecord: 12.5ms | Allocations: 14298)
+
+
+  
+NoMethodError (undefined method `build' for nil:NilClass):
+  
+app/controllers/prontuarios_controller.rb:30:in `create'
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 18:08:06 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (1.0ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000021985b3ed90>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 11.6ms | Allocations: 12975)
+
+
+  
+NoMethodError (undefined method `build' for nil:NilClass):
+  
+app/controllers/prontuarios_controller.rb:30:in `create'
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 18:10:10 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000021985c85140>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 4.4ms | Allocations: 9229)
+
+
+  
+NoMethodError (undefined method `build_prontuario' for #<ProntuariosController:0x0000000002ece8>):
+  
+app/controllers/prontuarios_controller.rb:30:in `create'
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 18:10:30 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x00000219853a69c0>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 14.3ms | Allocations: 13231)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'dataCriacao' for Prontuario.):
+  
+app/controllers/prontuarios_controller.rb:30:in `create'
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 18:12:54 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000021985450510>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.5ms | Allocations: 1986)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'dataCriacao' for Prontuario.):
+  
+app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameDataCriacoInProntuarios (20240221211546)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.4ms)[0m  [1m[35mALTER TABLE "prontuarios" RENAME COLUMN "dataCriaco" TO "dataCriacao"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(737815420147457505)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameDataCriacoInProntuarios (20240221211546)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "prontuarios" RENAME COLUMN "dataCriaco" TO "dataCriacao"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 18:27:18 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (3.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000021985b38350>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+Completed 500 Internal Server Error in 130ms (ActiveRecord: 3.3ms | Allocations: 12514)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'dataCriacao' for Prontuario.):
+  
+app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 18:29:44 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000021984afbaf0>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 14.7ms | Allocations: 13690)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'dataCriacao' for Prontuario.):
+  
+app/controllers/prontuarios_controller.rb:30:in `create'
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 18:31:33 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (1.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5a59dad0>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 8.6ms | Allocations: 24139)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'dataCriacao' for Prontuario.):
+  
+app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mProntuario Load (0.6ms)[0m  [1m[34mSELECT dataCriacao FROM prontuarios[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameDataCriacoInProntuarios (20240221213519)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "prontuarios" RENAME COLUMN "dataCriaco" TO "dataCriacao"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(737815420147457505)[0m
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 18:38:34 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (1.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5f3229e0>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Paciente progredindo bem."}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 1.8ms | Allocations: 12492)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'dataCriacao' for Prontuario.):
+  
+app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-02-21 19:03:55 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 122.9ms | Allocations: 24986)
+  Rendered layout layouts/application.html.erb (Duration: 144.5ms | Allocations: 26157)
+Completed 200 OK in 160ms (Views: 156.6ms | ActiveRecord: 0.0ms | Allocations: 27004)
+
+
+Started GET "/medicos/new" for 127.0.0.1 at 2024-02-21 19:03:57 -0300
+Processing by MedicosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering medicos/new.html.erb within layouts/application
+  Rendered medicos/_form.html.erb (Duration: 19.9ms | Allocations: 4325)
+  Rendered medicos/new.html.erb within layouts/application (Duration: 21.5ms | Allocations: 4562)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 6154)
+Completed 200 OK in 332ms (Views: 30.8ms | ActiveRecord: 29.9ms | Allocations: 25041)
+
+
+Started POST "/medicos" for 127.0.0.1 at 2024-02-21 19:05:06 -0300
+Processing by MedicosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "medico"=>{"nome"=>"Ronaldo Moura Sales", "licenca"=>"15423698754", "cpf"=>"36987452789", "especialidade"=>"Psicologia", "email"=>"ronaldomourasales@gmail.com", "endereco_attributes"=>{"cep"=>"55345000", "cidade"=>"Porto Velho", "bairro"=>"Centro ", "logradouro"=>"Rua dos Coqueiros", "numero"=>"54", "complemento"=>"Casa"}, "inicio_consulta"=>"08:00", "termino_consulta"=>"14:00"}, "commit"=>"Salvar"}
+[31mUnpermitted parameters: :inicio_consulta, :termino_consulta. Context: { controller: MedicosController, action: create, request: #<ActionDispatch::Request:0x0000020d5f536a60>, params: {"authenticity_token"=>"[FILTERED]", "medico"=>{"nome"=>"Ronaldo Moura Sales", "licenca"=>"15423698754", "cpf"=>"36987452789", "especialidade"=>"Psicologia", "email"=>"ronaldomourasales@gmail.com", "endereco_attributes"=>{"cep"=>"55345000", "cidade"=>"Porto Velho", "bairro"=>"Centro ", "logradouro"=>"Rua dos Coqueiros", "numero"=>"54", "complemento"=>"Casa"}, "inicio_consulta"=>"08:00", "termino_consulta"=>"14:00"}, "commit"=>"Salvar", "controller"=>"medicos", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/medicos_controller.rb:28:in `block in create'
+  [1m[36mMedico Exists? (7.6ms)[0m  [1m[34mSELECT 1 AS one FROM "medicos" WHERE "medicos"."licenca" = $1 LIMIT $2[0m  [["licenca", "15423698754"], ["LIMIT", 1]]
+  ↳ app/controllers/medicos_controller.rb:28:in `block in create'
+  [1m[36mMedico Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "medicos" WHERE "medicos"."cpf" = $1 LIMIT $2[0m  [["cpf", "36987452789"], ["LIMIT", 1]]
+  ↳ app/controllers/medicos_controller.rb:28:in `block in create'
+  [1m[36mMedico Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "medicos" WHERE "medicos"."email" = $1 LIMIT $2[0m  [["email", "ronaldomourasales@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/medicos_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/medicos_controller.rb:28:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering medicos/new.html.erb within layouts/application
+  Rendered medicos/_form.html.erb (Duration: 6.3ms | Allocations: 3336)
+  Rendered medicos/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 3398)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 4891)
+Completed 422 Unprocessable Entity in 55ms (Views: 12.4ms | ActiveRecord: 10.0ms | Allocations: 11143)
+
+
+Started POST "/medicos" for 127.0.0.1 at 2024-02-21 19:05:11 -0300
+Processing by MedicosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "medico"=>{"nome"=>"Ronaldo Moura Sales", "licenca"=>"15423698753", "cpf"=>"36987452789", "especialidade"=>"Psicologia", "email"=>"ronaldomourasales@gmail.com", "endereco_attributes"=>{"cep"=>"55345000", "cidade"=>"Porto Velho", "bairro"=>"Centro ", "logradouro"=>"Rua dos Coqueiros", "numero"=>"54", "complemento"=>"Casa"}, "inicio_consulta"=>"", "termino_consulta"=>""}, "commit"=>"Salvar"}
+[31mUnpermitted parameters: :inicio_consulta, :termino_consulta. Context: { controller: MedicosController, action: create, request: #<ActionDispatch::Request:0x0000020d5f45f6f0>, params: {"authenticity_token"=>"[FILTERED]", "medico"=>{"nome"=>"Ronaldo Moura Sales", "licenca"=>"15423698753", "cpf"=>"36987452789", "especialidade"=>"Psicologia", "email"=>"ronaldomourasales@gmail.com", "endereco_attributes"=>{"cep"=>"55345000", "cidade"=>"Porto Velho", "bairro"=>"Centro ", "logradouro"=>"Rua dos Coqueiros", "numero"=>"54", "complemento"=>"Casa"}, "inicio_consulta"=>"", "termino_consulta"=>""}, "commit"=>"Salvar", "controller"=>"medicos", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/medicos_controller.rb:28:in `block in create'
+  [1m[36mMedico Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "medicos" WHERE "medicos"."licenca" = $1 LIMIT $2[0m  [["licenca", "15423698753"], ["LIMIT", 1]]
+  ↳ app/controllers/medicos_controller.rb:28:in `block in create'
+  [1m[36mMedico Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "medicos" WHERE "medicos"."cpf" = $1 LIMIT $2[0m  [["cpf", "36987452789"], ["LIMIT", 1]]
+  ↳ app/controllers/medicos_controller.rb:28:in `block in create'
+  [1m[36mMedico Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "medicos" WHERE "medicos"."email" = $1 LIMIT $2[0m  [["email", "ronaldomourasales@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/medicos_controller.rb:28:in `block in create'
+  [1m[36mEndereco Create (2.7ms)[0m  [1m[32mINSERT INTO "enderecos" ("cep", "cidade", "bairro", "numero", "logradouro", "complemento", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["cep", 55345000], ["cidade", "Porto Velho"], ["bairro", "Centro "], ["numero", 54], ["logradouro", "Rua dos Coqueiros"], ["complemento", "Casa"], ["created_at", "2024-02-21 22:05:11.607602"], ["updated_at", "2024-02-21 22:05:11.607602"]]
+  ↳ app/controllers/medicos_controller.rb:28:in `block in create'
+  [1m[36mMedico Create (3.9ms)[0m  [1m[32mINSERT INTO "medicos" ("nome", "lincenca", "especialidade", "cpf", "email", "user_id", "endereco_id", "created_at", "updated_at", "licenca", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["nome", "Ronaldo Moura Sales"], ["lincenca", nil], ["especialidade", "Psicologia"], ["cpf", "36987452789"], ["email", "ronaldomourasales@gmail.com"], ["user_id", nil], ["endereco_id", 8], ["created_at", "2024-02-21 22:05:11.626778"], ["updated_at", "2024-02-21 22:05:11.626778"], ["licenca", "15423698753"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  ↳ app/controllers/medicos_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/medicos_controller.rb:28:in `block in create'
+Redirected to http://127.0.0.1:3000/medicos/4
+Completed 302 Found in 47ms (ActiveRecord: 10.3ms | Allocations: 8144)
+
+
+Started GET "/medicos/4" for 127.0.0.1 at 2024-02-21 19:05:11 -0300
+Processing by MedicosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/medicos_controller.rb:63:in `set_medico'
+  Rendering layout layouts/application.html.erb
+  Rendering medicos/show.html.erb within layouts/application
+  Rendered medicos/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 779)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 2308)
+Completed 200 OK in 15ms (Views: 8.8ms | ActiveRecord: 0.7ms | Allocations: 3864)
+
+
+Started GET "/medicos" for 127.0.0.1 at 2024-02-21 19:17:23 -0300
+Processing by MedicosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering medicos/index.html.erb within layouts/application
+Started GET "/medicos" for 127.0.0.1 at 2024-02-21 19:17:23 -0300
+Processing by MedicosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering medicos/index.html.erb within layouts/application
+  [1m[36mMedico Load (4.2ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/medicos/index.html.erb:14
+  Rendered medicos/index.html.erb within layouts/application (Duration: 1172.4ms | Allocations: 7877)
+  [1m[36mMedico Load (4.9ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/medicos/index.html.erb:14
+  Rendered medicos/index.html.erb within layouts/application (Duration: 895.7ms | Allocations: 8465)
+  Rendered layout layouts/application.html.erb (Duration: 933.2ms | Allocations: 10278)
+Completed 200 OK in 938ms (Views: 913.4ms | ActiveRecord: 23.1ms | Allocations: 10886)
+
+
+  Rendered layout layouts/application.html.erb (Duration: 1287.7ms | Allocations: 14112)
+Completed 200 OK in 1387ms (Views: 1319.9ms | ActiveRecord: 31.5ms | Allocations: 15377)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-21 19:17:28 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 182.7ms | Allocations: 2620)
+  Rendered layout layouts/application.html.erb (Duration: 188.2ms | Allocations: 3397)
+Completed 200 OK in 202ms (Views: 199.5ms | ActiveRecord: 0.0ms | Allocations: 3899)
+
+
+Started GET "/pacientes" for 127.0.0.1 at 2024-02-21 19:17:30 -0300
+Processing by PacientesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/index.html.erb within layouts/application
+  [1m[36mPaciente Load (2.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/pacientes/index.html.erb:14
+  Rendered pacientes/index.html.erb within layouts/application (Duration: 35.1ms | Allocations: 5002)
+  Rendered layout layouts/application.html.erb (Duration: 71.1ms | Allocations: 6569)
+Completed 200 OK in 133ms (Views: 94.4ms | ActiveRecord: 2.4ms | Allocations: 9711)
+
+
+Started GET "/pacientes/1" for 127.0.0.1 at 2024-02-21 19:17:32 -0300
+Processing by PacientesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPaciente Load (2.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:64:in `set_paciente'
+  [1m[36mProntuario Load (1.2ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:15:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/show.html.erb within layouts/application
+  [1m[36mEndereco Load (5.0ms)[0m  [1m[34mSELECT "enderecos".* FROM "enderecos" WHERE "enderecos"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pacientes/show.html.erb:30
+  Rendered pacientes/show.html.erb within layouts/application (Duration: 69.4ms | Allocations: 3101)
+  Rendered layout layouts/application.html.erb (Duration: 81.8ms | Allocations: 4592)
+Completed 200 OK in 208ms (Views: 79.1ms | ActiveRecord: 9.4ms | Allocations: 9659)
+
+
+Started GET "/pacientes/1/prontuarios/new" for 127.0.0.1 at 2024-02-21 19:17:34 -0300
+Processing by ProntuariosController#new as HTML
+  Parameters: {"paciente_id"=>"1"}
+  [1m[36mPaciente Load (0.7ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:16:in `new'
+  [1m[36mProntuario Load (3.0ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:17:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 50.2ms | Allocations: 2478)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 55.3ms | Allocations: 2715)
+  Rendered layout layouts/application.html.erb (Duration: 67.2ms | Allocations: 4268)
+Completed 200 OK in 118ms (Views: 81.2ms | ActiveRecord: 3.8ms | Allocations: 8219)
+
+
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:17:48 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Adpfafasd"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.9ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5f1ce800>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Adpfafasd"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.9ms | Allocations: 2549)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'dataCriacao' for Prontuario.):
+  
+app/controllers/prontuarios_controller.rb:30:in `create'
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:18:42 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Adpfafasd"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.9ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameters: :paciente_id, :dataCriacao. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5f6c23c0>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Adpfafasd"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (0.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mProntuario Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+Completed 500 Internal Server Error in 121ms (ActiveRecord: 36.0ms | Allocations: 17498)
+
+
+  
+NoMethodError (undefined method `dataCriacao' for #<Prontuario id: nil, codigo: 1, datacriacao: nil, historico: "Adpfafasd", paciente_id: 1, created_at: nil, updated_at: nil>):
+  
+app/controllers/prontuarios_controller.rb:33:in `block in create'
+app/controllers/prontuarios_controller.rb:32:in `create'
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:21:16 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Adpfafasd"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (2.7ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameters: :paciente_id, :dataCriacao. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5f4b4c40>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Adpfafasd"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (6.7ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mProntuario Load (5.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mProntuario Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 18.1ms | Allocations: 6224)
+
+
+  
+NoMethodError (undefined method `dataCriacao' for #<Prontuario id: nil, codigo: 1, datacriacao: nil, historico: "Adpfafasd", paciente_id: 1, created_at: nil, updated_at: nil>):
+  
+app/controllers/prontuarios_controller.rb:33:in `block in create'
+app/controllers/prontuarios_controller.rb:32:in `create'
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:21:54 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Adpfafasd"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (2.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameters: :paciente_id, :dataCriacao. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5f537fa0>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"Adpfafasd"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (2.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mProntuario Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 8.5ms | Allocations: 4867)
+
+
+  
+NoMethodError (undefined method `dataCriacao' for #<Prontuario id: nil, codigo: 1, datacriacao: nil, historico: "Adpfafasd", paciente_id: 1, created_at: nil, updated_at: nil>):
+  
+app/controllers/prontuarios_controller.rb:33:in `block in create'
+app/controllers/prontuarios_controller.rb:32:in `create'
+Started GET "/" for 127.0.0.1 at 2024-02-21 19:26:10 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 21.9ms | Allocations: 2661)
+  Rendered layout layouts/application.html.erb (Duration: 26.5ms | Allocations: 3801)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.0ms | Allocations: 4466)
+
+
+Started GET "/pacientes/new" for 127.0.0.1 at 2024-02-21 19:26:13 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PacientesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 55.1ms | Allocations: 3220)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 65.1ms | Allocations: 3456)
+  Rendered layout layouts/application.html.erb (Duration: 102.3ms | Allocations: 5017)
+Completed 200 OK in 281ms (Views: 130.8ms | ActiveRecord: 23.7ms | Allocations: 16505)
+
+
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeColumnType (20240221222957)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "prontuarios" ALTER COLUMN "datacriacao" TYPE date[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240221222957"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-02-21 19:31:07 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-02-21 19:31:09 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 83.2ms | Allocations: 2280)
+  Rendered layout layouts/application.html.erb (Duration: 150.8ms | Allocations: 3095)
+Completed 200 OK in 182ms (Views: 167.9ms | ActiveRecord: 0.0ms | Allocations: 3613)
+
+
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 19.0ms | Allocations: 2424)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 3243)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.0ms | Allocations: 3766)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-21 19:31:11 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 16.0ms | Allocations: 2183)
+  Rendered layout layouts/application.html.erb (Duration: 39.1ms | Allocations: 2966)
+Completed 200 OK in 49ms (Views: 47.7ms | ActiveRecord: 0.0ms | Allocations: 3234)
+
+
+Started GET "/pacientes" for 127.0.0.1 at 2024-02-21 19:31:13 -0300
+Processing by PacientesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/index.html.erb within layouts/application
+  [1m[36mPaciente Load (1.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/pacientes/index.html.erb:14
+  Rendered pacientes/index.html.erb within layouts/application (Duration: 72.7ms | Allocations: 5470)
+  Rendered layout layouts/application.html.erb (Duration: 111.5ms | Allocations: 7025)
+Completed 200 OK in 234ms (Views: 101.0ms | ActiveRecord: 13.4ms | Allocations: 10286)
+
+
+Started GET "/pacientes/1" for 127.0.0.1 at 2024-02-21 19:31:15 -0300
+Processing by PacientesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPaciente Load (1.9ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:64:in `set_paciente'
+  [1m[36mProntuario Load (3.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:15:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/show.html.erb within layouts/application
+  [1m[36mEndereco Load (3.3ms)[0m  [1m[34mSELECT "enderecos".* FROM "enderecos" WHERE "enderecos"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pacientes/show.html.erb:30
+  Rendered pacientes/show.html.erb within layouts/application (Duration: 44.2ms | Allocations: 6987)
+  Rendered layout layouts/application.html.erb (Duration: 60.7ms | Allocations: 8478)
+Completed 200 OK in 103ms (Views: 51.2ms | ActiveRecord: 23.2ms | Allocations: 13663)
+
+
+Started GET "/pacientes/1/prontuarios/new" for 127.0.0.1 at 2024-02-21 19:31:16 -0300
+Processing by ProntuariosController#new as HTML
+  Parameters: {"paciente_id"=>"1"}
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:16:in `new'
+  [1m[36mProntuario Load (2.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:17:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 20.3ms | Allocations: 1699)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 22.1ms | Allocations: 1932)
+  Rendered layout layouts/application.html.erb (Duration: 41.6ms | Allocations: 3484)
+Completed 200 OK in 73ms (Views: 46.8ms | ActiveRecord: 4.8ms | Allocations: 7435)
+
+
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:31:29 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"dfgfgh"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameters: :paciente_id, :dataCriacao. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5ebf6180>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"dfgfgh"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (2.1ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mProntuario Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 4.0ms | Allocations: 5596)
+
+
+  
+NoMethodError (undefined method `dataCriacao' for #<Prontuario id: nil, codigo: 1, datacriacao: nil, historico: "dfgfgh", paciente_id: 1, created_at: nil, updated_at: nil>):
+  
+app/controllers/prontuarios_controller.rb:33:in `block in create'
+app/controllers/prontuarios_controller.rb:32:in `create'
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:33:59 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"dfgfgh"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (1.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameters: :paciente_id, :dataCriacao. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5f326220>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"dfgfgh"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (0.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mProntuario Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 10.0ms | Allocations: 1750)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 16.3ms | Allocations: 1817)
+  Rendered layout layouts/application.html.erb (Duration: 60.3ms | Allocations: 3397)
+Completed 422 Unprocessable Entity in 221ms (Views: 73.4ms | ActiveRecord: 20.5ms | Allocations: 21123)
+
+
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:34:09 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"dfgfgh"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameters: :paciente_id, :dataCriacao. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5fcf6f48>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"dfgfgh"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (1.8ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mProntuario Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 5.8ms | Allocations: 1532)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1594)
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 3085)
+Completed 422 Unprocessable Entity in 54ms (Views: 25.9ms | ActiveRecord: 3.6ms | Allocations: 8013)
+
+
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:34:26 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"dfgfgh"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (2.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameters: :paciente_id, :dataCriacao. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5f478cb8>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-21", "codigo"=>"1", "historico"=>"dfgfgh"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (1.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mProntuario Exists? (3.5ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 4.7ms | Allocations: 1532)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1594)
+  Rendered layout layouts/application.html.erb (Duration: 42.8ms | Allocations: 3085)
+Completed 422 Unprocessable Entity in 107ms (Views: 46.6ms | ActiveRecord: 10.0ms | Allocations: 8008)
+
+
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:38:25 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"", "codigo"=>"1", "historico"=>"dfgfgh"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameters: :paciente_id, :dataCriacao. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5bdfaab0>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"", "codigo"=>"1", "historico"=>"dfgfgh"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (1.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mProntuario Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 7.9ms | Allocations: 2143)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 2380)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 4279)
+Completed 422 Unprocessable Entity in 108ms (Views: 25.9ms | ActiveRecord: 16.5ms | Allocations: 22212)
+
+
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:38:33 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-02", "codigo"=>"1", "historico"=>"dfgfgh"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameters: :paciente_id, :dataCriacao. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5f6e6f40>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-02", "codigo"=>"1", "historico"=>"dfgfgh"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (2.0ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mProntuario Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 7.0ms | Allocations: 1532)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1594)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 3114)
+Completed 422 Unprocessable Entity in 41ms (Views: 13.8ms | ActiveRecord: 3.6ms | Allocations: 8075)
+
+
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:39:21 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"", "codigo"=>"1", "historico"=>"dfgfgh"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameters: :paciente_id, :dataCriacao. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d6028b2d8>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"", "codigo"=>"1", "historico"=>"dfgfgh"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (0.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mProntuario Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 10.5ms | Allocations: 1532)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 11.0ms | Allocations: 1594)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 3085)
+Completed 422 Unprocessable Entity in 50ms (Views: 26.8ms | ActiveRecord: 1.9ms | Allocations: 8025)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-21 19:39:29 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 27.8ms | Allocations: 2627)
+  Rendered layout layouts/application.html.erb (Duration: 31.2ms | Allocations: 3421)
+Completed 200 OK in 37ms (Views: 36.3ms | ActiveRecord: 0.0ms | Allocations: 4001)
+
+
+Started GET "/pacientes" for 127.0.0.1 at 2024-02-21 19:39:32 -0300
+Processing by PacientesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/index.html.erb within layouts/application
+  [1m[36mPaciente Load (3.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/pacientes/index.html.erb:14
+  Rendered pacientes/index.html.erb within layouts/application (Duration: 16.0ms | Allocations: 1805)
+  Rendered layout layouts/application.html.erb (Duration: 38.8ms | Allocations: 3359)
+Completed 200 OK in 59ms (Views: 47.9ms | ActiveRecord: 3.8ms | Allocations: 4085)
+
+
+Started GET "/pacientes/1" for 127.0.0.1 at 2024-02-21 19:39:35 -0300
+Processing by PacientesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPaciente Load (0.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:64:in `set_paciente'
+  [1m[36mProntuario Load (0.9ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:15:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/show.html.erb within layouts/application
+  [1m[36mEndereco Load (0.8ms)[0m  [1m[34mSELECT "enderecos".* FROM "enderecos" WHERE "enderecos"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pacientes/show.html.erb:30
+  Rendered pacientes/show.html.erb within layouts/application (Duration: 99.3ms | Allocations: 7098)
+  Rendered layout layouts/application.html.erb (Duration: 130.9ms | Allocations: 8589)
+Completed 200 OK in 167ms (Views: 117.5ms | ActiveRecord: 16.7ms | Allocations: 10144)
+
+
+Started GET "/pacientes/1/prontuarios/new" for 127.0.0.1 at 2024-02-21 19:39:41 -0300
+Processing by ProntuariosController#new as HTML
+  Parameters: {"paciente_id"=>"1"}
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:16:in `new'
+  [1m[36mProntuario Load (0.2ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:17:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 5.6ms | Allocations: 1103)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1165)
+  Rendered layout layouts/application.html.erb (Duration: 30.5ms | Allocations: 2656)
+Completed 200 OK in 45ms (Views: 32.4ms | ActiveRecord: 0.5ms | Allocations: 4222)
+
+
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:40:01 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-02", "codigo"=>"1", "historico"=>"dad dffa"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameters: :paciente_id, :dataCriacao. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5ece2bc0>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-02", "codigo"=>"1", "historico"=>"dad dffa"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mProntuario Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 3.2ms | Allocations: 1530)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1592)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 3112)
+Completed 422 Unprocessable Entity in 56ms (Views: 18.7ms | ActiveRecord: 2.5ms | Allocations: 8047)
+
+
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:40:43 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-02", "codigo"=>"1", "historico"=>"dad dffa"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (1.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameters: :paciente_id, :dataCriacao. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5f6ef640>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "dataCriacao"=>"2024-02-02", "codigo"=>"1", "historico"=>"dad dffa"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (0.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mProntuario Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 17.0ms | Allocations: 2322)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 24.9ms | Allocations: 2559)
+  Rendered layout layouts/application.html.erb (Duration: 32.5ms | Allocations: 4455)
+Completed 422 Unprocessable Entity in 69ms (Views: 38.8ms | ActiveRecord: 5.1ms | Allocations: 9945)
+
+
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:40:53 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "datacriacao"=>"2024-02-02", "codigo"=>"1", "historico"=>"dad dffa"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d6028f518>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "datacriacao"=>"2024-02-02", "codigo"=>"1", "historico"=>"dad dffa"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (0.6ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mProntuario Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mProntuario Create (15.6ms)[0m  [1m[32mINSERT INTO "prontuarios" ("codigo", "datacriacao", "historico", "paciente_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["codigo", 1], ["datacriacao", "2024-02-02"], ["historico", "dad dffa"], ["paciente_id", 1], ["created_at", "2024-02-21 22:40:53.176013"], ["updated_at", "2024-02-21 22:40:53.176013"]]
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/prontuarios_controller.rb:33:in `block in create'
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 18.8ms | Allocations: 5627)
+
+
+  
+NoMethodError (undefined method `prontuario_url' for #<ProntuariosController:0x0000000004f2e0>):
+  
+app/controllers/prontuarios_controller.rb:34:in `block (2 levels) in create'
+app/controllers/prontuarios_controller.rb:32:in `create'
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:47:00 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "datacriacao"=>"2024-02-02", "codigo"=>"1", "historico"=>"dad dffa"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (7.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d60a7e440>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "datacriacao"=>"2024-02-02", "codigo"=>"1", "historico"=>"dad dffa"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (1.6ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mProntuario Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 AND "prontuarios"."id" != $2 LIMIT $3[0m  [["codigo", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 309ms (ActiveRecord: 26.0ms | Allocations: 20278)
+
+
+  
+ActiveRecord::RecordNotSaved (Failed to remove the existing associated prontuario. The record failed to save after its foreign key was set to nil.):
+  
+app/controllers/prontuarios_controller.rb:30:in `create'
+Started POST "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-21 19:48:12 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "datacriacao"=>"2024-02-02", "codigo"=>"1", "historico"=>"dad dffa"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:70:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d60e942f0>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"1", "datacriacao"=>"2024-02-02", "codigo"=>"1", "historico"=>"dad dffa"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"1"} }[0m
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mProntuario Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 AND "prontuarios"."id" != $2 LIMIT $3[0m  [["codigo", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 59ms (ActiveRecord: 19.1ms | Allocations: 17869)
+
+
+  
+ActiveRecord::RecordNotSaved (Failed to remove the existing associated prontuario. The record failed to save after its foreign key was set to nil.):
+  
+app/controllers/prontuarios_controller.rb:30:in `create'
+Started GET "/" for 127.0.0.1 at 2024-02-21 19:49:19 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 20.3ms | Allocations: 2660)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 3463)
+Completed 200 OK in 31ms (Views: 28.7ms | ActiveRecord: 0.0ms | Allocations: 4045)
+
+
+Started GET "/pacientes" for 127.0.0.1 at 2024-02-21 19:52:12 -0300
+Processing by PacientesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/index.html.erb within layouts/application
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/pacientes/index.html.erb:14
+  Rendered pacientes/index.html.erb within layouts/application (Duration: 28.2ms | Allocations: 5479)
+  Rendered layout layouts/application.html.erb (Duration: 43.1ms | Allocations: 7033)
+Completed 200 OK in 53ms (Views: 36.8ms | ActiveRecord: 9.6ms | Allocations: 10392)
+
+
+Started GET "/pacientes/2" for 127.0.0.1 at 2024-02-21 19:52:16 -0300
+Processing by PacientesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPaciente Load (0.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:64:in `set_paciente'
+  [1m[36mProntuario Load (20.8ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pacientes_controller.rb:15:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/show.html.erb within layouts/application
+  [1m[36mEndereco Load (3.5ms)[0m  [1m[34mSELECT "enderecos".* FROM "enderecos" WHERE "enderecos"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pacientes/show.html.erb:30
+  Rendered pacientes/show.html.erb within layouts/application (Duration: 73.5ms | Allocations: 6980)
+  Rendered layout layouts/application.html.erb (Duration: 81.8ms | Allocations: 8471)
+Completed 200 OK in 159ms (Views: 76.2ms | ActiveRecord: 31.7ms | Allocations: 13656)
+
+
+Started GET "/pacientes/2/prontuarios/new" for 127.0.0.1 at 2024-02-21 19:52:18 -0300
+Processing by ProntuariosController#new as HTML
+  Parameters: {"paciente_id"=>"2"}
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:16:in `new'
+  [1m[36mProntuario Load (2.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:17:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 12.5ms | Allocations: 1209)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 13.1ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 2828)
+Completed 200 OK in 47ms (Views: 32.4ms | ActiveRecord: 4.1ms | Allocations: 6655)
+
+
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 19:52:42 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:75:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d5f32e060>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:38:in `block in create'
+  [1m[36mProntuario Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:38:in `block in create'
+  [1m[36mProntuario Create (1.9ms)[0m  [1m[32mINSERT INTO "prontuarios" ("codigo", "datacriacao", "historico", "paciente_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["codigo", 2], ["datacriacao", "2024-02-22"], ["historico", "Apresenta bom aspectos gerais"], ["paciente_id", 2], ["created_at", "2024-02-21 22:52:42.083349"], ["updated_at", "2024-02-21 22:52:42.083349"]]
+  ↳ app/controllers/prontuarios_controller.rb:38:in `block in create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/prontuarios_controller.rb:38:in `block in create'
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 5.1ms | Allocations: 6330)
+
+
+  
+NoMethodError (undefined method `paciente_prontuario_url' for #<ProntuariosController:0x00000000067278>):
+  
+app/controllers/prontuarios_controller.rb:39:in `block (2 levels) in create'
+app/controllers/prontuarios_controller.rb:37:in `create'
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 19:54:38 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:75:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 7.2ms | Allocations: 14696)
+
+
+  
+NoMethodError (undefined method `edit_paciente_prontuario_path' for #<ProntuariosController:0x0000000006f1a8>):
+  
+app/controllers/prontuarios_controller.rb:33:in `create'
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 19:55:15 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:75:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 10.3ms | Allocations: 14695)
+
+
+  
+NoMethodError (undefined method `edit_paciente_prontuario_path' for #<ProntuariosController:0x00000000077100>):
+  
+app/controllers/prontuarios_controller.rb:33:in `create'
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 19:58:32 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:76:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 4.4ms | Allocations: 1101)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1172)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 1254)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 12.2ms | Allocations: 16032)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass):
+    1: <%= form_with(model: [@paciente, @prontuario], local: true) do |form| %>
+    2:   <% if prontuario.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(prontuario.errors.count, "error") %> prohibited this prontuario from being saved:</h2>
+  
+app/views/prontuarios/_form.html.erb:1
+app/views/prontuarios/new.html.erb:4
+app/controllers/prontuarios_controller.rb:34:in `create'
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 19:59:02 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:76:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+No template found for ProntuariosController#create, rendering head :no_content
+Completed 204 No Content in 35ms (ActiveRecord: 7.9ms | Allocations: 14704)
+
+
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 19:59:04 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:76:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (2.1ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+No template found for ProntuariosController#create, rendering head :no_content
+Completed 204 No Content in 16ms (ActiveRecord: 2.3ms | Allocations: 2146)
+
+
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 19:59:05 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:76:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+No template found for ProntuariosController#create, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 0.7ms | Allocations: 2131)
+
+
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 19:59:06 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:76:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+No template found for ProntuariosController#create, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.7ms | Allocations: 2161)
+
+
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 19:59:07 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:76:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+No template found for ProntuariosController#create, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 0.8ms | Allocations: 2143)
+
+
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 19:59:22 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:76:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 1.8ms | Allocations: 1089)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1158)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1240)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 8.2ms | Allocations: 16012)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass):
+    1: <%= form_with(model: [@paciente, @prontuario], local: true) do |form| %>
+    2:   <% if prontuario.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(prontuario.errors.count, "error") %> prohibited this prontuario from being saved:</h2>
+  
+app/views/prontuarios/_form.html.erb:1
+app/views/prontuarios/new.html.erb:4
+app/controllers/prontuarios_controller.rb:34:in `create'
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 20:00:30 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:76:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d60dea7a0>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:31:in `create'
+  [1m[36mProntuario Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 AND "prontuarios"."id" != $2 LIMIT $3[0m  [["codigo", 2], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:31:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:31:in `create'
+Completed 422 Unprocessable Entity in 50ms (ActiveRecord: 11.4ms | Allocations: 17891)
+
+
+  
+ActiveRecord::RecordNotSaved (Failed to remove the existing associated prontuario. The record failed to save after its foreign key was set to nil.):
+  
+app/controllers/prontuarios_controller.rb:31:in `create'
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 20:01:02 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:76:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+[31mUnpermitted parameter: :paciente_id. Context: { controller: ProntuariosController, action: create, request: #<ActionDispatch::Request:0x0000020d60f41e00>, params: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "controller"=>"prontuarios", "action"=>"create", "paciente_id"=>"2"} }[0m
+  [1m[36mProntuario Load (0.2ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mProntuario Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "prontuarios" WHERE "prontuarios"."codigo" = $1 AND "prontuarios"."id" != $2 LIMIT $3[0m  [["codigo", 2], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 40ms (ActiveRecord: 11.8ms | Allocations: 17858)
+
+
+  
+ActiveRecord::RecordNotSaved (Failed to remove the existing associated prontuario. The record failed to save after its foreign key was set to nil.):
+  
+app/controllers/prontuarios_controller.rb:30:in `create'
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 20:04:32 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:75:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 7.5ms | Allocations: 14719)
+
+
+  
+NoMethodError (undefined method `edit_paciente_prontuario_path' for #<ProntuariosController:0x000000000a6d38>):
+  
+app/controllers/prontuarios_controller.rb:33:in `create'
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 20:05:07 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.2ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 1.3ms | Allocations: 1089)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1158)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1240)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 6.7ms | Allocations: 16038)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass):
+    1: <%= form_with(model: [@paciente, @prontuario], local: true) do |form| %>
+    2:   <% if prontuario.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(prontuario.errors.count, "error") %> prohibited this prontuario from being saved:</h2>
+  
+app/views/prontuarios/_form.html.erb:1
+app/views/prontuarios/new.html.erb:4
+app/controllers/prontuarios_controller.rb:34:in `create'
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 20:05:33 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 10.6ms | Allocations: 1324)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 1406)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 9.7ms | Allocations: 16343)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    1: <p style="color: green"><%= notice %></p>
+    2: 
+    3: <%= render @prontuario %>
+    4: 
+    5: <div>
+    6:   <%= link_to "Editar esse prontuário", edit_prontuario_path(@prontuario) %> |
+  
+app/views/prontuarios/show.html.erb:3
+app/controllers/prontuarios_controller.rb:34:in `create'
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 20:06:55 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.7ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/new.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 0.8ms | Allocations: 1089)
+  Rendered prontuarios/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1158)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1240)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 13.5ms | Allocations: 16042)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass):
+    1: <%= form_with(model: [@paciente, @prontuario], local: true) do |form| %>
+    2:   <% if prontuario.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(prontuario.errors.count, "error") %> prohibited this prontuario from being saved:</h2>
+  
+app/views/prontuarios/_form.html.erb:1
+app/views/prontuarios/new.html.erb:4
+app/controllers/prontuarios_controller.rb:34:in `create'
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 20:09:59 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 18.8ms | Allocations: 14735)
+
+
+  
+NoMethodError (undefined method `pacientes_prontuario_path' for #<ProntuariosController:0x000000000c6e58>):
+  
+app/controllers/prontuarios_controller.rb:34:in `create'
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 20:11:03 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 12.1ms | Allocations: 14735)
+
+
+  
+NoMethodError (undefined method `pacientes_prontuario_path' for #<ProntuariosController:0x000000000cf8c8>):
+  
+app/controllers/prontuarios_controller.rb:34:in `create'
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 20:13:35 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+Redirected to http://127.0.0.1:3000/pacientes/2/prontuarios/2
+Completed 302 Found in 86ms (ActiveRecord: 14.6ms | Allocations: 14519)
+
+
+Started GET "/pacientes/2/prontuarios/2" for 127.0.0.1 at 2024-02-21 20:13:35 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (1.0ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 2.1ms | Allocations: 238)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 19.1ms | Allocations: 1543)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 1625)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 1.3ms | Allocations: 3884)
+
+
+  
+ActionView::Template::Error (undefined method `edit_prontuario_path' for #<ActionView::Base:0x000000000d83b0>):
+    3: <%= render @prontuario %>
+    4: 
+    5: <div>
+    6:   <%= link_to "Editar esse prontuário", edit_prontuario_path(@prontuario) %> |
+    7:   <%= link_to "Voltar para prontuarios", prontuarios_path %>
+    8: 
+    9:   <%= button_to "Apagar esse prontuário", @prontuario, method: :delete %>
+  
+app/views/prontuarios/show.html.erb:6
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 20:14:59 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+Redirected to http://127.0.0.1:3000/pacientes/2/prontuarios/2
+Completed 302 Found in 20ms (ActiveRecord: 0.9ms | Allocations: 2144)
+
+
+Started GET "/pacientes/2/prontuarios/2" for 127.0.0.1 at 2024-02-21 20:14:59 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.8ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 3.6ms | Allocations: 209)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 15.0ms | Allocations: 1821)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 1903)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 1.6ms | Allocations: 3927)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `prontuarios_path' for #<ActionView::Base:0x000000000d8720>):
+    4: 
+    5: <div>
+    6:   <%= link_to "Editar esse prontuário", edit_paciente_prontuario_path(@prontuario) %> |
+    7:   <%= link_to "Voltar para prontuarios", prontuarios_path %>
+    8: 
+    9:   <%= button_to "Apagar esse prontuário", @prontuario, method: :delete %>
+   10: </div>
+  
+app/views/prontuarios/show.html.erb:7
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 20:15:50 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (1.1ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+Redirected to http://127.0.0.1:3000/pacientes/2/prontuarios/2
+Completed 302 Found in 38ms (ActiveRecord: 1.5ms | Allocations: 2174)
+
+
+Started GET "/pacientes/2/prontuarios/2" for 127.0.0.1 at 2024-02-21 20:15:50 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (1.6ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 1.3ms | Allocations: 209)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 12.3ms | Allocations: 1847)
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 1929)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 1.9ms | Allocations: 3955)
+
+
+  
+ActionView::Template::Error (undefined method `prontuario_path' for #<ActionView::Base:0x000000000d8ab8>):
+     6:   <%= link_to "Editar esse prontuário", edit_paciente_prontuario_path(@prontuario) %> |
+     7:   <%= link_to "Voltar para prontuarios", paciente_prontuarios_path %>
+     8: 
+     9:   <%= button_to "Apagar esse prontuário", @prontuario, method: :delete %>
+    10: </div>
+  
+app/views/prontuarios/show.html.erb:9
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 20:16:28 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+Redirected to http://127.0.0.1:3000/pacientes/2/prontuarios/2
+Completed 302 Found in 11ms (ActiveRecord: 0.7ms | Allocations: 2126)
+
+
+Started GET "/pacientes/2/prontuarios/2" for 127.0.0.1 at 2024-02-21 20:16:28 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 0.8ms | Allocations: 209)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 890)
+  Rendered layout layouts/application.html.erb (Duration: 31.2ms | Allocations: 2823)
+Completed 200 OK in 49ms (Views: 37.1ms | ActiveRecord: 0.8ms | Allocations: 4877)
+
+
+Started POST "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-21 20:17:54 -0300
+Processing by ProntuariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prontuario"=>{"paciente_id"=>"2", "datacriacao"=>"2024-02-22", "codigo"=>"2", "historico"=>"Apresenta bom aspectos gerais"}, "commit"=>"Salvar Prontuário", "paciente_id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:29:in `create'
+  [1m[36mProntuario Load (0.6ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:30:in `create'
+Redirected to http://127.0.0.1:3000/pacientes/2/prontuarios/2
+Completed 302 Found in 14ms (ActiveRecord: 1.0ms | Allocations: 2134)
+
+
+Started GET "/pacientes/2/prontuarios/2" for 127.0.0.1 at 2024-02-21 20:17:54 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (1.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 3.1ms | Allocations: 213)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 8.9ms | Allocations: 872)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 2769)
+Completed 200 OK in 36ms (Views: 24.1ms | ActiveRecord: 1.7ms | Allocations: 4815)
+
+
