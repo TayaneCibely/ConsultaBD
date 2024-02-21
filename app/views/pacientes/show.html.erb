@@ -45,12 +45,32 @@
       <th>Complemento:</th>
       <td><%= @paciente.endereco.complemento %></td>
     </tr>
-  </table>
 
-  <div>
+  </table>
+    <% if @paciente.prontuario %>
+        <h2>Prontuário</h2>
+        <table>
+          <tr>
+            <th>Data que foi criado:</th>
+            <td><%= @paciente.prontuario.dataCriacao %></td>
+          </tr>
+          <tr>
+            <th>Código Prontuário<th>
+            <td><%= @paciente.prontuario.codigo %></td>
+          </tr>
+          <tr>
+            <th>Histórico Paciente</th>
+            <td><%= @paciente.prontuario.historico %></td>
+          </tr>
+        </table>
+      <% end %>
+
+  <div class="links">
+    <%= link_to 'Adicionar o Prontuário do Paciente', new_paciente_prontuario_path(paciente_id: @paciente.id), class: "btn" %>
     <%= link_to 'Editar dados', edit_paciente_path(@paciente), class: "btn" %>
-    <%= button_to "Deletar Paciente", @paciente, method: :delete, data: { confirm: "Tem certeza que deseja apagar o paciente?" } %>
-    <%= link_to "Sair", pacientes_path %>
+    <%= link_to "Sair", pacientes_path, class: "btn" %>
+    <%= button_to "Deletar Paciente", @paciente, method: :delete, data: { confirm: "Tem certeza que deseja apagar o paciente?" }, class: "btn" %>
+
   </div>
 
 </div>

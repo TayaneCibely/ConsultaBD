@@ -3,6 +3,7 @@ class Paciente <  ApplicationRecord
   belongs_to :endereco
   accepts_nested_attributes_for :endereco
   has_one :prontuario
+  accepts_nested_attributes_for :prontuario
   has_many :consultas, dependent: :destroy
   has_many :medicos, through: :consultas
   has_many :prescricoes

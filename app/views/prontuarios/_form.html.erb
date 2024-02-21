@@ -1,4 +1,4 @@
-<%= form_with(model: prontuario) do |form| %>
+<%= form_with(model: [@paciente, @prontuario], local: true) do |form| %>
   <% if prontuario.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(prontuario.errors.count, "error") %> prohibited this prontuario from being saved:</h2>
@@ -11,10 +11,10 @@
     </div>
   <% end %>
 
-   <div class="field">
-     <%= form.label :paciente_id %>
-     <%= form.collection_select :paciente_id, Paciente.all, :id, :nome_completo, prompt: "Selecione um paciente" %>
-  </div>
+<div class="field">
+  <%= form.label :paciente_id %>
+  <%= form.hidden_field :paciente_id, value: @paciente.id %>
+</div>
 
   <div class="field">
     <%= form.label :dataCriacao, "Data da Criação do Prontuário:", style: "display: block" %>

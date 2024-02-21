@@ -11,6 +11,8 @@ class PacientesController < ApplicationController
   end
 
   def show
+    @pacientes = Paciente.all
+    @prontuario = @paciente.prontuario
   end
 
   def edit
@@ -60,6 +62,9 @@ class PacientesController < ApplicationController
 
   def set_paciente
     @paciente = Paciente.find(params[:id])
+    unless @paciente
+      redirect_to pacientes_path, alert: 'Paciente não encontrado.'
+    end
   end
 
   def paciente_params

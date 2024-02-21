@@ -4,19 +4,18 @@ Rails.application.routes.draw do
 
   resources :prescricoes
   resources :exames
-  resources :prontuarios
 
   resources :pacientes do
     resources :exames, path: 'exames_do_paciente', as: 'exames_do_paciente'
-    resources :prontuarios, path: 'prontuario_do_paciente', as: 'prontuario_do_paciente'
+    resources :prontuarios, only: [:new, :create]
     resources :prescricoes, path: 'prescricoes_do_paciente', as: 'prescricoes_do_paciente'
   end
 
   get '/consultas/search', to: 'consultas#search', as: 'search_consultas'
   get '/medicos/search', to: 'medicos#search', as: 'search_medicos'
   get '/pacientes/search', to: 'pacientes#search', as: 'search_pacientes'
+  get 'search_prontuarios', to: 'prontuarios#search', as: 'search_prontuarios'
 
   resources :consultas
-  resources :pacientes
   resources :medicos
 end
