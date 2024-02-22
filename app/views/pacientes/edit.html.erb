@@ -2,6 +2,6 @@
 
 <div>
   <%= render "form", paciente: @paciente %>
-  <%= link_to "Exibir este paciente", @paciente %>
-  <%= link_to "Voltar para pacientes", pacientes_path %>
+  <%= link_to "Exibir este paciente", @paciente, class: "btn" %>
+  <%= link_to "Voltar para pacientes", pacientes_path, class: "btn" %>
 </div>

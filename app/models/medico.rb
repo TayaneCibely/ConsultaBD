@@ -2,7 +2,7 @@ class Medico <  ApplicationRecord
 
   belongs_to :endereco
   accepts_nested_attributes_for :endereco
-  has_many :consultas
+  has_many :consultas, dependent: :destroy
   has_many :pacientes, through: :consultas
 
   validates :nome, presence: true, length: { minimum: 10 }, format: { with: /\A[^0-9]+\z/}

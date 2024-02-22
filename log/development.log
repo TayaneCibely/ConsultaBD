@@ -17485,3 +17485,81 @@ DETAIL:  Key (id)=(2) is still referenced from table "exames".
 ):
   
 app/controllers/consultas_controller.rb:57:in `destroy'
+Started GET "/consultas/3" for 127.0.0.1 at 2024-02-22 17:06:33 -0300
+Processing by ConsultasController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mConsulta Load (1.0ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:70:in `set_consulta'
+  [1m[36mPaciente Load (0.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:12:in `show'
+  [1m[36mProntuario Load (0.7ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/show.html.erb within layouts/application
+  [1m[36mMedico Load (0.9ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:9
+  Rendered consultas/show.html.erb within layouts/application (Duration: 29.2ms | Allocations: 6533)
+  Rendered layout layouts/application.html.erb (Duration: 36.1ms | Allocations: 8115)
+Completed 200 OK in 323ms (Views: 36.7ms | ActiveRecord: 13.0ms | Allocations: 29875)
+
+
+Started DELETE "/consultas/3" for 127.0.0.1 at 2024-02-22 17:06:36 -0300
+Processing by ConsultasController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+  [1m[36mConsulta Load (0.7ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:70:in `set_consulta'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/consultas_controller.rb:57:in `destroy'
+  [1m[36mExame Load (1.0ms)[0m  [1m[34mSELECT "exames".* FROM "exames" WHERE "exames"."consulta_id" = $1[0m  [["consulta_id", 3]]
+  ↳ app/controllers/consultas_controller.rb:57:in `destroy'
+  [1m[36mConsulta Destroy (1.9ms)[0m  [1m[31mDELETE FROM "consultas" WHERE "consultas"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/consultas_controller.rb:57:in `destroy'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/consultas_controller.rb:57:in `destroy'
+Redirected to http://127.0.0.1:3000/consultas
+Completed 302 Found in 31ms (ActiveRecord: 9.9ms | Allocations: 4943)
+
+
+Started GET "/consultas" for 127.0.0.1 at 2024-02-22 17:06:36 -0300
+Processing by ConsultasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.3ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.1ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.2ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mPaciente Load (0.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 28.2ms | Allocations: 12460)
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 14158)
+Completed 200 OK in 34ms (Views: 30.7ms | ActiveRecord: 3.1ms | Allocations: 14438)
+
+
