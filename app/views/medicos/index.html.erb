@@ -8,7 +8,7 @@
     <h2>Busque o médico pelo nome ou CPF:</h2>
     <%= form_tag search_medicos_path, method: :get do %>
         <%= text_field_tag :query, params[:query] %>
-        <%= submit_tag "Buscar" %>
+        <%= submit_tag "Buscar", class: "btn" %>
     <% end %>
 
     <% @medico.each do |medico| %>

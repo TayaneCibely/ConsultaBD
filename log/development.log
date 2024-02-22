@@ -15904,3 +15904,599 @@ Processing by ConsultasController#index as HTML
 Completed 200 OK in 41ms (Views: 36.8ms | ActiveRecord: 2.8ms | Allocations: 12826)
 
 
+Started GET "/consultas/new" for 127.0.0.1 at 2024-02-22 15:48:37 -0300
+Processing by ConsultasController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/new.html.erb within layouts/application
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/consultas/_form.html.erb:15
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/consultas/_form.html.erb:20
+  Rendered consultas/_form.html.erb (Duration: 8.0ms | Allocations: 5149)
+  Rendered consultas/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 5211)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 6710)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.8ms | Allocations: 6995)
+
+
+Started POST "/consultas" for 127.0.0.1 at 2024-02-22 15:49:23 -0300
+Processing by ConsultasController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "consulta"=>{"medico_id"=>"4", "paciente_id"=>"4", "data"=>"2024-03-25", "horario(1i)"=>"2024", "horario(2i)"=>"2", "horario(3i)"=>"22", "horario(4i)"=>"18", "horario(5i)"=>"48", "descricao"=>"Paciente possui indicação para exames de rotina."}, "commit"=>"Salvar"}
+Completed 404 Not Found in 2ms (ActiveRecord: 0.0ms | Allocations: 700)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Consulta without an ID):
+  
+app/controllers/consultas_controller.rb:27:in `create'
+Started POST "/consultas" for 127.0.0.1 at 2024-02-22 15:50:40 -0300
+Processing by ConsultasController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "consulta"=>{"medico_id"=>"4", "paciente_id"=>"4", "data"=>"2024-03-25", "horario(1i)"=>"2024", "horario(2i)"=>"2", "horario(3i)"=>"22", "horario(4i)"=>"18", "horario(5i)"=>"48", "descricao"=>"Paciente possui indicação para exames de rotina."}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 736)
+
+
+  
+NoMethodError (undefined method `save' for nil:NilClass):
+  
+app/controllers/consultas_controller.rb:29:in `block in create'
+app/controllers/consultas_controller.rb:28:in `create'
+Started POST "/consultas" for 127.0.0.1 at 2024-02-22 15:51:40 -0300
+Processing by ConsultasController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "consulta"=>{"medico_id"=>"4", "paciente_id"=>"4", "data"=>"2024-03-25", "horario(1i)"=>"2024", "horario(2i)"=>"2", "horario(3i)"=>"22", "horario(4i)"=>"18", "horario(5i)"=>"48", "descricao"=>"Paciente possui indicação para exames de rotina."}, "commit"=>"Salvar"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/consultas_controller.rb:31:in `block in create'
+  [1m[36mPaciente Load (0.9ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:31:in `block in create'
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:31:in `block in create'
+  [1m[36mConsulta Exists? (6.9ms)[0m  [1m[34mSELECT 1 AS one FROM "consultas" WHERE "consultas"."medico_id" = $1 AND "consultas"."data" = $2 AND "consultas"."horario" = $3 LIMIT $4[0m  [["medico_id", 4], ["data", "2024-03-25"], ["horario", "18:48:00"], ["LIMIT", 1]]
+  ↳ app/models/consulta.rb:32:in `consulta_ocupada'
+  [1m[36mConsulta Create (3.1ms)[0m  [1m[32mINSERT INTO "consultas" ("data", "horario", "descricao", "paciente_id", "medico_id", "prontuario_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["data", "2024-03-25"], ["horario", "18:48:00"], ["descricao", "Paciente possui indicação para exames de rotina."], ["paciente_id", 4], ["medico_id", 4], ["prontuario_id", nil], ["created_at", "2024-02-22 18:51:40.451702"], ["updated_at", "2024-02-22 18:51:40.451702"]]
+  ↳ app/controllers/consultas_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/consultas_controller.rb:31:in `block in create'
+Redirected to http://127.0.0.1:3000/consultas.9
+Completed 302 Found in 81ms (ActiveRecord: 23.9ms | Allocations: 22539)
+
+
+Started GET "/consultas.9" for 127.0.0.1 at 2024-02-22 15:51:40 -0300
+Processing by ConsultasController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.3ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.2ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.2ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mPaciente Load (0.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 26.7ms | Allocations: 12882)
+  Rendered layout layouts/application.html.erb (Duration: 35.0ms | Allocations: 14985)
+Completed 200 OK in 42ms (Views: 37.8ms | ActiveRecord: 2.2ms | Allocations: 15874)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-22 15:52:55 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 2494)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 3285)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.0ms | Allocations: 3865)
+
+
+Started GET "/consultas" for 127.0.0.1 at 2024-02-22 15:52:56 -0300
+Processing by ConsultasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.5ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.1ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 46.9ms | Allocations: 12294)
+  Rendered layout layouts/application.html.erb (Duration: 52.6ms | Allocations: 13960)
+Completed 200 OK in 55ms (Views: 51.2ms | ActiveRecord: 2.8ms | Allocations: 14240)
+
+
+Started GET "/consultas/2" for 127.0.0.1 at 2024-02-22 15:52:57 -0300
+Processing by ConsultasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConsulta Load (0.3ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:69:in `set_consulta'
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:12:in `show'
+  [1m[36mProntuario Load (0.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/show.html.erb within layouts/application
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:9
+  Rendered consultas/show.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1758)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 3277)
+Completed 200 OK in 47ms (Views: 15.3ms | ActiveRecord: 4.0ms | Allocations: 12771)
+
+
+Started GET "/pacientes/2/prontuarios/2" for 127.0.0.1 at 2024-02-22 15:53:02 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.7ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:79:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000">
+  [1m[36mProntuario Load (1.0ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:90:in `set_prontuario'
+  [1m[36mCACHE Prontuario Load (0.0ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:12:in `show'
+  [1m[36mPaciente Load (0.7ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:13:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 1.5ms | Allocations: 221)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1057)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 2613)
+Completed 200 OK in 40ms (Views: 19.2ms | ActiveRecord: 2.3ms | Allocations: 7282)
+
+
+Started GET "/pacientes/2/prescricoes/new" for 127.0.0.1 at 2024-02-22 15:53:03 -0300
+Processing by PrescricoesController#new as HTML
+  Parameters: {"paciente_id"=>"2"}
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:16:in `new'
+  [1m[36mProntuario Load (0.7ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:17:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/new.html.erb within layouts/application
+  [1m[36mProntuario Load (0.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prescricoes/_form.html.erb:15
+  [1m[36mConsulta Load (0.4ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/prescricoes/_form.html.erb:20
+  Rendered prescricoes/_form.html.erb (Duration: 13.2ms | Allocations: 4176)
+  Rendered prescricoes/new.html.erb within layouts/application (Duration: 14.8ms | Allocations: 4410)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 5963)
+Completed 200 OK in 41ms (Views: 22.1ms | ActiveRecord: 5.5ms | Allocations: 13002)
+
+
+Started POST "/pacientes/2/prescricoes" for 127.0.0.1 at 2024-02-22 15:55:20 -0300
+Processing by PrescricoesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "prescricao"=>{"prontuario_id"=>"2", "consulta_id"=>"6", "cod"=>"12", "data"=>"2024-02-22", "observacoes"=>"Indicações terapia medicamentosa:", "listaMedicamentos"=>"Nistandina, nimesulida.", "dosagem"=>"1ml, 2mg"}, "commit"=>"Create Prescricao", "paciente_id"=>"2"}
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:27:in `create'
+  [1m[36mProntuario Load (0.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."paciente_id" = $1 LIMIT $2[0m  [["paciente_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:28:in `create'
+[31mUnpermitted parameter: :prontuario_id. Context: { controller: PrescricoesController, action: create, request: #<ActionDispatch::Request:0x000002c1ba10b9a8>, params: {"authenticity_token"=>"[FILTERED]", "prescricao"=>{"prontuario_id"=>"2", "consulta_id"=>"6", "cod"=>"12", "data"=>"2024-02-22", "observacoes"=>"Indicações terapia medicamentosa:", "listaMedicamentos"=>"Nistandina, nimesulida.", "dosagem"=>"1ml, 2mg"}, "commit"=>"Create Prescricao", "controller"=>"prescricoes", "action"=>"create", "paciente_id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prescricoes_controller.rb:32:in `block in create'
+  [1m[36mConsulta Load (0.2ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:32:in `block in create'
+  [1m[36mPrescricao Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "prescricoes" WHERE "prescricoes"."cod" = $1 LIMIT $2[0m  [["cod", 12], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:32:in `block in create'
+  [1m[36mPrescricao Create (0.7ms)[0m  [1m[32mINSERT INTO "prescricoes" ("cod", "data", "observacoes", "dosagem", "listaMedicamentos", "prontuario_id", "consulta_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["cod", 12], ["data", "2024-02-22"], ["observacoes", "Indicações terapia medicamentosa:"], ["dosagem", "1ml, 2mg"], ["listaMedicamentos", "Nistandina, nimesulida."], ["prontuario_id", 2], ["consulta_id", 6], ["created_at", "2024-02-22 18:55:20.661445"], ["updated_at", "2024-02-22 18:55:20.661445"]]
+  ↳ app/controllers/prescricoes_controller.rb:32:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/prescricoes_controller.rb:32:in `block in create'
+Redirected to http://127.0.0.1:3000/pacientes/2/prescricoes/8
+Completed 302 Found in 25ms (ActiveRecord: 3.3ms | Allocations: 7312)
+
+
+Started GET "/pacientes/2/prescricoes/8" for 127.0.0.1 at 2024-02-22 15:55:20 -0300
+Processing by PrescricoesController#show as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"8"}
+  [1m[36mPrescricao Load (0.4ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes" WHERE "prescricoes"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:68:in `set_prescricao'
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/show.html.erb within layouts/application
+  Rendered prescricoes/_prescricao.html.erb (Duration: 1.0ms | Allocations: 269)
+  Rendered prescricoes/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1176)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 2692)
+Completed 200 OK in 19ms (Views: 10.6ms | ActiveRecord: 0.8ms | Allocations: 4683)
+
+
+Started GET "/pacientes/2/prescricoes/8/edit" for 127.0.0.1 at 2024-02-22 15:55:23 -0300
+Processing by PrescricoesController#edit as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"8"}
+  [1m[36mPrescricao Load (0.3ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes" WHERE "prescricoes"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:68:in `set_prescricao'
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/edit.html.erb within layouts/application
+  Rendered prescricoes/_form.html.erb (Duration: 2.1ms | Allocations: 1143)
+  Rendered prescricoes/edit.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1361)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 1442)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms | Allocations: 2295)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"index", :controller=>"prescricoes", :paciente_id=>nil}, missing required keys: [:paciente_id]):
+    1: <%= form_with(model: @prescricao, url: paciente_prescricoes_path(@paciente), method: :post) do |form| %>
+    2:   <% if @prescricao.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(@prescricao.errors.count, "error") %> prohibited this prescricao from being saved:</h2>
+  
+app/views/prescricoes/_form.html.erb:1
+app/views/prescricoes/edit.html.erb:3
+Started GET "/pacientes/2/prescricoes/8/edit" for 127.0.0.1 at 2024-02-22 15:57:00 -0300
+Processing by PrescricoesController#edit as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"8"}
+  [1m[36mPrescricao Load (0.4ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes" WHERE "prescricoes"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:69:in `set_prescricao'
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:23:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/edit.html.erb within layouts/application
+  [1m[36mProntuario Load (0.8ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prescricoes/_form.html.erb:15
+  [1m[36mConsulta Load (0.5ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/prescricoes/_form.html.erb:20
+  Rendered prescricoes/_form.html.erb (Duration: 32.0ms | Allocations: 11725)
+  Rendered prescricoes/edit.html.erb within layouts/application (Duration: 35.1ms | Allocations: 12910)
+  Rendered layout layouts/application.html.erb (Duration: 36.0ms | Allocations: 12992)
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 16.0ms | Allocations: 24459)
+
+
+  
+ActionView::Template::Error (undefined method `prescricao_path' for #<ActionView::Base:0x00000000136370>):
+     5: <br>
+     6: 
+     7: <div class: "links">
+     8:   <%= link_to "Mostrar essa prescrição", @prescricao, class: "btn" %> |
+     9:   <%= link_to "Voltar para prescrições", prescricaos_path, class: "btn" %>
+    10: </div>
+  
+app/views/prescricoes/edit.html.erb:8
+Started GET "/pacientes/2/prescricoes/8/edit" for 127.0.0.1 at 2024-02-22 15:58:05 -0300
+Processing by PrescricoesController#edit as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"8"}
+  [1m[36mPrescricao Load (0.3ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes" WHERE "prescricoes"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:69:in `set_prescricao'
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:23:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/edit.html.erb within layouts/application
+  [1m[36mProntuario Load (0.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prescricoes/_form.html.erb:15
+  [1m[36mConsulta Load (0.5ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/prescricoes/_form.html.erb:20
+  Rendered prescricoes/_form.html.erb (Duration: 10.8ms | Allocations: 4087)
+  Rendered prescricoes/edit.html.erb within layouts/application (Duration: 17.8ms | Allocations: 5307)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 5389)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 1.8ms | Allocations: 7249)
+
+
+  
+ActionView::Template::Error (undefined method `paciente_prescricao_path' for #<ActionView::Base:0x000000001366e0>):
+     5: <br>
+     6: 
+     7: <div class: "links">
+     8:   <%= link_to "Mostrar essa prescrição", paciente_prescricao_path(@paciente, @prescricao), class: "btn" %> |
+     9:   <%= link_to "Voltar para prescrições", paciente_prescricoes_path(@paciente), class: "btn" %>
+    10: </div>
+    11: 
+  
+app/views/prescricoes/edit.html.erb:8
+Started GET "/pacientes/2/prescricoes/8/edit" for 127.0.0.1 at 2024-02-22 15:59:30 -0300
+Processing by PrescricoesController#edit as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"8"}
+  [1m[36mPrescricao Load (0.3ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes" WHERE "prescricoes"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:69:in `set_prescricao'
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:23:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/edit.html.erb within layouts/application
+  [1m[36mProntuario Load (0.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prescricoes/_form.html.erb:15
+  [1m[36mConsulta Load (0.4ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/prescricoes/_form.html.erb:20
+  Rendered prescricoes/_form.html.erb (Duration: 9.2ms | Allocations: 4085)
+  Rendered prescricoes/edit.html.erb within layouts/application (Duration: 12.4ms | Allocations: 4469)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 6369)
+Completed 200 OK in 36ms (Views: 24.8ms | ActiveRecord: 1.6ms | Allocations: 8261)
+
+
+Started GET "/pacientes/2/prescricoes" for 127.0.0.1 at 2024-02-22 15:59:48 -0300
+Processing by PrescricoesController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/index.html.erb within layouts/application
+  Rendered prescricoes/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1482)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 1564)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 2383)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `search_prescricoes_path' for #<ActionView::Base:0x00000000136b18>):
+     6:   <% end %>
+     7: 
+     8:   <h2>Busque a prescrição pelo nome do paciente:</h2>
+     9:   <%= form_tag search_prescricoes_path, method: :get do %>
+    10:     <%= text_field_tag :query, params[:query] %>
+    11:     <%= submit_tag "Buscar" %>
+    12:   <% end %>
+  
+app/views/prescricoes/index.html.erb:9
+Started GET "/pacientes/2/prescricoes" for 127.0.0.1 at 2024-02-22 16:01:04 -0300
+Processing by PrescricoesController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/index.html.erb within layouts/application
+  Rendered prescricoes/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1642)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1724)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 3938)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    11:     <%= submit_tag "Buscar" %>
+    12:   <% end %>
+    13: 
+    14:   <% @prescricoes.each do |prescricao| %>
+    15:     <div class="prescription-card">
+    16:       <div>Nome do paciente: <%= prescricao.paciente.nome_completo %></div>
+    17:       <div>Prescrição: <%= prescricao.descricao %></div>
+  
+app/views/prescricoes/index.html.erb:14
+Started GET "/pacientes/2/prescricoes" for 127.0.0.1 at 2024-02-22 16:02:13 -0300
+Processing by PrescricoesController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/index.html.erb within layouts/application
+  [1m[36mPrescricao Load (0.6ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes"[0m
+  ↳ app/views/prescricoes/index.html.erb:14
+  Rendered prescricoes/index.html.erb within layouts/application (Duration: 11.3ms | Allocations: 4976)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 5058)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 3.6ms | Allocations: 6875)
+
+
+  
+ActionView::Template::Error (undefined method `paciente' for #<Prescricao id: 1, cod: 3, data: "2024-05-20", observacoes: "d rerwe", dosagem: "ere", listaMedicamentos: "Nimesulida", prontuario_id: 1, consulta_id: 4, created_at: "2024-02-22 18:17:55.963388000 +0000", updated_at: "2024-02-22 18:17:55.963388000 +0000">):
+    13: 
+    14:   <% @prescricoes.each do |prescricao| %>
+    15:     <div class="prescription-card">
+    16:       <div>Nome do paciente: <%= prescricao.paciente.nome_completo %></div>
+    17:       <div>Prescrição: <%= prescricao.descricao %></div>
+    18:       <p><%= link_to "Ver detalhes", prescricao, class: "btn" %></p>
+    19:     </div>
+  
+app/views/prescricoes/index.html.erb:16
+app/views/prescricoes/index.html.erb:14
+Started GET "/pacientes/2/prescricoes" for 127.0.0.1 at 2024-02-22 16:04:03 -0300
+Processing by PrescricoesController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/index.html.erb within layouts/application
+  [1m[36mPrescricao Load (0.6ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes"[0m
+  ↳ app/views/prescricoes/index.html.erb:14
+  Rendered prescricoes/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2633)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 2715)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.6ms | Allocations: 3531)
+
+
+  
+ActionView::Template::Error (undefined method `descricao' for #<Prescricao id: 1, cod: 3, data: "2024-05-20", observacoes: "d rerwe", dosagem: "ere", listaMedicamentos: "Nimesulida", prontuario_id: 1, consulta_id: 4, created_at: "2024-02-22 18:17:55.963388000 +0000", updated_at: "2024-02-22 18:17:55.963388000 +0000">):
+    13: 
+    14:   <% @prescricoes.each do |prescricao| %>
+    15:     <div class="prescription-card">
+    16:       <div>Prescrição: <%= prescricao.descricao %></div>
+    17:       <p><%= link_to "Ver detalhes", prescricao, class: "btn" %></p>
+    18:     </div>
+    19:   <% end %>
+  
+app/views/prescricoes/index.html.erb:16
+app/views/prescricoes/index.html.erb:14
+Started GET "/pacientes/2/prescricoes" for 127.0.0.1 at 2024-02-22 16:07:34 -0300
+Processing by PrescricoesController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/index.html.erb within layouts/application
+  [1m[36mPrescricao Load (0.3ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes"[0m
+  ↳ app/views/prescricoes/index.html.erb:14
+  Rendered prescricoes/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 2686)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 2768)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.3ms | Allocations: 3585)
+
+
+  
+ActionView::Template::Error (undefined method `prescricao_path' for #<ActionView::Base:0x00000000146f18>):
+    17:     <div>Observações: <%= prescricao.observacoes %></div>
+    18:     <div>Dosagem: <%= prescricao.dosagem %></div>
+    19:     <div>Lista de Medicamentos: <%= prescricao.listaMedicamentos %></div>
+    20:     <p><%= link_to "Ver detalhes", prescricao, class: "btn" %></p>
+    21:   </div>
+    22: <% end %>
+    23: 
+  
+app/views/prescricoes/index.html.erb:20
+app/views/prescricoes/index.html.erb:14
+Started GET "/pacientes/2/prescricoes" for 127.0.0.1 at 2024-02-22 16:09:04 -0300
+Processing by PrescricoesController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/index.html.erb within layouts/application
+  [1m[36mPrescricao Load (0.3ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes"[0m
+  ↳ app/views/prescricoes/index.html.erb:14
+  Rendered prescricoes/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2637)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 2719)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms | Allocations: 3536)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"prescricoes", :id=>"1", :paciente_id=>nil}, missing required keys: [:paciente_id]):
+    17:     <div>Observações: <%= prescricao.observacoes %></div>
+    18:     <div>Dosagem: <%= prescricao.dosagem %></div>
+    19:     <div>Lista de Medicamentos: <%= prescricao.listaMedicamentos %></div>
+    20:     <p><%= link_to "Ver detalhes", paciente_prescrico_path(@paciente, prescricao), class: "btn" %></p>
+    21:   </div>
+    22: <% end %>
+    23:  <div class="links">
+  
+app/views/prescricoes/index.html.erb:20
+app/views/prescricoes/index.html.erb:14
+Started GET "/pacientes/2/prescricoes" for 127.0.0.1 at 2024-02-22 16:10:07 -0300
+Processing by PrescricoesController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/index.html.erb within layouts/application
+  [1m[36mPrescricao Load (0.5ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes"[0m
+  ↳ app/views/prescricoes/index.html.erb:14
+  Rendered prescricoes/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 5190)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 5272)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 10.2ms | Allocations: 12755)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_prescricao_path' for #<ActionView::Base:0x0000000014f190>):
+    21:   </div>
+    22: <% end %>
+    23:  <div class="links">
+    24:     <%= link_to "Nova Prescrição", new_prescricao_path, class: "btn" %>
+    25:     <%= link_to "Voltar para a página principal", root_path, class: "btn" %>
+    26:   </div>
+    27: </div>
+  
+app/views/prescricoes/index.html.erb:24
+Started GET "/pacientes/2/prescricoes" for 127.0.0.1 at 2024-02-22 16:11:50 -0300
+Processing by PrescricoesController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/index.html.erb within layouts/application
+  [1m[36mPrescricao Load (1.1ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes"[0m
+  ↳ app/views/prescricoes/index.html.erb:14
+  Rendered prescricoes/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2173)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 4075)
+Completed 200 OK in 26ms (Views: 20.2ms | ActiveRecord: 1.4ms | Allocations: 5468)
+
+
+Started GET "/pacientes/2/prescricoes/1" for 127.0.0.1 at 2024-02-22 16:12:00 -0300
+Processing by PrescricoesController#show as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"1"}
+  [1m[36mPrescricao Load (1.1ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes" WHERE "prescricoes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:70:in `set_prescricao'
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/show.html.erb within layouts/application
+  Rendered prescricoes/_prescricao.html.erb (Duration: 0.8ms | Allocations: 329)
+  Rendered prescricoes/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1200)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 2683)
+Completed 200 OK in 29ms (Views: 16.0ms | ActiveRecord: 1.6ms | Allocations: 4689)
+
+
+Started GET "/pacientes/2/prescricoes" for 127.0.0.1 at 2024-02-22 16:12:03 -0300
+Processing by PrescricoesController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/index.html.erb within layouts/application
+  [1m[36mPrescricao Load (2.2ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes"[0m
+  ↳ app/views/prescricoes/index.html.erb:14
+  Rendered prescricoes/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1741)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 3224)
+Completed 200 OK in 15ms (Views: 9.2ms | ActiveRecord: 2.5ms | Allocations: 4045)
+
+
+Started GET "/pacientes/2/prescricoes/1" for 127.0.0.1 at 2024-02-22 16:12:46 -0300
+Processing by PrescricoesController#show as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"1"}
+  [1m[36mPrescricao Load (0.9ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes" WHERE "prescricoes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:70:in `set_prescricao'
+  [1m[36mPaciente Load (1.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/show.html.erb within layouts/application
+  Rendered prescricoes/_prescricao.html.erb (Duration: 0.2ms | Allocations: 33)
+  Rendered prescricoes/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 590)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 2073)
+Completed 200 OK in 23ms (Views: 11.7ms | ActiveRecord: 2.2ms | Allocations: 3417)
+
+
+Started DELETE "/pacientes/2/prescricoes/1" for 127.0.0.1 at 2024-02-22 16:12:47 -0300
+Processing by PrescricoesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente_id"=>"2", "id"=>"1"}
+  [1m[36mPrescricao Load (0.3ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes" WHERE "prescricoes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:70:in `set_prescricao'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prescricoes_controller.rb:59:in `destroy'
+  [1m[36mPrescricao Destroy (3.0ms)[0m  [1m[31mDELETE FROM "prescricoes" WHERE "prescricoes"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:59:in `destroy'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/prescricoes_controller.rb:59:in `destroy'
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 4.5ms | Allocations: 2821)
+
+
+  
+NameError (undefined local variable or method `prescricaos_url' for #<PrescricoesController:0x0000000014f708>):
+  
+app/controllers/prescricoes_controller.rb:62:in `block (2 levels) in destroy'
+app/controllers/prescricoes_controller.rb:61:in `destroy'
+Started DELETE "/pacientes/2/prescricoes/1" for 127.0.0.1 at 2024-02-22 16:17:42 -0300
+Processing by PrescricoesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "paciente_id"=>"2", "id"=>"1"}
+  [1m[36mPrescricao Load (0.5ms)[0m  [1m[34mSELECT "prescricoes".* FROM "prescricoes" WHERE "prescricoes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:70:in `set_prescricao'
+Completed 404 Not Found in 45ms (ActiveRecord: 7.6ms | Allocations: 3668)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Prescricao with 'id'=1):
+  
+app/controllers/prescricoes_controller.rb:70:in `set_prescricao'

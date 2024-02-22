@@ -8,7 +8,7 @@
   <h2>Busque o exame pelo nome do paciente:</h2>
   <%= form_tag search_exames_path, method: :get do %>
     <%= text_field_tag :query, params[:query] %>
-    <%= submit_tag "Buscar" %>
+    <%= submit_tag "Buscar", class: "btn" %>
   <% end %>
 
   <% @exames.each do |exame| %>

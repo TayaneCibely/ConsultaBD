@@ -1,10 +1,12 @@
-<h1>Editar prescricao</h1>
+<h1>Editar Prescrição</h1>
 
 <%= render "form", prescricao: @prescricao %>
 
 <br>
 
-<div>
-  <%= link_to "Mostrar essa prescrição", @prescricao %> |
-  <%= link_to "Voltar para prescrições", prescricaos_path %>
+<div class: "links">
+  <%= link_to "Mostrar essa prescrição", paciente_prescrico_path(@paciente, @prescricao), class: "btn" %>
+  <%= link_to "Voltar para prescrições", paciente_prescricoes_path(@paciente), class: "btn" %>
 </div>
+
+

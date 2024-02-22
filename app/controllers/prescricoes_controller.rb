@@ -1,9 +1,11 @@
 class PrescricoesController < ApplicationController
+  before_action :set_paciente, only: [:destroy]
   before_action :set_prescricao, only: %i[ show edit update destroy ]
 
   # GET /prescricoes or /prescricoes.json
   def index
-    @prescricaos = Prescricao.all
+    @paciente = Paciente.find(params[:paciente_id])
+    @prescricoes = Prescricao.all
   end
 
   # GET /prescricoes/1 or /prescricoes/1.json
@@ -20,6 +22,7 @@ class PrescricoesController < ApplicationController
 
   # GET /prescricoes/1/edit
   def edit
+    @paciente = Paciente.find(params[:paciente_id])
   end
 
   # POST /prescricoes or /prescricoes.json
@@ -43,7 +46,7 @@ class PrescricoesController < ApplicationController
   def update
     respond_to do |format|
       if @prescricao.update(prescricao_params)
-        format.html { redirect_to prescricao_url(@prescricao), notice: "Prescrição atualizada com sucesso." }
+        format.html { redirect_to paciente_prescricoes_path(@prescricao), notice: "Prescrição atualizada com sucesso." }
         format.json { render :show, status: :ok, location: @prescricao }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,20 +58,27 @@ class PrescricoesController < ApplicationController
   # DELETE /prescricoes/1 or /prescricoes/1.json
   def destroy
     @prescricao.destroy
-
     respond_to do |format|
-      format.html { redirect_to prescricaos_url, notice: "Prescricao was successfully destroyed." }
+      format.html { redirect_to paciente_prescricoes_path(@paciente), notice: 'Prescrição foi apagada com sucesso.' }
       format.json { head :no_content }
     end
   end
 
   private
+  def set_paciente
+    @paciente = Paciente.find(params[:paciente_id])
+  end
 
-    def set_prescricao
+  def set_prescricao
+    begin
       @prescricao = Prescricao.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "Prescrição não encontrada"
+      redirect_to paciente_prescricoes_path(@paciente)
     end
+  end
 
-    def prescricao_params
+  def prescricao_params
       params.require(:prescricao).permit(:consulta_id, :cod, :data, :dosagem, :observacoes, :listaMedicamentos)
     end
 end

@@ -11,16 +11,17 @@
     <%= submit_tag "Buscar" %>
   <% end %>
 
-  <% @prescricoes.each do |prescricao| %>
-    <div class="prescription-card">
-      <div>Nome do paciente: <%= prescricao.paciente.nome_completo %></div>
-      <div>Prescrição: <%= prescricao.descricao %></div>
-      <p><%= link_to "Ver detalhes", prescricao, class: "btn" %></p>
-    </div>
-  <% end %>
-
-  <div class="links">
-    <%= link_to "Nova Prescrição", new_prescricao_path, class: "btn" %>
+<% @prescricoes.each do |prescricao| %>
+  <div class="prescription-card">
+    <div>Data: <%= prescricao.data %></div>
+    <div>Observações: <%= prescricao.observacoes %></div>
+    <div>Dosagem: <%= prescricao.dosagem %></div>
+    <div>Lista de Medicamentos: <%= prescricao.listaMedicamentos %></div>
+    <p><%= link_to "Ver detalhes", paciente_prescrico_path(@paciente, prescricao), class: "btn" %></p>
+  </div>
+<% end %>
+ <div class="links">
+    <%= link_to "Nova Prescrição", new_paciente_prescrico_path(@paciente), class: "btn" %>
     <%= link_to "Voltar para a página principal", root_path, class: "btn" %>
   </div>
 </div>

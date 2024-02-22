@@ -1,7 +1,10 @@
-<h1>Editar Dados do Médico: </h1>
+<h1>Editar Médico: </h1>
 
 <div>
   <%= render "form", medico: @medico %>
-  <%= link_to "Exibir este Médico", @medico %>
-  <%= link_to "Voltar para Médicos", medicos_path %>
+
+  <div class: "links">
+    <%= link_to "Exibir este Médico", @medico, class: "btn" %>
+    <%= link_to "Voltar para Médicos", medicos_path, class: "btn" %>
+ </div>
 </div>

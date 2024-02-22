@@ -26,6 +26,7 @@ class ConsultasController < ApplicationController
   # POST /consultas or /consultas.json
   def create
     @consulta = Consulta.new(consulta_params)
+    @consulta.prontuario = @consulta.paciente.prontuario
 
     respond_to do |format|
       if @consulta.save
@@ -72,7 +73,7 @@ class ConsultasController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def consulta_params
-    params.require(:consulta).permit(:data, :horario, :descricao, :medico_id, :paciente_id)
+    params.require(:consulta).permit(:data, :horario, :descricao, :medico_id, :paciente_id, :prontuari_id)
   end
 
   def search_consultas
