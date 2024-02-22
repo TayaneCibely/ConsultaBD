@@ -6,7 +6,7 @@ class Consulta < ApplicationRecord
   belongs_to :prontuario, optional: true
 
   has_many :prescricoes
-  has_many :exames
+  has_many :exames, dependent: :destroy
 
   validates :data, presence: true
   validates :horario, presence: true
