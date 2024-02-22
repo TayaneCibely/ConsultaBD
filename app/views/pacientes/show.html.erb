@@ -52,7 +52,7 @@
         <table>
           <tr>
             <th>Data que foi criado:</th>
-            <td><%= @paciente.prontuario.dataCriacao %></td>
+            <td><%= @paciente.prontuario.datacriacao %></td>
           </tr>
           <tr>
             <th>Código Prontuário<th>
@@ -68,7 +68,7 @@
   <div class="links">
     <%= link_to 'Adicionar o Prontuário do Paciente', new_paciente_prontuario_path(paciente_id: @paciente.id), class: "btn" %>
     <%= link_to 'Editar dados', edit_paciente_path(@paciente), class: "btn" %>
-    <%= link_to "Sair", pacientes_path, class: "btn" %>
+    <%= link_to "Voltar para a página inicial", root_path, class: "btn btn-secondary" %>
     <%= button_to "Deletar Paciente", @paciente, method: :delete, data: { confirm: "Tem certeza que deseja apagar o paciente?" }, class: "btn" %>
 
   </div>

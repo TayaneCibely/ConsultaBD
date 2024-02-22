@@ -12,7 +12,8 @@ class ExamesController < ApplicationController
 
   # GET /exames/new
   def new
-    @exame = Exame.new
+    @prontuario = Prontuario.find(params[:prontuario_id])
+    @exame = @prontuario.exames.build
   end
 
   # GET /exames/1/edit
@@ -21,7 +22,8 @@ class ExamesController < ApplicationController
 
   # POST /exames or /exames.json
   def create
-    @exame = Exame.new(exame_params)
+    @prontuario = Prontuario.find(params[:prontuario_id])
+    @exame = @prontuario.exames.build(exame_params)
 
     respond_to do |format|
       if @exame.save
@@ -65,6 +67,6 @@ class ExamesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def exame_params
-      params.require(:exame).permit(:cod, :data, :nomeExame, :descricao, :resultado, :consulta_id)
+      params.require(:exame).permit(:cod, :data, :nomeExame, :descricao, :resultado)
     end
 end

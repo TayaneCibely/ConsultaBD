@@ -11,27 +11,32 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :medico_id %>
+    <%= form.label :medico_id, "Selecione o médico responsável:" %>
     <%= form.collection_select :medico_id, Medico.all, :id, :nome, prompt: "Selecione um médico" %>
   </div>
 
   <div class="field">
-    <%= form.label :paciente_id %>
+    <%= form.label :paciente_id, "Selecione o paciente:" %>
     <%= form.collection_select :paciente_id, Paciente.all, :id, :nome_completo, prompt: "Selecione um paciente" %>
   </div>
 
   <div class="field">
-    <%= form.label :data %>
+    <%= form.label :data, "Data da Consulta:" %>
     <%= form.date_select :data, start_year: 2023, end_year: 2030 %>
   </div>
 
   <div class="field">
-    <%= form.label :horario %>
+    <%= form.label :horario, "Horário da Consulta: " %>
     <%= form.time_select :horario %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descricao, "Adicione uma descrição da consulta:" %>
+    <%= form.text_area :descricao %>
   </div>
 
   <div class="actions">
     <%= form.submit "Salvar" %>
-    <%= link_to "Voltar para a página inicial", root_path %>
+    <%= link_to "Voltar para a página inicial", root_path, class: "btn btn-secondary" %>
   </div>
 <% end %>

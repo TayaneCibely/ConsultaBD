@@ -15,7 +15,7 @@
     <% end %>
 
     <div id="consultas-list">
-      <% @consulta.each do |consulta| %>
+      <% @consultas.each do |consulta| %>
         <p><span class="consulta-medico">
           <%= consulta.paciente.present? ? consulta.paciente.nome_completo : "Nome do paciente não associado" %>
         </span></p>

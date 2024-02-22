@@ -17,8 +17,7 @@
   </div>
 
   <div class="field">
-     <%= form.label :paciente_id %>
-     <%= form.collection_select :paciente_id, Paciente.all, :id, :nome_completo, prompt: "Selecione um paciente" %>
+    <%= form.hidden_field :prontuario_id, value: @prontuario.id %>
   </div>
 
   <div  class="field">

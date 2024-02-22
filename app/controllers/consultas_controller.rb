@@ -3,11 +3,7 @@ class ConsultasController < ApplicationController
 
   # GET /consultas or /consultas.json
   def index
-    @consultas = if params[:search_data].present?
-                   search_consultas
-                 else
-                   Consulta.all
-                 end
+    @consultas = Consulta.all
   end
 
   # GET /consultas/1 or /consultas/1.json
@@ -73,7 +69,7 @@ class ConsultasController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def consulta_params
-    params.require(:consulta).permit(:data, :horario, :medico_id, :paciente_id)
+    params.require(:consulta).permit(:data, :horario, :descricao, :medico_id, :paciente_id)
   end
 
   def search_consultas

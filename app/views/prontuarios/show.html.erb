@@ -4,5 +4,6 @@
 
 <div class="links">
   <%= link_to "Editar esse prontuário", edit_paciente_prontuario_path(@prontuario) %> |
+  <%= link_to 'Adicionar um exame para o paciente', new_prontuario_exame_path(prontuario_id: @prontuario.id), class: "btn" %> |
   <%= link_to "Voltar para prontuarios", paciente_prontuarios_path %>
 </div>

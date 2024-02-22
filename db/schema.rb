@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_21_222957) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_22_025416) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_21_222957) do
     t.text "descricao"
     t.bigint "paciente_id", null: false
     t.bigint "medico_id", null: false
-    t.bigint "prontuario_id", null: false
+    t.bigint "prontuario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["medico_id"], name: "index_consultas_on_medico_id"

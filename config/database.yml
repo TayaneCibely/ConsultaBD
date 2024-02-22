@@ -20,5 +20,5 @@ test:
 
 production:
   <<: *default
-  database: nome_do_seu_banco_de_dados_production
+  database: postgres
   port: 5432

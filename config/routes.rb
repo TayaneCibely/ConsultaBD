@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/consultas/search', to: 'consultas#search', as: 'search_consultas'
   get '/medicos/search', to: 'medicos#search', as: 'search_medicos'
   get '/pacientes/search', to: 'pacientes#search', as: 'search_pacientes'
-  get 'search_prontuarios', to: 'prontuarios#search', as: 'search_prontuarios'
+  get '/search_prontuarios', to: 'prontuarios#search', as: 'search_prontuarios'
 
   resources :consultas
   resources :medicos
