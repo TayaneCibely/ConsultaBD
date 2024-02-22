@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
   resources :pacientes do
     resources :prontuarios
+    resources :prescricoes
   end
 
   resources :consultas do
     resources :exames
-    resources :prescricoes
   end
 
   get 'consultas/search', to: 'consultas#search', as: 'search_consultas'

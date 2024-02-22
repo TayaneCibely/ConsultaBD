@@ -9,12 +9,14 @@ class ProntuariosController < ApplicationController
 
   # GET /prontuarios/1 or /prontuarios/1.json
   def show
+    @prontuario = Prontuario.find(params[:id])
+    @paciente = @prontuario.paciente if @prontuario
   end
 
   # GET /prontuarios/new
   def new
     @paciente = Paciente.find(params[:paciente_id])
-    @prontuario = @paciente.build_prontuario # Ou Prontuario.new(paciente: @paciente) se não houver uma associação `has_one` configurada
+    @prontuario = @paciente.build_prontuario
   rescue ActiveRecord::RecordNotFound
     redirect_to pacientes_path, alert: 'Paciente não encontrado.'
   end

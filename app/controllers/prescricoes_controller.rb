@@ -8,15 +8,14 @@ class PrescricoesController < ApplicationController
 
   # GET /prescricoes/1 or /prescricoes/1.json
   def show
+    @paciente = Paciente.find(params[:paciente_id])
   end
 
   # GET /prescricoes/new
   def new
     @paciente = Paciente.find(params[:paciente_id])
     @prontuario = @paciente.prontuario
-    @consulta = Consulta.find(params[:consulta_id])
-    @prescricao = @prontuario.prescricoes.build(prescricao_params)
-    @prescricao.consulta = @consulta
+    @prescricao = @prontuario.prescricoes.build
   end
 
   # GET /prescricoes/1/edit
@@ -25,12 +24,13 @@ class PrescricoesController < ApplicationController
 
   # POST /prescricoes or /prescricoes.json
   def create
-    @consulta = Consulta.find(params[:prescricao][:consulta_id])
-    @prescricao = @consulta.prescricoes.build(prescricao_params)
+    @paciente = Paciente.find(params[:paciente_id])
+    @prontuario = @paciente.prontuario
+    @prescricao = @prontuario.prescricoes.build(prescricao_params)
 
     respond_to do |format|
       if @prescricao.save
-        format.html { redirect_to prescricao_url(@prescricao), notice: "Prescricao was successfully created." }
+        format.html { redirect_to paciente_prescrico_path(@paciente, @prescricao), notice: "Prescrição foi criada com sucesso." }
         format.json { render :show, status: :created, location: @prescricao }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,12 +39,11 @@ class PrescricoesController < ApplicationController
     end
   end
 
-
   # PATCH/PUT /prescricoes/1 or /prescricoes/1.json
   def update
     respond_to do |format|
       if @prescricao.update(prescricao_params)
-        format.html { redirect_to prescricao_url(@prescricao), notice: "Prescricao was successfully updated." }
+        format.html { redirect_to prescricao_url(@prescricao), notice: "Prescrição atualizada com sucesso." }
         format.json { render :show, status: :ok, location: @prescricao }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -1,10 +1,9 @@
-%= form_with(model: prescricao, url: consulta_prescricoes_path(@consulta), method: :post) do |form| %>
-  <% if prescricao.errors.any? %>
+<%= form_with(model: @prescricao, url: paciente_prescricoes_path(@paciente), method: :post) do |form| %>
+  <% if @prescricao.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(prescricao.errors.count, "error") %> prohibited this prescricao from being saved:</h2>
-
+      <h2><%= pluralize(@prescricao.errors.count, "error") %> prohibited this prescricao from being saved:</h2>
       <ul>
-        <% prescricao.errors.each do |error| %>
+        <% @prescricao.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -47,7 +46,8 @@
   </div>
 
   <div class="actions">
-    <%= form.submit  "Salvar Prescrição" %>
-    <%= link_to "Voltar para a página inicial", root_path, class: "btn btn-secondary" %>
+    <%= form.submit %>
   </div>
 <% end %>
+
+<%= link_to "Voltar para a página inicial", root_path, class: "btn btn-secondary" %>

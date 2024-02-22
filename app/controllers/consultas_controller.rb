@@ -9,6 +9,7 @@ class ConsultasController < ApplicationController
   # GET /consultas/1 or /consultas/1.json
   def show
     @consultas = Consulta.all
+    @prontuario = @consulta.paciente.prontuario if @consulta.paciente
     @exame = @consulta.exames
   end
 
@@ -22,17 +23,17 @@ class ConsultasController < ApplicationController
   end
 
   # POST /consultas or /consultas.json
+  # POST /consultas or /consultas.json
   def create
-    @consulta = Consulta.find(params[:consulta_id])
-    @exame = @consulta.exames.build(exame_params)
+    @consulta = Consulta.new(consulta_params)
 
     respond_to do |format|
-      if @exame.save
-        format.html { redirect_to [@consulta, @exame], notice: "Exame was successfully created." }
-        format.json { render :show, status: :created, location: @exame }
+      if @consulta.save
+        format.html { redirect_to consultas_url(@consulta), notice: "Consulta marcada com sucesso" }
+        format.json { render :show, status: :created, location: @consulta }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @exame.errors, status: :unprocessable_entity }
+        format.json { render json: @consulta.errors, status: :unprocessable_entity }
       end
     end
   end

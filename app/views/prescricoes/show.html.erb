@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @prescricao %>
+<%= render partial: 'prescricoes/prescricao', locals: { prescricao: @prescricao } %>
 
-<div>
-  <%= link_to "Edit this prescricao", edit_prescricao_path(@prescricao) %> |
-  <%= link_to "Back to prescricaos", prescricaos_path %>
+<div class="links">
+  <%= link_to "Editar essa prescrição", edit_paciente_prescrico_path(@paciente, @prescricao), class: "btn" %>
+  <%= link_to "Voltar para prescrições", paciente_prescricoes_path(@paciente), class: "btn" %>
 
-  <%= button_to "Destroy this prescricao", @prescricao, method: :delete %>
+  <%= button_to "Destroy this prescricao", paciente_prescrico_path(@paciente, @prescricao), method: :delete, class: "btn" %>
 </div>
+

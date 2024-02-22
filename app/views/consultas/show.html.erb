@@ -18,9 +18,6 @@
 
 <% if @consulta.paciente %>
   <%= link_to "Ver  Prontuário do Paciente", paciente_prontuario_path(@consulta.paciente), class: "btn" %>
-  <% if @prontuario %>
-    <%= link_to 'Adicionar uma Prescrição', new_paciente_prontuario_prescrico_path(paciente_id: @consulta.paciente.id, prontuario_id: @prontuario.id), class: "btn" %>
-  <% end %>
   <%= link_to "Adicionar Exame", new_consulta_exame_path(@consulta), class: "btn" %>
 <% end %>
 </div>
