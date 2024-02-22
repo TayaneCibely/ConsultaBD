@@ -1,24 +1,26 @@
 <h2>Detalhes do Agendamento</h2>
 <div id="consulta-details">
-    <p><span class="label">Paciente:</span> <span class="value"><%= @consulta.paciente.present? ? @consulta.paciente.nome_completo : "Paciente não associado" %></span></p>
+    <p><span class="label">Paciente:</span> <span class="value"><%= @consulta&.paciente.present? ? @consulta.paciente.nome_completo : "Paciente não associado" %></span></p>
     
-    <p><span class="label">Data:</span><span class="value"><%= @consulta.data.present? ? @consulta.data.strftime("%d/%m/%Y") : "Data não definida" %></span></p>
+    <p><span class="label">Data: </span><span class="value"><%= @consulta&.data.present? ? @consulta.data.strftime("%d/%m/%Y") : "Data não definida" %></span></p>
  
-    <p><span class="label">Horário</span>:<span class="value"><%= @consulta.horario.present? ? @consulta.horario.strftime("%H:%M") : "Horário não definido " %></span></p>
+    <p><span class="label">Horário: </span>:<span class="value"><%= @consulta&.horario.present? ? @consulta.horario.strftime("%H:%M") : "Horário não definido " %></span></p>
 
-    <p><span class="label">Médico</span><span class="value"><%= @consulta.medico.nome.present? ? @consulta.medico.nome : "Médico não associado"%></span></p>
+    <p><span class="label">Médico: </span><span class="value"><%= @consulta&.medico&.nome.present? ? @consulta.medico.nome : "Médico não associado"%></span></p>
 
+   <% if @consulta.present? %>
     <div class: "actions">
       <%= link_to "Editar Consulta", edit_consulta_path(@consulta) , class: "btn" %>
       <%= button_to "Apagar Consulta", consulta_path(@consulta), method: :delete, data: { confirm: "Tem certeza que deseja apagar essa consulta? "}, class: "btn" %>
       <%= link_to "Voltar a lista de agendamentos", consultas_path, class: "btn" %>
     </div>
+   <% end %>
 
-    <div class: "actions">
-       <%= link_to "Ver  Prontuário do Paciente", paciente_prontuario_path(@consulta.paciente), class: "btn" %>
-       <%= link_to 'Adicionar uma Prescrição', new_prescricao_path(prontuario_id: @prontuario.id) %>
-       <%= link_to "Adicionar Exame", new_exame_path(@consulta), class: "btn" %>
-    </div>
-
-
+<% if @consulta.paciente %>
+  <%= link_to "Ver  Prontuário do Paciente", paciente_prontuario_path(@consulta.paciente), class: "btn" %>
+  <% if @prontuario %>
+    <%= link_to 'Adicionar uma Prescrição', new_paciente_prontuario_prescrico_path(paciente_id: @consulta.paciente.id, prontuario_id: @prontuario.id), class: "btn" %>
+  <% end %>
+  <%= link_to "Adicionar Exame", new_consulta_exame_path(@consulta), class: "btn" %>
+<% end %>
 </div>

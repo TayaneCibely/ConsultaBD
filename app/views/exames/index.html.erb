@@ -13,14 +13,13 @@
 
   <% @exames.each do |exame| %>
     <div class="exam-card">
-      <div>Nome do paciente: <%= exame.paciente.nome_completo %></div>
-      <div>Exame: <%= exame.nome %></div>
-      <p><%= link_to "Ver detalhes", exame, class: "btn" %></p>
+      <div>Exame: <%= exame.nomeExame %></div>
+      <p><%= link_to "Ver detalhes", consulta_exame_path(exame.consulta, exame), class: "btn" %></p>
     </div>
   <% end %>
 
   <div class="links">
-    <%= link_to "Novo Exame", new_exame_path, class: "btn" %>
+    <%= link_to "Novo Exame", new_consulta_exame_path(@consulta), class: "btn" %>
     <%= link_to "Voltar para a página principal", root_path, class: "btn" %>
   </div>
 </div>

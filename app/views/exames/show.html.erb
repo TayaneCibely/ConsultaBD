@@ -2,9 +2,8 @@
 
 <%= render @exame %>
 
-<div>
-  <%= link_to "Editar esse Exame", edit_exame_path(@exame) %> |
-  <%= link_to "Voltar para Exames", exames_path %>
-
-  <%= button_to "Apagar esse exame", @exame, method: :delete %>
+<div class: "links">
+  <%= link_to "Editar esse Exame", edit_consulta_exame_path(@exame), class: "btn" %>
+  <%= link_to "Voltar para Exames", consulta_exames_path, class: "btn" %>
+  <%= button_to "Apagar esse exame", consulta_exame_path(@consulta, @exame), method: :delete, class: "btn" %>
 </div>

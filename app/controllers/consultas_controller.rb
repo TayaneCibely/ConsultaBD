@@ -8,6 +8,8 @@ class ConsultasController < ApplicationController
 
   # GET /consultas/1 or /consultas/1.json
   def show
+    @consultas = Consulta.all
+    @exame = @consulta.exames
   end
 
   # GET /consultas/new
@@ -21,15 +23,16 @@ class ConsultasController < ApplicationController
 
   # POST /consultas or /consultas.json
   def create
-    @consulta = Consulta.new(consulta_params)
+    @consulta = Consulta.find(params[:consulta_id])
+    @exame = @consulta.exames.build(exame_params)
 
     respond_to do |format|
-      if @consulta.save
-        format.html { redirect_to consultas_url(@consulta), notice: "Consulta marcada com sucesso" }
-        format.json { render :show, status: :created, location: @consulta }
+      if @exame.save
+        format.html { redirect_to [@consulta, @exame], notice: "Exame was successfully created." }
+        format.json { render :show, status: :created, location: @exame }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @consulta.errors, status: :unprocessable_entity }
+        format.json { render json: @exame.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -37,7 +40,7 @@ class ConsultasController < ApplicationController
   # PATCH/PUT /consultas/1 or /consultas/1.json
   def update
     respond_to do |format|
-      if @consulta.update(@consulta_params)
+      if @consulta.update(consulta_params)
         format.html { redirect_to consultas_url(@consulta), notice: "Consulta atualizada com sucesso" }
         format.json { render :show, status: :ok, location: @consulta }
       else
@@ -56,15 +59,14 @@ class ConsultasController < ApplicationController
     end
   end
 
-  def search
-    @consultas = search_consultas
-    render :index
-  end
-
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_consulta
-    @consulta = Consulta.find(params[:id])
+    if params[:id] == 'search'
+      @consultas = Consulta.where('nome LIKE ?', "%#{params[:search_term]}%")
+    else
+      @consulta = Consulta.find(params[:id])
+    end
   end
 
   # Only allow a list of trusted parameters through.

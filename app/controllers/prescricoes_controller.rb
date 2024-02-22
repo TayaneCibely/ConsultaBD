@@ -14,7 +14,9 @@ class PrescricoesController < ApplicationController
   def new
     @paciente = Paciente.find(params[:paciente_id])
     @prontuario = @paciente.prontuario
-    @prescricao = @prontuario.prescricoes.build
+    @consulta = Consulta.find(params[:consulta_id])
+    @prescricao = @prontuario.prescricoes.build(prescricao_params)
+    @prescricao.consulta = @consulta
   end
 
   # GET /prescricoes/1/edit
@@ -23,8 +25,8 @@ class PrescricoesController < ApplicationController
 
   # POST /prescricoes or /prescricoes.json
   def create
-    @prontuario = Prontuario.find(params[:prontuario_id])
-    @prescricao = @prontuario.prescricoes.build(prescricao_params)
+    @consulta = Consulta.find(params[:prescricao][:consulta_id])
+    @prescricao = @consulta.prescricoes.build(prescricao_params)
 
     respond_to do |format|
       if @prescricao.save
@@ -62,13 +64,12 @@ class PrescricoesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_prescricao
       @prescricao = Prescricao.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def prescricao_params
-      params.require(:prescricao).permit(:cod, :data, :dosagem, :observacoes, :listaMedicamentos)
+      params.require(:prescricao).permit(:consulta_id, :cod, :data, :dosagem, :observacoes, :listaMedicamentos)
     end
 end

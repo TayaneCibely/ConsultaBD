@@ -1,3 +1,4 @@
+#noinspection RailsParamDefResolve
 class Consulta < ApplicationRecord
   self.table_name = "consultas"
   belongs_to :paciente

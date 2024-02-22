@@ -1,4 +1,4 @@
-<%= form_with(model: exame) do |form| %>
+<%= form_with(model: @exame, url: consulta_exames_path(@consulta)) do |form| %>
   <% if exame.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(exame.errors.count, "error") %> prohibited this exame from being saved:</h2>
@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
+   <div class="field">
+     <%= form.label :prontuario_id, "Prontuário:", style: "display: block" %>
+     <%= form.collection_select :prontuario_id, Prontuario.all, :id, :codigo, prompt: 'Selecione um prontuário' %>
+   </div>
   <div  class="field">
     <%= form.label :cod, "Código do Exame:", style: "display: block" %>
     <%= form.text_field :cod %>
-  </div>
-
-  <div class="field">
-    <%= form.hidden_field :prontuario_id, value: @prontuario.id %>
   </div>
 
   <div  class="field">

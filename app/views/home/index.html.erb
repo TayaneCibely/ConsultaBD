@@ -11,8 +11,6 @@
   <div class="actions">
     <%= link_to "Cadastrar Paciente", new_paciente_path, class: "btn" %>
     <%= link_to "Cadastrar Médico", new_medico_path, class: "btn" %>
-    <%= link_to "Adicionar Exame", new_exame_path, class: "btn" %>
-    <%= link_to "Adicionar Prescrição", new_prescrico_path, class: "btn" %>
   </div>
   <br/>
   <div class="lists">
@@ -22,6 +20,6 @@
 </div>
 <div class="container">
   <%= link_to "Agende sua consulta", new_consulta_path, class: "btn highlight" %>
-  <%= link_to "Busque suas consultas agendadas", search_consultas_path, class: "btn highlight" %>
+  <%= link_to "Busque suas consultas agendadas", consultas_path, class: "btn highlight" %>
 </div>
 </body>

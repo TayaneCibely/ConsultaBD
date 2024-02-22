@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_22_025416) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_22_164928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
   enable_extension "plpgsql"
@@ -48,10 +48,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_22_025416) do
     t.text "descricao"
     t.string "resultado"
     t.bigint "prontuario_id", null: false
-    t.bigint "consultas_id", null: false
+    t.bigint "consulta_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["consultas_id"], name: "index_exames_on_consultas_id"
+    t.index ["consulta_id"], name: "index_exames_on_consulta_id"
     t.index ["prontuario_id"], name: "index_exames_on_prontuario_id"
   end
 
@@ -141,7 +141,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_22_025416) do
   add_foreign_key "consultas", "medicos"
   add_foreign_key "consultas", "pacientes"
   add_foreign_key "consultas", "prontuarios"
-  add_foreign_key "exames", "consultas", column: "consultas_id"
+  add_foreign_key "exames", "consultas"
   add_foreign_key "exames", "prontuarios"
   add_foreign_key "medicos", "enderecos"
   add_foreign_key "medicos", "users"

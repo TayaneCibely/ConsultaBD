@@ -6,7 +6,6 @@ class Paciente <  ApplicationRecord
   accepts_nested_attributes_for :prontuario
   has_many :consultas, dependent: :destroy
   has_many :medicos, through: :consultas
-  has_many :prescricoes
 
   validates :nome_completo, presence: true, length: { minimum: 10 }, numericality: false
   validates :data_nascimento, presence: true, inclusion: { in: Date.new(1900)..Date.current }
