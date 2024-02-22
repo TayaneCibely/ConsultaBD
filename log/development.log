@@ -8635,3 +8635,1945 @@ Migrating to ChangeProntuarioIdInConsultas (20240222025416)
   [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(737815420147457505)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/consultas" for 127.0.0.1 at 2024-02-21 23:55:31 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (7.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ConsultasController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "consulta"=>{"medico_id"=>"1", "paciente_id"=>"2", "data(3i)"=>"22", "data(2i)"=>"3", "data(1i)"=>"2024", "horario(1i)"=>"2024", "horario(2i)"=>"2", "horario(3i)"=>"22", "horario(4i)"=>"02", "horario(5i)"=>"30", "descricao"=>"srgffgfgdfd"}, "commit"=>"Salvar"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/consultas_controller.rb:31:in `block in create'
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:31:in `block in create'
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:31:in `block in create'
+  [1m[36mConsulta Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "consultas" WHERE "consultas"."medico_id" = $1 AND "consultas"."data" = $2 AND "consultas"."horario" = $3 LIMIT $4[0m  [["medico_id", 1], ["data", "2024-03-22"], ["horario", "02:30:00"], ["LIMIT", 1]]
+  ↳ app/models/consulta.rb:31:in `consulta_ocupada'
+  [1m[36mConsulta Create (14.6ms)[0m  [1m[32mINSERT INTO "consultas" ("data", "horario", "descricao", "paciente_id", "medico_id", "prontuario_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["data", "2024-03-22"], ["horario", "02:30:00"], ["descricao", "srgffgfgdfd"], ["paciente_id", 2], ["medico_id", 1], ["prontuario_id", nil], ["created_at", "2024-02-22 02:55:32.203024"], ["updated_at", "2024-02-22 02:55:32.203024"]]
+  ↳ app/controllers/consultas_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/consultas_controller.rb:31:in `block in create'
+Redirected to http://127.0.0.1:3000/consultas.2
+Completed 302 Found in 112ms (ActiveRecord: 33.2ms | Allocations: 25961)
+
+
+Started GET "/consultas.2" for 127.0.0.1 at 2024-02-21 23:55:32 -0300
+Processing by ConsultasController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  Rendered consultas/index.html.erb within layouts/application (Duration: 11.8ms | Allocations: 1744)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 1826)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 2426)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    15:     <% end %>
+    16: 
+    17:     <div id="consultas-list">
+    18:       <% @consulta.each do |consulta| %>
+    19:         <p><span class="consulta-medico">
+    20:           <%= consulta.paciente.present? ? consulta.paciente.nome_completo : "Nome do paciente não associado" %>
+    21:         </span></p>
+  
+app/views/consultas/index.html.erb:18
+Started POST "/consultas" for 127.0.0.1 at 2024-02-21 23:58:12 -0300
+Processing by ConsultasController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "consulta"=>{"medico_id"=>"1", "paciente_id"=>"2", "data(3i)"=>"22", "data(2i)"=>"3", "data(1i)"=>"2024", "horario(1i)"=>"2024", "horario(2i)"=>"2", "horario(3i)"=>"22", "horario(4i)"=>"02", "horario(5i)"=>"30", "descricao"=>"srgffgfgdfd"}, "commit"=>"Salvar"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mPaciente Load (2.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mMedico Load (1.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mConsulta Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "consultas" WHERE "consultas"."medico_id" = $1 AND "consultas"."data" = $2 AND "consultas"."horario" = $3 LIMIT $4[0m  [["medico_id", 1], ["data", "2024-03-22"], ["horario", "02:30:00"], ["LIMIT", 1]]
+  ↳ app/models/consulta.rb:31:in `consulta_ocupada'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/new.html.erb within layouts/application
+  [1m[36mMedico Load (0.7ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/consultas/_form.html.erb:15
+  [1m[36mPaciente Load (0.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/consultas/_form.html.erb:20
+  Rendered consultas/_form.html.erb (Duration: 51.7ms | Allocations: 6565)
+  Rendered consultas/new.html.erb within layouts/application (Duration: 53.7ms | Allocations: 6632)
+  Rendered layout layouts/application.html.erb (Duration: 87.6ms | Allocations: 8246)
+Completed 422 Unprocessable Entity in 167ms (Views: 89.4ms | ActiveRecord: 18.4ms | Allocations: 33786)
+
+
+Started POST "/consultas" for 127.0.0.1 at 2024-02-21 23:58:20 -0300
+Processing by ConsultasController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "consulta"=>{"medico_id"=>"1", "paciente_id"=>"2", "data(3i)"=>"22", "data(2i)"=>"3", "data(1i)"=>"2024", "horario(1i)"=>"2024", "horario(2i)"=>"2", "horario(3i)"=>"22", "horario(4i)"=>"02", "horario(5i)"=>"56", "descricao"=>"srgffgfgdfd"}, "commit"=>"Salvar"}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mPaciente Load (0.9ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mMedico Load (0.8ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mConsulta Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "consultas" WHERE "consultas"."medico_id" = $1 AND "consultas"."data" = $2 AND "consultas"."horario" = $3 LIMIT $4[0m  [["medico_id", 1], ["data", "2024-03-22"], ["horario", "02:56:00"], ["LIMIT", 1]]
+  ↳ app/models/consulta.rb:31:in `consulta_ocupada'
+  [1m[36mConsulta Create (0.9ms)[0m  [1m[32mINSERT INTO "consultas" ("data", "horario", "descricao", "paciente_id", "medico_id", "prontuario_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["data", "2024-03-22"], ["horario", "02:56:00"], ["descricao", "srgffgfgdfd"], ["paciente_id", 2], ["medico_id", 1], ["prontuario_id", nil], ["created_at", "2024-02-22 02:58:20.126903"], ["updated_at", "2024-02-22 02:58:20.126903"]]
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/consultas.3
+Completed 302 Found in 34ms (ActiveRecord: 4.2ms | Allocations: 5621)
+
+
+Started GET "/consultas.3" for 127.0.0.1 at 2024-02-21 23:58:20 -0300
+Processing by ConsultasController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  Rendered consultas/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1238)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1319)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 1607)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    15:     <% end %>
+    16: 
+    17:     <div id="consultas-list">
+    18:       <% @consulta.each do |consulta| %>
+    19:         <p><span class="consulta-medico">
+    20:           <%= consulta.paciente.present? ? consulta.paciente.nome_completo : "Nome do paciente não associado" %>
+    21:         </span></p>
+  
+app/views/consultas/index.html.erb:18
+Started POST "/consultas" for 127.0.0.1 at 2024-02-21 23:59:50 -0300
+Processing by ConsultasController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "consulta"=>{"medico_id"=>"2", "paciente_id"=>"2", "data(3i)"=>"27", "data(2i)"=>"3", "data(1i)"=>"2024", "horario(1i)"=>"2024", "horario(2i)"=>"2", "horario(3i)"=>"22", "horario(4i)"=>"02", "horario(5i)"=>"56", "descricao"=>"srgffgfgdfd"}, "commit"=>"Salvar"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mMedico Load (1.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mConsulta Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "consultas" WHERE "consultas"."medico_id" = $1 AND "consultas"."data" = $2 AND "consultas"."horario" = $3 LIMIT $4[0m  [["medico_id", 2], ["data", "2024-03-27"], ["horario", "02:56:00"], ["LIMIT", 1]]
+  ↳ app/models/consulta.rb:31:in `consulta_ocupada'
+  [1m[36mConsulta Create (2.2ms)[0m  [1m[32mINSERT INTO "consultas" ("data", "horario", "descricao", "paciente_id", "medico_id", "prontuario_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["data", "2024-03-27"], ["horario", "02:56:00"], ["descricao", "srgffgfgdfd"], ["paciente_id", 2], ["medico_id", 2], ["prontuario_id", nil], ["created_at", "2024-02-22 02:59:50.390573"], ["updated_at", "2024-02-22 02:59:50.390573"]]
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/consultas.4
+Completed 302 Found in 32ms (ActiveRecord: 6.1ms | Allocations: 5546)
+
+
+Started GET "/consultas.4" for 127.0.0.1 at 2024-02-21 23:59:50 -0300
+Processing by ConsultasController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  Rendered consultas/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 1228)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1309)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1584)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    15:     <% end %>
+    16: 
+    17:     <div id="consultas-list">
+    18:       <% @consulta.each do |consulta| %>
+    19:         <p><span class="consulta-medico">
+    20:           <%= consulta.paciente.present? ? consulta.paciente.nome_completo : "Nome do paciente não associado" %>
+    21:         </span></p>
+  
+app/views/consultas/index.html.erb:18
+Started POST "/consultas" for 127.0.0.1 at 2024-02-22 00:00:57 -0300
+Processing by ConsultasController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "consulta"=>{"medico_id"=>"2", "paciente_id"=>"2", "data(3i)"=>"27", "data(2i)"=>"3", "data(1i)"=>"2024", "horario(1i)"=>"2024", "horario(2i)"=>"2", "horario(3i)"=>"22", "horario(4i)"=>"02", "horario(5i)"=>"58", "descricao"=>"srgffgfgdfd"}, "commit"=>"Salvar"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mMedico Load (1.8ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mConsulta Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "consultas" WHERE "consultas"."medico_id" = $1 AND "consultas"."data" = $2 AND "consultas"."horario" = $3 LIMIT $4[0m  [["medico_id", 2], ["data", "2024-03-27"], ["horario", "02:58:00"], ["LIMIT", 1]]
+  ↳ app/models/consulta.rb:31:in `consulta_ocupada'
+  [1m[36mConsulta Create (0.8ms)[0m  [1m[32mINSERT INTO "consultas" ("data", "horario", "descricao", "paciente_id", "medico_id", "prontuario_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["data", "2024-03-27"], ["horario", "02:58:00"], ["descricao", "srgffgfgdfd"], ["paciente_id", 2], ["medico_id", 2], ["prontuario_id", nil], ["created_at", "2024-02-22 03:00:57.770833"], ["updated_at", "2024-02-22 03:00:57.770833"]]
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/consultas_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/consultas.5
+Completed 302 Found in 25ms (ActiveRecord: 5.2ms | Allocations: 5498)
+
+
+Started GET "/consultas.5" for 127.0.0.1 at 2024-02-22 00:00:57 -0300
+Processing by ConsultasController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (1.5ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.6ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 31.8ms | Allocations: 7084)
+  Rendered layout layouts/application.html.erb (Duration: 44.8ms | Allocations: 9187)
+Completed 200 OK in 52ms (Views: 47.0ms | ActiveRecord: 2.7ms | Allocations: 10130)
+
+
+Started GET "/consultas.5" for 127.0.0.1 at 2024-02-22 00:07:33 -0300
+Processing by ConsultasController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (1.4ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (3.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (2.7ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 321.2ms | Allocations: 10223)
+  Rendered layout layouts/application.html.erb (Duration: 390.0ms | Allocations: 12257)
+Completed 200 OK in 415ms (Views: 382.0ms | ActiveRecord: 21.3ms | Allocations: 13203)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-22 00:08:05 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 33.7ms | Allocations: 2660)
+  Rendered layout layouts/application.html.erb (Duration: 36.8ms | Allocations: 3460)
+Completed 200 OK in 45ms (Views: 41.6ms | ActiveRecord: 0.0ms | Allocations: 4078)
+
+
+Started GET "/consultas/new" for 127.0.0.1 at 2024-02-22 00:08:07 -0300
+Processing by ConsultasController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/new.html.erb within layouts/application
+  [1m[36mMedico Load (0.5ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/consultas/_form.html.erb:15
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/consultas/_form.html.erb:20
+  Rendered consultas/_form.html.erb (Duration: 61.6ms | Allocations: 7159)
+  Rendered consultas/new.html.erb within layouts/application (Duration: 72.2ms | Allocations: 7388)
+  Rendered layout layouts/application.html.erb (Duration: 83.2ms | Allocations: 8887)
+Completed 200 OK in 93ms (Views: 86.7ms | ActiveRecord: 0.9ms | Allocations: 9231)
+
+
+Started GET "/consultas/new" for 127.0.0.1 at 2024-02-22 00:08:40 -0300
+Processing by ConsultasController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/new.html.erb within layouts/application
+  [1m[36mMedico Load (0.5ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/consultas/_form.html.erb:15
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/consultas/_form.html.erb:20
+  Rendered consultas/_form.html.erb (Duration: 29.8ms | Allocations: 3900)
+  Rendered consultas/new.html.erb within layouts/application (Duration: 35.4ms | Allocations: 4135)
+  Rendered layout layouts/application.html.erb (Duration: 36.2ms | Allocations: 4217)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 1.0ms | Allocations: 5014)
+
+
+  
+ActionView::Template::Error (undefined method `date_field_tag' for #<ActionView::Helpers::FormBuilder:0x000001d04abcd0d8 @nested_child_index={}, @options={:allow_method_names_outside_object=>true, :skip_default_ids=>false}, @template=#<ActionView::Base:0x00000000054920>, @object=#<Consulta id: nil, data: nil, horario: nil, descricao: nil, paciente_id: nil, medico_id: nil, prontuario_id: nil, created_at: nil, updated_at: nil>, @object_name="consulta", @default_options={:skip_default_ids=>false, :allow_method_names_outside_object=>true}, @default_html_options={}, @multipart=nil, @index=nil>):
+    22: 
+    23:   <div class="field">
+    24:     <%= form.label :data, "Data da Consulta:" %>
+    25:     <%= form.date_field_tag :data, start_year: 2023, end_year: 2030 %>
+    26:   </div>
+    27: 
+    28:   <div class="field">
+  
+app/views/consultas/_form.html.erb:25
+app/views/consultas/_form.html.erb:1
+app/views/consultas/new.html.erb:4
+Started GET "/consultas/new" for 127.0.0.1 at 2024-02-22 00:08:45 -0300
+Processing by ConsultasController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/new.html.erb within layouts/application
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/consultas/_form.html.erb:15
+  [1m[36mPaciente Load (0.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/consultas/_form.html.erb:20
+  Rendered consultas/_form.html.erb (Duration: 15.1ms | Allocations: 3349)
+  Rendered consultas/new.html.erb within layouts/application (Duration: 17.2ms | Allocations: 3413)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 3494)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.1ms | Allocations: 3757)
+
+
+  
+ActionView::Template::Error (undefined method `date_field_tag' for #<ActionView::Helpers::FormBuilder:0x000001d04aade078 @nested_child_index={}, @options={:allow_method_names_outside_object=>true, :skip_default_ids=>false}, @template=#<ActionView::Base:0x00000000054c40>, @object=#<Consulta id: nil, data: nil, horario: nil, descricao: nil, paciente_id: nil, medico_id: nil, prontuario_id: nil, created_at: nil, updated_at: nil>, @object_name="consulta", @default_options={:skip_default_ids=>false, :allow_method_names_outside_object=>true}, @default_html_options={}, @multipart=nil, @index=nil>):
+    22: 
+    23:   <div class="field">
+    24:     <%= form.label :data, "Data da Consulta:" %>
+    25:     <%= form.date_field_tag :data, start_year: 2023, end_year: 2030 %>
+    26:   </div>
+    27: 
+    28:   <div class="field">
+  
+app/views/consultas/_form.html.erb:25
+app/views/consultas/_form.html.erb:1
+app/views/consultas/new.html.erb:4
+Started GET "/consultas/new" for 127.0.0.1 at 2024-02-22 00:09:46 -0300
+Processing by ConsultasController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/new.html.erb within layouts/application
+  [1m[36mMedico Load (0.7ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/consultas/_form.html.erb:15
+  [1m[36mPaciente Load (1.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/consultas/_form.html.erb:20
+  Rendered consultas/_form.html.erb (Duration: 593.9ms | Allocations: 13622)
+  Rendered consultas/new.html.erb within layouts/application (Duration: 665.1ms | Allocations: 13855)
+  Rendered layout layouts/application.html.erb (Duration: 672.0ms | Allocations: 15759)
+Completed 200 OK in 747ms (Views: 742.0ms | ActiveRecord: 2.2ms | Allocations: 16579)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-22 00:10:42 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 14.9ms | Allocations: 2619)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 3407)
+Completed 200 OK in 26ms (Views: 25.2ms | ActiveRecord: 0.0ms | Allocations: 3910)
+
+
+Started GET "/consultas/search" for 127.0.0.1 at 2024-02-22 00:10:43 -0300
+Processing by ConsultasController#search as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  Rendered consultas/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1726)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 1807)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 2141)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    15:     <% end %>
+    16: 
+    17:     <div id="consultas-list">
+    18:       <% @consultas.each do |consulta| %>
+    19:         <p><span class="consulta-medico">
+    20:           <%= consulta.paciente.present? ? consulta.paciente.nome_completo : "Nome do paciente não associado" %>
+    21:         </span></p>
+  
+app/views/consultas/index.html.erb:18
+app/controllers/consultas_controller.rb:61:in `search'
+Started GET "/consultas/search" for 127.0.0.1 at 2024-02-22 00:14:23 -0300
+Processing by ConsultasController#search as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  Rendered consultas/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1251)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 1332)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1581)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    15:     <% end %>
+    16: 
+    17:     <div id="consultas-list">
+    18:       <% @consultas.each do |consulta| %>
+    19:         <p><span class="consulta-medico">
+    20:           <%= consulta.paciente.present? ? consulta.paciente.nome_completo : "Nome do paciente não associado" %>
+    21:         </span></p>
+  
+app/views/consultas/index.html.erb:18
+app/controllers/consultas_controller.rb:61:in `search'
+Started GET "/consultas/search" for 127.0.0.1 at 2024-02-22 00:15:27 -0300
+Processing by ConsultasController#search as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (1.8ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (2.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (5.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 345.8ms | Allocations: 25807)
+  Rendered layout layouts/application.html.erb (Duration: 357.7ms | Allocations: 27579)
+Completed 200 OK in 380ms (Views: 338.0ms | ActiveRecord: 21.3ms | Allocations: 29991)
+
+
+Started GET "/consultas/search" for 127.0.0.1 at 2024-02-22 00:18:53 -0300
+Processing by ConsultasController#search as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  Rendered consultas/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1454)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 1537)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms | Allocations: 2361)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+  <div>
+    <h1>Agendamento de Consultas</h1>
+
+    <%= form_tag(search_consultas_path, method: :get, id: "search-form") do %>
+      <div>
+        <%= label_tag :inicio_data, "Período de Início:", class: "field" %>
+        <%= date_field_tag :inicio_data, params[:inicio_data] %>
+      </div>
+      <div>
+        <%= label_tag :fim_data, "Período de Término:", class: "field" %>
+        <%= date_field_tag :fim_data, params[:fim_data] %>
+      </div>
+      <%= submit_tag "Pesquisar", class: "btn" %>
+    <% end %>
+
+    <div id="consultas-list">
+      <% @consultas.each do |consulta| %>
+        <p><span class="consulta-medico">
+          <%= consulta.paciente.present? ? consulta.paciente.nome_completo : "Nome do paciente não associado" %>
+        </span></p>
+        <p><span class="consulta-data">
+          <%= consulta.data.present? ? consulta.data.strftime("%d/%m/%Y") : "Data não definida" %>      
+        </span></p>
+       <p><span class="consulta-hora">
+          <%= consulta.horario.present? ? consulta.horario.strftime("%H:%M") : "Horário não definido" %>
+       </span></p>
+       <p><span class="consulta-medico">
+          <%= consulta.medico.present? ? consulta.medico.nome : "Médico não associado" %>
+       </span></p>
+       <p><%= "Detalhes da Consulta:", consulta, class: "btn" %></p>
+      <% end %>
+    </div>
+    <div class="links">
+        <p><%= link_to "Detalhes do Agendamento", consultas_path, class: "btn" %></p>
+        <p><%= link_to "Voltar para a página inicial", root_path, class: "btn btn-secondary"  %></p>
+        <%= link_to "Nova consulta", new_consulta_path, class: "btn" %>
+    </div>
+
+
+):
+1:    
+2:      <div>
+3:        <h1>Agendamento de Consultas</h1>
+4:    
+5:        <%= form_tag(search_consultas_path, method: :get, id: "search-form") do %>
+6:          <div>
+7:            <%= label_tag :inicio_data, "Período de Início:", class: "field" %>
+8:            <%= date_field_tag :inicio_data, params[:inicio_data] %>
+9:          </div>
+10:          <div>
+11:            <%= label_tag :fim_data, "Período de Término:", class: "field" %>
+12:            <%= date_field_tag :fim_data, params[:fim_data] %>
+13:          </div>
+14:          <%= submit_tag "Pesquisar", class: "btn" %>
+15:        <% end %>
+16:    
+17:        <div id="consultas-list">
+18:          <% @consultas.each do |consulta| %>
+19:            <p><span class="consulta-medico">
+20:              <%= consulta.paciente.present? ? consulta.paciente.nome_completo : "Nome do paciente não associado" %>
+21:            </span></p>
+22:            <p><span class="consulta-data">
+23:              <%= consulta.data.present? ? consulta.data.strftime("%d/%m/%Y") : "Data não definida" %>      
+24:            </span></p>
+25:           <p><span class="consulta-hora">
+26:              <%= consulta.horario.present? ? consulta.horario.strftime("%H:%M") : "Horário não definido" %>
+27:           </span></p>
+28:           <p><span class="consulta-medico">
+29:              <%= consulta.medico.present? ? consulta.medico.nome : "Médico não associado" %>
+30:           </span></p>
+31:           <p><%= "Detalhes da Consulta:", consulta, class: "btn" %></p>
+32:          <% end %>
+33:        </div>
+34:        <div class="links">
+35:            <p><%= link_to "Detalhes do Agendamento", consultas_path, class: "btn" %></p>
+36:            <p><%= link_to "Voltar para a página inicial", root_path, class: "btn btn-secondary"  %></p>
+37:            <%= link_to "Nova consulta", new_consulta_path, class: "btn" %>
+38:        </div>
+39:    
+  
+app/views/consultas/index.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/consultas/index.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/consultas/index.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/consultas/index.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/controllers/consultas_controller.rb:61:in `search'
+Started GET "/consultas/search" for 127.0.0.1 at 2024-02-22 00:19:22 -0300
+Processing by ConsultasController#search as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.6ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (1.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (2.8ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 31.4ms | Allocations: 4130)
+  Rendered layout layouts/application.html.erb (Duration: 32.3ms | Allocations: 4212)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 4.5ms | Allocations: 5021)
+
+
+  
+ActionView::Template::Error (undefined method `consultum_path' for #<ActionView::Base:0x0000000005e010>):
+    28:        <p><span class="consulta-medico">
+    29:           <%= consulta.medico.present? ? consulta.medico.nome : "Médico não associado" %>
+    30:        </span></p>
+    31:        <p><%= link_to "Detalhes da Consulta:", consulta, class: "btn" %></p>
+    32:       <% end %>
+    33:     </div>
+    34:     <div class="links">
+  
+app/views/consultas/index.html.erb:31
+app/views/consultas/index.html.erb:18
+app/controllers/consultas_controller.rb:61:in `search'
+Started GET "/consultas/search" for 127.0.0.1 at 2024-02-22 00:22:52 -0300
+Processing by ConsultasController#search as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (1.9ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (1.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.7ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.5ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 43.8ms | Allocations: 7177)
+  Rendered layout layouts/application.html.erb (Duration: 65.2ms | Allocations: 9240)
+Completed 200 OK in 82ms (Views: 76.9ms | ActiveRecord: 4.3ms | Allocations: 10072)
+
+
+Started GET "/consultas" for 127.0.0.1 at 2024-02-22 00:22:55 -0300
+Processing by ConsultasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (1.6ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (0.7ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.5ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 42.9ms | Allocations: 6670)
+  Rendered layout layouts/application.html.erb (Duration: 53.9ms | Allocations: 8339)
+Completed 200 OK in 58ms (Views: 53.6ms | ActiveRecord: 3.2ms | Allocations: 8623)
+
+
+Started GET "/consultas" for 127.0.0.1 at 2024-02-22 00:22:58 -0300
+Processing by ConsultasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.5ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (0.7ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.1ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 28.7ms | Allocations: 6670)
+  Rendered layout layouts/application.html.erb (Duration: 34.2ms | Allocations: 8352)
+Completed 200 OK in 37ms (Views: 33.2ms | ActiveRecord: 2.0ms | Allocations: 8631)
+
+
+Started GET "/consultas" for 127.0.0.1 at 2024-02-22 00:23:06 -0300
+Processing by ConsultasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.5ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (1.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.2ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 38.6ms | Allocations: 6670)
+  Rendered layout layouts/application.html.erb (Duration: 47.1ms | Allocations: 8322)
+Completed 200 OK in 49ms (Views: 45.4ms | ActiveRecord: 2.8ms | Allocations: 8601)
+
+
+Started GET "/consultas" for 127.0.0.1 at 2024-02-22 00:24:00 -0300
+Processing by ConsultasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.5ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.6ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.6ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 39.5ms | Allocations: 6670)
+  Rendered layout layouts/application.html.erb (Duration: 49.6ms | Allocations: 8322)
+Completed 200 OK in 53ms (Views: 48.9ms | ActiveRecord: 2.4ms | Allocations: 8601)
+
+
+Started GET "/consultas" for 127.0.0.1 at 2024-02-22 00:24:02 -0300
+Processing by ConsultasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.3ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (0.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (1.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 32.1ms | Allocations: 6670)
+  Rendered layout layouts/application.html.erb (Duration: 43.4ms | Allocations: 8330)
+Completed 200 OK in 45ms (Views: 41.7ms | ActiveRecord: 2.7ms | Allocations: 8609)
+
+
+Started GET "/consultas" for 127.0.0.1 at 2024-02-22 00:24:33 -0300
+Processing by ConsultasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.3ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 26.0ms | Allocations: 7286)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 9331)
+Completed 200 OK in 39ms (Views: 35.8ms | ActiveRecord: 1.4ms | Allocations: 10173)
+
+
+Started GET "/consultas.2" for 127.0.0.1 at 2024-02-22 00:24:35 -0300
+Processing by ConsultasController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.8ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (2.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (1.1ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.6ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 52.0ms | Allocations: 6762)
+  Rendered layout layouts/application.html.erb (Duration: 60.0ms | Allocations: 8441)
+Completed 200 OK in 68ms (Views: 56.7ms | ActiveRecord: 5.1ms | Allocations: 8823)
+
+
+Started GET "/consultas.3" for 127.0.0.1 at 2024-02-22 00:24:38 -0300
+Processing by ConsultasController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.5ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 32.5ms | Allocations: 6762)
+  Rendered layout layouts/application.html.erb (Duration: 38.4ms | Allocations: 8420)
+Completed 200 OK in 41ms (Views: 37.9ms | ActiveRecord: 1.6ms | Allocations: 8716)
+
+
+Started GET "/consultas.3" for 127.0.0.1 at 2024-02-22 00:24:39 -0300
+Processing by ConsultasController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.4ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 18.8ms | Allocations: 6762)
+  Rendered layout layouts/application.html.erb (Duration: 25.3ms | Allocations: 8435)
+Completed 200 OK in 28ms (Views: 25.6ms | ActiveRecord: 1.4ms | Allocations: 8731)
+
+
+Started GET "/consultas.3" for 127.0.0.1 at 2024-02-22 00:24:39 -0300
+Processing by ConsultasController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.4ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.5ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.3ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 23.4ms | Allocations: 6762)
+  Rendered layout layouts/application.html.erb (Duration: 27.7ms | Allocations: 8443)
+Completed 200 OK in 29ms (Views: 26.9ms | ActiveRecord: 1.7ms | Allocations: 8739)
+
+
+Started GET "/consultas.3" for 127.0.0.1 at 2024-02-22 00:25:26 -0300
+Processing by ConsultasController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (0.4ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (1.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (0.6ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 36.3ms | Allocations: 7201)
+  Rendered layout layouts/application.html.erb (Duration: 50.1ms | Allocations: 9231)
+Completed 200 OK in 64ms (Views: 57.1ms | ActiveRecord: 2.6ms | Allocations: 10176)
+
+
+Started GET "/consultas/2" for 127.0.0.1 at 2024-02-22 00:25:28 -0300
+Processing by ConsultasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConsulta Load (3.0ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:67:in `set_consulta'
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/show.html.erb within layouts/application
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:3
+  [1m[36mMedico Load (0.7ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:9
+  Rendered consultas/show.html.erb within layouts/application (Duration: 19.8ms | Allocations: 2761)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 2842)
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 3.9ms | Allocations: 4310)
+
+
+  
+ActionView::Template::Error (undefined method `nome_medico' for #<Medico id: 1, nome: "Rodrigo Spagliato Morais", lincenca: nil, especialidade: "Cardiologia", cpf: "15434594525", email: "drspagliatorodrigo@gmail", user_id: nil, endereco_id: 1, created_at: "2024-02-20 15:45:24.678553000 +0000", updated_at: "2024-02-20 15:45:24.678553000 +0000", licenca: "15423698754", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>):
+     6:  
+     7:     <p><span class="label">Horário</span>:<span class="value"><%= @consulta.horario.present? ? @consulta.horario.strftime("%H:%M") : "Horário não definido " %></span></p>
+     8: 
+     9:     <p><span class="label">Médico</span><span class="value"><%= @consulta.medico.present? ? @consulta.medico.nome_medico : "Médico não associado"%></span></p>
+    10: 
+    11:     <div>
+    12:       <%= link_to "Editar Consulta", edit_consulta_path(@consulta) %>
+  
+app/views/consultas/show.html.erb:9
+Started GET "/consultas/2" for 127.0.0.1 at 2024-02-22 00:26:34 -0300
+Processing by ConsultasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConsulta Load (0.6ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:67:in `set_consulta'
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/show.html.erb within layouts/application
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:3
+  [1m[36mMedico Load (0.5ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:9
+  Rendered consultas/show.html.erb within layouts/application (Duration: 21.6ms | Allocations: 2778)
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | Allocations: 2860)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 1.6ms | Allocations: 4206)
+
+
+  
+ActionView::Template::Error (undefined method `nome_medico' for #<Medico id: 1, nome: "Rodrigo Spagliato Morais", lincenca: nil, especialidade: "Cardiologia", cpf: "15434594525", email: "drspagliatorodrigo@gmail", user_id: nil, endereco_id: 1, created_at: "2024-02-20 15:45:24.678553000 +0000", updated_at: "2024-02-20 15:45:24.678553000 +0000", licenca: "15423698754", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>):
+     6:  
+     7:     <p><span class="label">Horário</span>:<span class="value"><%= @consulta.horario.present? ? @consulta.horario.strftime("%H:%M") : "Horário não definido " %></span></p>
+     8: 
+     9:     <p><span class="label">Médico</span><span class="value"><%= @consulta.medico.nome.present? ? @consulta.medico.nome_medico : "Médico não associado"%></span></p>
+    10: 
+    11:     <div>
+    12:       <%= link_to "Editar Consulta", edit_consulta_path(@consulta) %>
+  
+app/views/consultas/show.html.erb:9
+Started GET "/consultas/2" for 127.0.0.1 at 2024-02-22 00:28:19 -0300
+Processing by ConsultasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConsulta Load (0.5ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:67:in `set_consulta'
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/show.html.erb within layouts/application
+  [1m[36mPaciente Load (2.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:3
+  [1m[36mMedico Load (0.5ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:9
+  Rendered consultas/show.html.erb within layouts/application (Duration: 24.7ms | Allocations: 2768)
+  Rendered layout layouts/application.html.erb (Duration: 34.2ms | Allocations: 2850)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 3.4ms | Allocations: 4200)
+
+
+  
+ActionView::Template::Error (undefined method `consultum_path' for #<ActionView::Base:0x0000000005eec0>):
+    10: 
+    11:     <div>
+    12:       <%= link_to "Editar Consulta", edit_consulta_path(@consulta) %>
+    13:       <%= button_to "Apagar Consulta", @consulta, method: :delete, data: { confirm: "Tem certeza que deseja apagar essa consulta? "} %>
+    14:       <%= link_to "Voltar a lista de agendamentos", consultas_path %>
+    15:     </div>
+    16: 
+  
+app/views/consultas/show.html.erb:13
+Started GET "/consultas/2" for 127.0.0.1 at 2024-02-22 00:29:36 -0300
+Processing by ConsultasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConsulta Load (0.6ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:67:in `set_consulta'
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/show.html.erb within layouts/application
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:3
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:9
+  Rendered consultas/show.html.erb within layouts/application (Duration: 19.6ms | Allocations: 2238)
+  Rendered layout layouts/application.html.erb (Duration: 64.5ms | Allocations: 4135)
+Completed 200 OK in 87ms (Views: 73.6ms | ActiveRecord: 1.3ms | Allocations: 5505)
+
+
+Started GET "/consultas/2" for 127.0.0.1 at 2024-02-22 00:30:32 -0300
+Processing by ConsultasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConsulta Load (3.0ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:67:in `set_consulta'
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/show.html.erb within layouts/application
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:3
+  [1m[36mMedico Load (0.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:9
+  Rendered consultas/show.html.erb within layouts/application (Duration: 19.8ms | Allocations: 2251)
+  Rendered layout layouts/application.html.erb (Duration: 36.4ms | Allocations: 4119)
+Completed 200 OK in 65ms (Views: 44.7ms | ActiveRecord: 3.8ms | Allocations: 5489)
+
+
+Started GET "/consultas/2" for 127.0.0.1 at 2024-02-22 00:37:16 -0300
+Processing by ConsultasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConsulta Load (3.4ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:67:in `set_consulta'
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/show.html.erb within layouts/application
+  Rendered consultas/show.html.erb within layouts/application (Duration: 17.2ms | Allocations: 1285)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 1368)
+Completed 500 Internal Server Error in 319ms (ActiveRecord: 20.4ms | Allocations: 5821)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Detalhes do Agendamento</h2>
+<div id="consulta-details">
+    <p><span class="label">Paciente:</span> <span class="value"><%= @consulta.paciente.present? ? @consulta.paciente.nome_completo : "Paciente não associado" %></span></p>
+    
+    <p><span class="label">Data:</span><span class="value"><%= @consulta.data.present? ? @consulta.data.strftime("%d/%m/%Y") : "Data não definida" %></span></p>
+ 
+    <p><span class="label">Horário</span>:<span class="value"><%= @consulta.horario.present? ? @consulta.horario.strftime("%H:%M") : "Horário não definido " %></span></p>
+
+    <p><span class="label">Médico</span><span class="value"><%= @consulta.medico.nome.present? ? @consulta.medico.nome : "Médico não associado"%></span></p>
+
+    <div class: "actions">
+      <%= link_to "Editar Consulta", edit_consulta_path(@consulta) , class: "btn" %>
+      <%= button_to "Apagar Consulta", consulta_path(@consulta), method: :delete, data: { confirm: "Tem certeza que deseja apagar essa consulta? "}, class: "btn" %>
+      <%= link_to "Voltar a lista de agendamentos", consultas_path, class: "btn" %>
+    </div>
+
+    <div class: "actions">
+       <%= link_to "Ver  Prontuário do Paciente", prontuario_path(@consulta.paciente), class: "btn") %>
+       <%= link_to "Adicionar Prescrição", new_prescricao_path(@consulta), class: "btn" %>
+       <%= link_to "Adicionar Exame", new_exame_path(@consulta), class: "btn" %>
+    </div>
+
+
+</div>
+):
+1:    <h2>Detalhes do Agendamento</h2>
+2:    <div id="consulta-details">
+3:        <p><span class="label">Paciente:</span> <span class="value"><%= @consulta.paciente.present? ? @consulta.paciente.nome_completo : "Paciente não associado" %></span></p>
+4:        
+5:        <p><span class="label">Data:</span><span class="value"><%= @consulta.data.present? ? @consulta.data.strftime("%d/%m/%Y") : "Data não definida" %></span></p>
+6:     
+7:        <p><span class="label">Horário</span>:<span class="value"><%= @consulta.horario.present? ? @consulta.horario.strftime("%H:%M") : "Horário não definido " %></span></p>
+8:    
+9:        <p><span class="label">Médico</span><span class="value"><%= @consulta.medico.nome.present? ? @consulta.medico.nome : "Médico não associado"%></span></p>
+10:    
+11:        <div class: "actions">
+12:          <%= link_to "Editar Consulta", edit_consulta_path(@consulta) , class: "btn" %>
+13:          <%= button_to "Apagar Consulta", consulta_path(@consulta), method: :delete, data: { confirm: "Tem certeza que deseja apagar essa consulta? "}, class: "btn" %>
+14:          <%= link_to "Voltar a lista de agendamentos", consultas_path, class: "btn" %>
+15:        </div>
+16:    
+17:        <div class: "actions">
+18:           <%= link_to "Ver  Prontuário do Paciente", prontuario_path(@consulta.paciente), class: "btn") %>
+19:           <%= link_to "Adicionar Prescrição", new_prescricao_path(@consulta), class: "btn" %>
+20:           <%= link_to "Adicionar Exame", new_exame_path(@consulta), class: "btn" %>
+21:        </div>
+22:    
+23:    
+24:    </div>
+  
+app/views/consultas/show.html.erb:18: syntax error, unexpected ')', expecting `end' or dummy end
+app/views/consultas/show.html.erb:18: syntax error, unexpected ')', expecting `end' or dummy end
+app/views/consultas/show.html.erb:18: syntax error, unexpected ')', expecting `end' or dummy end
+app/views/consultas/show.html.erb:18: syntax error, unexpected ')', expecting `end' or dummy end
+Started GET "/consultas/2" for 127.0.0.1 at 2024-02-22 00:38:07 -0300
+Processing by ConsultasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConsulta Load (0.6ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:67:in `set_consulta'
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/show.html.erb within layouts/application
+  [1m[36mPaciente Load (9.7ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:3
+  [1m[36mMedico Load (4.2ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:9
+  Rendered consultas/show.html.erb within layouts/application (Duration: 58.1ms | Allocations: 3357)
+  Rendered layout layouts/application.html.erb (Duration: 66.1ms | Allocations: 3439)
+Completed 500 Internal Server Error in 104ms (ActiveRecord: 14.4ms | Allocations: 4786)
+
+
+  
+ActionView::Template::Error (undefined method `prontuario_path' for #<ActionView::Base:0x0000000005f730>):
+    15:     </div>
+    16: 
+    17:     <div class: "actions">
+    18:        <%= link_to "Ver  Prontuário do Paciente", prontuario_path(@consulta.paciente), class: "btn" %>
+    19:        <%= link_to "Adicionar Prescrição", new_prescricao_path(@consulta), class: "btn" %>
+    20:        <%= link_to "Adicionar Exame", new_exame_path(@consulta), class: "btn" %>
+    21:     </div>
+  
+app/views/consultas/show.html.erb:18
+Started GET "/consultas/2" for 127.0.0.1 at 2024-02-22 00:39:49 -0300
+Processing by ConsultasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConsulta Load (0.5ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:67:in `set_consulta'
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/show.html.erb within layouts/application
+  [1m[36mPaciente Load (0.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:3
+  [1m[36mMedico Load (1.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:9
+  Rendered consultas/show.html.erb within layouts/application (Duration: 27.1ms | Allocations: 3376)
+  Rendered layout layouts/application.html.erb (Duration: 30.8ms | Allocations: 3458)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 2.3ms | Allocations: 4805)
+
+
+  
+ActionView::Template::Error (undefined method `new_prescricao_path' for #<ActionView::Base:0x0000000005fa78>):
+    16: 
+    17:     <div class: "actions">
+    18:        <%= link_to "Ver  Prontuário do Paciente", paciente_prontuario_path(@consulta.paciente), class: "btn" %>
+    19:        <%= link_to "Adicionar Prescrição", new_prescricao_path(@consulta), class: "btn" %>
+    20:        <%= link_to "Adicionar Exame", new_exame_path(@consulta), class: "btn" %>
+    21:     </div>
+    22: 
+  
+app/views/consultas/show.html.erb:19
+Started GET "/consultas/2" for 127.0.0.1 at 2024-02-22 00:41:33 -0300
+Processing by ConsultasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConsulta Load (0.9ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:67:in `set_consulta'
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/show.html.erb within layouts/application
+  [1m[36mPaciente Load (0.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:3
+  [1m[36mMedico Load (0.5ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:9
+  Rendered consultas/show.html.erb within layouts/application (Duration: 11.3ms | Allocations: 3370)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 3452)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 2.0ms | Allocations: 4799)
+
+
+  
+ActionView::Template::Error (undefined method `new_paciente_prescricao_do_paciente_path' for #<ActionView::Base:0x0000000005fdc0>):
+    16: 
+    17:     <div class: "actions">
+    18:        <%= link_to "Ver  Prontuário do Paciente", paciente_prontuario_path(@consulta.paciente), class: "btn" %>
+    19:        <%= link_to "Adicionar Prescrição", new_paciente_prescricao_do_paciente_path(@consulta), class: "btn" %>
+    20:        <%= link_to "Adicionar Exame", new_exame_path(@consulta), class: "btn" %>
+    21:     </div>
+    22: 
+  
+app/views/consultas/show.html.erb:19
+Started GET "/consultas/2" for 127.0.0.1 at 2024-02-22 00:42:10 -0300
+Processing by ConsultasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConsulta Load (0.8ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:67:in `set_consulta'
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/show.html.erb within layouts/application
+  [1m[36mPaciente Load (0.7ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:3
+  [1m[36mMedico Load (2.1ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:9
+  Rendered consultas/show.html.erb within layouts/application (Duration: 21.1ms | Allocations: 2544)
+  Rendered layout layouts/application.html.erb (Duration: 54.7ms | Allocations: 4441)
+Completed 200 OK in 76ms (Views: 60.7ms | ActiveRecord: 3.5ms | Allocations: 5811)
+
+
+Started GET "/pacientes/2/prontuarios/2" for 127.0.0.1 at 2024-02-22 00:42:31 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (3.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (1.9ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 0.9ms | Allocations: 235)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 15.5ms | Allocations: 1906)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 1988)
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 25.2ms | Allocations: 8636)
+
+
+  
+ActionView::Template::Error (undefined method `new_prontuario_exame_path' for #<ActionView::Base:0x00000000060248>):
+    4: 
+    5: <div class="links">
+    6:   <%= link_to "Editar esse prontuário", edit_paciente_prontuario_path(@prontuario) %> |
+    7:   <%= link_to 'Adicionar um exame para o paciente', new_prontuario_exame_path(prontuario_id: @prontuario.id), class: "btn" %> |
+    8:   <%= link_to "Voltar para prontuarios", paciente_prontuarios_path %>
+    9: </div>
+  
+app/views/prontuarios/show.html.erb:7
+Started GET "/pacientes/2/prontuarios/2" for 127.0.0.1 at 2024-02-22 00:44:41 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 4.2ms | Allocations: 209)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 16.2ms | Allocations: 1757)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 1839)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.9ms | Allocations: 3863)
+
+
+  
+ActionView::Template::Error (undefined method `new_prontuario_exame_path' for #<ActionView::Base:0x000000000605b8>):
+    4: 
+    5: <div class="links">
+    6:   <%= link_to "Editar esse prontuário", edit_paciente_prontuario_path(@prontuario) %> |
+    7:   <%= link_to 'Adicionar um exame para o paciente', new_prontuario_exame_path(paciente_id: @prontuario.paciente_id, prontuario_id: @prontuario_id), class: "btn" %> |
+    8:   <%= link_to "Voltar para prontuarios", paciente_prontuarios_path %>
+    9: </div>
+  
+app/views/prontuarios/show.html.erb:7
+Started GET "/pacientes/2/prontuarios/2" for 127.0.0.1 at 2024-02-22 00:46:13 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 0.9ms | Allocations: 209)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 24.5ms | Allocations: 2842)
+Completed 200 OK in 50ms (Views: 35.9ms | ActiveRecord: 1.3ms | Allocations: 4898)
+
+
+Started GET "/pacientes/2/prontuarios/2/edit" for 127.0.0.1 at 2024-02-22 00:46:17 -0300
+Processing by ProntuariosController#edit as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (1.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/edit.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 175.0ms | Allocations: 9579)
+  Rendered prontuarios/edit.html.erb within layouts/application (Duration: 178.7ms | Allocations: 10701)
+  Rendered layout layouts/application.html.erb (Duration: 179.4ms | Allocations: 10782)
+Completed 500 Internal Server Error in 196ms (ActiveRecord: 1.8ms | Allocations: 12301)
+
+
+  
+ActionView::Template::Error (undefined method `prontuario_path' for #<ActionView::Base:0x00000000060a18>):
+     5: <br>
+     6: 
+     7: <div>
+     8:   <%= link_to "Mostrar esse prontuário", @prontuario %> |
+     9:   <%= link_to "Voltar para prontuários", prontuarios_path %>
+    10: </div>
+  
+app/views/prontuarios/edit.html.erb:8
+Started GET "/pacientes/2/exames_do_paciente/new" for 127.0.0.1 at 2024-02-22 00:46:35 -0300
+Processing by ExamesController#new as HTML
+  Parameters: {"paciente_id"=>"2"}
+Completed 404 Not Found in 5ms (ActiveRecord: 0.0ms | Allocations: 598)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Prontuario without an ID):
+  
+app/controllers/exames_controller.rb:15:in `new'
+Started GET "/pacientes/2/prontuarios/2" for 127.0.0.1 at 2024-02-22 00:47:32 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (2.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.7ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 4.5ms | Allocations: 209)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 21.9ms | Allocations: 940)
+  Rendered layout layouts/application.html.erb (Duration: 57.4ms | Allocations: 2830)
+Completed 200 OK in 95ms (Views: 77.1ms | ActiveRecord: 2.7ms | Allocations: 4875)
+
+
+Started GET "/pacientes/2/prontuarios/2/edit" for 127.0.0.1 at 2024-02-22 00:47:38 -0300
+Processing by ProntuariosController#edit as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.9ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (1.2ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/edit.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 8.1ms | Allocations: 1677)
+  Rendered prontuarios/edit.html.erb within layouts/application (Duration: 17.5ms | Allocations: 2921)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 3002)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 2.1ms | Allocations: 4520)
+
+
+  
+ActionView::Template::Error (undefined method `prontuario_path' for #<ActionView::Base:0x000000000611e8>):
+     5: <br>
+     6: 
+     7: <div>
+     8:   <%= link_to "Mostrar esse prontuário", @prontuario %> |
+     9:   <%= link_to "Voltar para prontuários", prontuarios_path, class: "btn" %>
+    10: </div>
+  
+app/views/prontuarios/edit.html.erb:8
+Started GET "/pacientes/2/prontuarios/2/edit" for 127.0.0.1 at 2024-02-22 00:49:00 -0300
+Processing by ProntuariosController#edit as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (1.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/edit.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 15.2ms | Allocations: 1698)
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/edit.html.erb:8
+  Rendered prontuarios/edit.html.erb within layouts/application (Duration: 347.5ms | Allocations: 12935)
+  Rendered layout layouts/application.html.erb (Duration: 349.7ms | Allocations: 13017)
+Completed 500 Internal Server Error in 387ms (ActiveRecord: 2.0ms | Allocations: 15016)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `prontuarios_path' for #<ActionView::Base:0x00000000061580>):
+     6: 
+     7: <div class: "links">
+     8:   <%= link_to "Mostrar esse prontuário", paciente_prontuario_path(@prontuario.paciente, @prontuario), class: "btn" %>
+     9:   <%= link_to "Voltar para prontuários", prontuarios_path, class: "btn" %>
+    10: </div>
+  
+app/views/prontuarios/edit.html.erb:9
+Started GET "/pacientes/2/prontuarios/2/edit" for 127.0.0.1 at 2024-02-22 00:50:14 -0300
+Processing by ProntuariosController#edit as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/edit.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 10.7ms | Allocations: 1698)
+  [1m[36mPaciente Load (2.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/edit.html.erb:8
+  Rendered prontuarios/edit.html.erb within layouts/application (Duration: 29.2ms | Allocations: 2834)
+  Rendered layout layouts/application.html.erb (Duration: 59.2ms | Allocations: 4730)
+Completed 200 OK in 91ms (Views: 69.9ms | ActiveRecord: 3.6ms | Allocations: 6751)
+
+
+Started GET "/pacientes/2/prontuarios/2" for 127.0.0.1 at 2024-02-22 00:50:24 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (2.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (11.0ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 7.4ms | Allocations: 206)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 16.9ms | Allocations: 914)
+  Rendered layout layouts/application.html.erb (Duration: 42.3ms | Allocations: 2401)
+Completed 200 OK in 114ms (Views: 53.8ms | ActiveRecord: 13.0ms | Allocations: 3968)
+
+
+Started GET "/pacientes/2/prontuarios/2/edit" for 127.0.0.1 at 2024-02-22 00:50:29 -0300
+Processing by ProntuariosController#edit as HTML
+  Parameters: {"paciente_id"=>"2", "id"=>"2"}
+Procurando por paciente com ID: 2
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.2ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/edit.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 3.3ms | Allocations: 1173)
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/edit.html.erb:8
+  Rendered prontuarios/edit.html.erb within layouts/application (Duration: 13.1ms | Allocations: 2076)
+  Rendered layout layouts/application.html.erb (Duration: 28.9ms | Allocations: 3568)
+Completed 200 OK in 46ms (Views: 31.0ms | ActiveRecord: 0.9ms | Allocations: 5053)
+
+
+Started GET "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-22 00:50:31 -0300
+Processing by ProntuariosController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/index.html.erb within layouts/application
+  [1m[36mProntuario Load (0.8ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prontuarios/index.html.erb:14
+  [1m[36mPaciente Load (1.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  Rendered prontuarios/index.html.erb within layouts/application (Duration: 37.9ms | Allocations: 3185)
+  Rendered layout layouts/application.html.erb (Duration: 38.6ms | Allocations: 3266)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 2.1ms | Allocations: 3605)
+
+
+  
+ActionView::Template::Error (undefined method `numero' for #<Prontuario id: 1, codigo: 1, datacriacao: "2024-02-02", historico: "dad dffa", paciente_id: 1, created_at: "2024-02-21 22:40:53.176013000 +0000", updated_at: "2024-02-21 22:40:53.176013000 +0000">):
+    14:   <% @prontuarios.each do |prontuario| %>
+    15:     <div class="record-card">
+    16:       <div>Nome do paciente: <%= prontuario.paciente.nome_completo %></div>
+    17:       <div>Prontuário: <%= prontuario.numero %></div>
+    18:       <p><%= link_to "Ver detalhes", prontuario, class: "btn" %></p>
+    19:     </div>
+    20:   <% end %>
+  
+app/views/prontuarios/index.html.erb:17
+app/views/prontuarios/index.html.erb:14
+Started GET "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-22 00:50:36 -0300
+Processing by ProntuariosController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/index.html.erb within layouts/application
+  [1m[36mProntuario Load (0.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prontuarios/index.html.erb:14
+  [1m[36mPaciente Load (2.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  Rendered prontuarios/index.html.erb within layouts/application (Duration: 15.1ms | Allocations: 2739)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 2820)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 2.6ms | Allocations: 3076)
+
+
+  
+ActionView::Template::Error (undefined method `numero' for #<Prontuario id: 1, codigo: 1, datacriacao: "2024-02-02", historico: "dad dffa", paciente_id: 1, created_at: "2024-02-21 22:40:53.176013000 +0000", updated_at: "2024-02-21 22:40:53.176013000 +0000">):
+    14:   <% @prontuarios.each do |prontuario| %>
+    15:     <div class="record-card">
+    16:       <div>Nome do paciente: <%= prontuario.paciente.nome_completo %></div>
+    17:       <div>Prontuário: <%= prontuario.numero %></div>
+    18:       <p><%= link_to "Ver detalhes", prontuario, class: "btn" %></p>
+    19:     </div>
+    20:   <% end %>
+  
+app/views/prontuarios/index.html.erb:17
+app/views/prontuarios/index.html.erb:14
+Started GET "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-22 00:51:38 -0300
+Processing by ProntuariosController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/index.html.erb within layouts/application
+  [1m[36mProntuario Load (1.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prontuarios/index.html.erb:14
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  Rendered prontuarios/index.html.erb within layouts/application (Duration: 26.1ms | Allocations: 3104)
+  Rendered layout layouts/application.html.erb (Duration: 35.1ms | Allocations: 3186)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 1.7ms | Allocations: 4002)
+
+
+  
+ActionView::Template::Error (undefined method `prontuario_path' for #<ActionView::Base:0x000000000620c0>):
+    15:     <div class="record-card">
+    16:       <div>Nome do paciente: <%= prontuario.paciente.nome_completo %></div>
+    17:       <div>Prontuário: <%= prontuario.codigo %></div>
+    18:       <p><%= link_to "Ver detalhes", prontuario, class: "btn" %></p>
+    19:     </div>
+    20:   <% end %>
+    21: 
+  
+app/views/prontuarios/index.html.erb:18
+app/views/prontuarios/index.html.erb:14
+Started GET "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-22 00:52:47 -0300
+Processing by ProntuariosController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/index.html.erb within layouts/application
+  [1m[36mProntuario Load (0.8ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prontuarios/index.html.erb:14
+  [1m[36mPaciente Load (0.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  [1m[36mPaciente Load (3.9ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  Rendered prontuarios/index.html.erb within layouts/application (Duration: 79.9ms | Allocations: 3889)
+  Rendered layout layouts/application.html.erb (Duration: 80.8ms | Allocations: 3971)
+Completed 500 Internal Server Error in 112ms (ActiveRecord: 5.3ms | Allocations: 4788)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_prontuario_path' for #<ActionView::Base:0x00000000062408>):
+    20:   <% end %>
+    21: 
+    22:   <div class="links">
+    23:     <%= link_to "Novo Prontuário", new_prontuario_path, class: "btn" %>
+    24:     <%= link_to "Voltar para a página principal", root_path, class: "btn" %>
+    25:   </div>
+    26: </div>
+  
+app/views/prontuarios/index.html.erb:23
+Started GET "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-22 00:53:36 -0300
+Processing by ProntuariosController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/index.html.erb within layouts/application
+  [1m[36mProntuario Load (2.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prontuarios/index.html.erb:14
+  [1m[36mPaciente Load (0.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  [1m[36mPaciente Load (0.9ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  Rendered prontuarios/index.html.erb within layouts/application (Duration: 279.0ms | Allocations: 3962)
+  Rendered layout layouts/application.html.erb (Duration: 370.5ms | Allocations: 4044)
+Completed 500 Internal Server Error in 454ms (ActiveRecord: 3.9ms | Allocations: 4863)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"prontuarios", :paciente_id=>nil}, missing required keys: [:paciente_id]):
+    20:   <% end %>
+    21: 
+    22:   <div class="links">
+    23:     <%= link_to "Novo Prontuário", new_paciente_prontuario_path(@paciente), class: "btn" %>
+    24:     <%= link_to "Voltar para a página principal", root_path, class: "btn" %>
+    25:   </div>
+    26: </div>
+  
+app/views/prontuarios/index.html.erb:23
+Started GET "/pacientes/2/prontuarios" for 127.0.0.1 at 2024-02-22 00:53:55 -0300
+Processing by ProntuariosController#index as HTML
+  Parameters: {"paciente_id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/index.html.erb within layouts/application
+  [1m[36mProntuario Load (1.0ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prontuarios/index.html.erb:14
+  [1m[36mPaciente Load (0.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  [1m[36mPaciente Load (2.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  Rendered prontuarios/index.html.erb within layouts/application (Duration: 101.1ms | Allocations: 2968)
+  Rendered layout layouts/application.html.erb (Duration: 123.1ms | Allocations: 4857)
+Completed 200 OK in 152ms (Views: 144.6ms | ActiveRecord: 3.8ms | Allocations: 5698)
+
+
+Started GET "/pacientes/1/prontuarios/1" for 127.0.0.1 at 2024-02-22 00:53:58 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"1", "id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (1.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 4.1ms | Allocations: 208)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 11.2ms | Allocations: 911)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 2394)
+Completed 200 OK in 39ms (Views: 29.7ms | ActiveRecord: 1.4ms | Allocations: 3960)
+
+
+Started GET "/pacientes/1/prontuarios/1/edit" for 127.0.0.1 at 2024-02-22 00:54:03 -0300
+Processing by ProntuariosController#edit as HTML
+  Parameters: {"paciente_id"=>"1", "id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.7ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/edit.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 112.6ms | Allocations: 1645)
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/edit.html.erb:8
+  Rendered prontuarios/edit.html.erb within layouts/application (Duration: 233.6ms | Allocations: 2773)
+  Rendered layout layouts/application.html.erb (Duration: 287.9ms | Allocations: 4264)
+Completed 200 OK in 337ms (Views: 289.1ms | ActiveRecord: 1.5ms | Allocations: 5804)
+
+
+Started GET "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-22 00:54:09 -0300
+Processing by ProntuariosController#index as HTML
+  Parameters: {"paciente_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/index.html.erb within layouts/application
+  [1m[36mProntuario Load (0.8ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prontuarios/index.html.erb:14
+  [1m[36mPaciente Load (1.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  [1m[36mPaciente Load (0.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  Rendered prontuarios/index.html.erb within layouts/application (Duration: 21.0ms | Allocations: 2590)
+  Rendered layout layouts/application.html.erb (Duration: 30.9ms | Allocations: 4073)
+Completed 200 OK in 35ms (Views: 30.6ms | ActiveRecord: 2.7ms | Allocations: 4352)
+
+
+Started GET "/pacientes/1/prontuarios/1" for 127.0.0.1 at 2024-02-22 00:54:12 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"1", "id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (1.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (1.0ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 447)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 1930)
+Completed 200 OK in 39ms (Views: 23.4ms | ActiveRecord: 2.1ms | Allocations: 3416)
+
+
+Started GET "/pacientes/1/prontuarios/1" for 127.0.0.1 at 2024-02-22 00:54:49 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"1", "id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 435)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 1918)
+Completed 200 OK in 26ms (Views: 17.5ms | ActiveRecord: 0.6ms | Allocations: 3403)
+
+
+Started GET "/pacientes/1/prontuarios/1" for 127.0.0.1 at 2024-02-22 00:55:36 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"1", "id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (1.5ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 2.3ms | Allocations: 208)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 13.1ms | Allocations: 971)
+  Rendered layout layouts/application.html.erb (Duration: 31.4ms | Allocations: 2832)
+Completed 200 OK in 61ms (Views: 44.1ms | ActiveRecord: 2.1ms | Allocations: 4878)
+
+
+Started GET "/pacientes/1/prontuarios/1" for 127.0.0.1 at 2024-02-22 00:55:42 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"1", "id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (1.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.6ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 3.2ms | Allocations: 208)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 33.0ms | Allocations: 959)
+  Rendered layout layouts/application.html.erb (Duration: 51.6ms | Allocations: 2854)
+Completed 200 OK in 86ms (Views: 68.3ms | ActiveRecord: 1.7ms | Allocations: 4900)
+
+
+Started GET "/pacientes/1/exames_do_paciente/new" for 127.0.0.1 at 2024-02-22 00:55:44 -0300
+Processing by ExamesController#new as HTML
+  Parameters: {"paciente_id"=>"1"}
+Completed 404 Not Found in 5ms (ActiveRecord: 0.0ms | Allocations: 488)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Prontuario without an ID):
+  
+app/controllers/exames_controller.rb:15:in `new'
+Started GET "/pacientes/1/exames_do_paciente/new" for 127.0.0.1 at 2024-02-22 00:55:52 -0300
+Processing by ExamesController#new as HTML
+  Parameters: {"paciente_id"=>"1"}
+Completed 404 Not Found in 2ms (ActiveRecord: 0.0ms | Allocations: 488)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Prontuario without an ID):
+  
+app/controllers/exames_controller.rb:15:in `new'
+Started GET "/pacientes/1/exames_do_paciente/new" for 127.0.0.1 at 2024-02-22 00:55:54 -0300
+Processing by ExamesController#new as HTML
+  Parameters: {"paciente_id"=>"1"}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 488)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Prontuario without an ID):
+  
+app/controllers/exames_controller.rb:15:in `new'
+Started GET "/pacientes/1/exames_do_paciente/new" for 127.0.0.1 at 2024-02-22 00:55:55 -0300
+Processing by ExamesController#new as HTML
+  Parameters: {"paciente_id"=>"1"}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 488)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Prontuario without an ID):
+  
+app/controllers/exames_controller.rb:15:in `new'
+Started GET "/pacientes/1/prontuarios/1/edit" for 127.0.0.1 at 2024-02-22 00:55:58 -0300
+Processing by ProntuariosController#edit as HTML
+  Parameters: {"paciente_id"=>"1", "id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/edit.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 5.9ms | Allocations: 1706)
+  [1m[36mPaciente Load (0.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/edit.html.erb:8
+  Rendered prontuarios/edit.html.erb within layouts/application (Duration: 19.3ms | Allocations: 2842)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 4738)
+Completed 200 OK in 50ms (Views: 42.1ms | ActiveRecord: 1.3ms | Allocations: 6723)
+
+
+Started GET "/pacientes/1/prontuarios/1" for 127.0.0.1 at 2024-02-22 00:56:07 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"1", "id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.8ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 3.4ms | Allocations: 205)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 11.3ms | Allocations: 862)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 2345)
+Completed 200 OK in 27ms (Views: 18.3ms | ActiveRecord: 1.1ms | Allocations: 3911)
+
+
+Started GET "/pacientes/1/prontuarios/1" for 127.0.0.1 at 2024-02-22 00:56:08 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"1", "id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.6ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.6ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 0.2ms | Allocations: 29)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 419)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 1902)
+Completed 200 OK in 22ms (Views: 12.9ms | ActiveRecord: 1.2ms | Allocations: 3387)
+
+
+Started GET "/pacientes/1/prontuarios/1/edit" for 127.0.0.1 at 2024-02-22 00:56:09 -0300
+Processing by ProntuariosController#edit as HTML
+  Parameters: {"paciente_id"=>"1", "id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (1.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/edit.html.erb within layouts/application
+  Rendered prontuarios/_form.html.erb (Duration: 2.9ms | Allocations: 1166)
+  [1m[36mPaciente Load (0.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/edit.html.erb:8
+  Rendered prontuarios/edit.html.erb within layouts/application (Duration: 9.2ms | Allocations: 2069)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 3560)
+Completed 200 OK in 32ms (Views: 23.4ms | ActiveRecord: 2.2ms | Allocations: 5045)
+
+
+Started GET "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-22 00:56:10 -0300
+Processing by ProntuariosController#index as HTML
+  Parameters: {"paciente_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/index.html.erb within layouts/application
+  [1m[36mProntuario Load (2.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prontuarios/index.html.erb:14
+  [1m[36mPaciente Load (0.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  [1m[36mPaciente Load (0.7ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  Rendered prontuarios/index.html.erb within layouts/application (Duration: 20.7ms | Allocations: 2919)
+  Rendered layout layouts/application.html.erb (Duration: 38.7ms | Allocations: 4402)
+Completed 200 OK in 51ms (Views: 44.7ms | ActiveRecord: 3.8ms | Allocations: 4761)
+
+
+Started GET "/pacientes/1/prontuarios/1" for 127.0.0.1 at 2024-02-22 00:56:12 -0300
+Processing by ProntuariosController#show as HTML
+  Parameters: {"paciente_id"=>"1", "id"=>"1"}
+Procurando por paciente com ID: 1
+  [1m[36mPaciente Load (0.3ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:77:in `set_paciente'
+Paciente encontrado: #<Paciente id: 1, nome_completo: "Ana Castro Silva", data_nascimento: "2000-05-20", cpf: "12345678910", email: "anacastro@gmail.com", telefone: "81998775226", user_id: nil, endereco_id: 3, created_at: "2024-02-20 15:49:06.095056000 +0000", updated_at: "2024-02-20 15:49:06.095056000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>
+  [1m[36mProntuario Load (0.3ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios" WHERE "prontuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prontuarios_controller.rb:88:in `set_prontuario'
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/show.html.erb within layouts/application
+  Rendered prontuarios/_prontuario.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered prontuarios/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 419)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 1902)
+Completed 200 OK in 15ms (Views: 6.8ms | ActiveRecord: 0.6ms | Allocations: 3387)
+
+
+Started GET "/pacientes/1/prontuarios" for 127.0.0.1 at 2024-02-22 00:56:13 -0300
+Processing by ProntuariosController#index as HTML
+  Parameters: {"paciente_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering prontuarios/index.html.erb within layouts/application
+  [1m[36mProntuario Load (0.4ms)[0m  [1m[34mSELECT "prontuarios".* FROM "prontuarios"[0m
+  ↳ app/views/prontuarios/index.html.erb:14
+  [1m[36mPaciente Load (0.8ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  [1m[36mPaciente Load (0.4ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/prontuarios/index.html.erb:16
+  Rendered prontuarios/index.html.erb within layouts/application (Duration: 15.4ms | Allocations: 2587)
+  Rendered layout layouts/application.html.erb (Duration: 26.2ms | Allocations: 4100)
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 1.5ms | Allocations: 4379)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-22 00:56:15 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 14.7ms | Allocations: 2660)
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | Allocations: 3454)
+Completed 200 OK in 30ms (Views: 29.0ms | ActiveRecord: 0.0ms | Allocations: 4035)
+
+
+Started GET "/consultas/search" for 127.0.0.1 at 2024-02-22 00:56:17 -0300
+Processing by ConsultasController#search as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/index.html.erb within layouts/application
+  [1m[36mConsulta Load (3.8ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas"[0m
+  ↳ app/views/consultas/index.html.erb:18
+  [1m[36mPaciente Load (0.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (4.4ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mMedico Load (2.1ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  [1m[36mCACHE Paciente Load (0.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:20
+  [1m[36mCACHE Medico Load (0.0ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/index.html.erb:29
+  Rendered consultas/index.html.erb within layouts/application (Duration: 53.2ms | Allocations: 7190)
+  Rendered layout layouts/application.html.erb (Duration: 68.7ms | Allocations: 8893)
+Completed 200 OK in 85ms (Views: 71.1ms | ActiveRecord: 10.9ms | Allocations: 9482)
+
+
+Started GET "/consultas/2" for 127.0.0.1 at 2024-02-22 00:56:20 -0300
+Processing by ConsultasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConsulta Load (4.0ms)[0m  [1m[34mSELECT "consultas".* FROM "consultas" WHERE "consultas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/consultas_controller.rb:67:in `set_consulta'
+  Rendering layout layouts/application.html.erb
+  Rendering consultas/show.html.erb within layouts/application
+  [1m[36mPaciente Load (1.2ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:3
+  [1m[36mMedico Load (1.2ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos" WHERE "medicos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/consultas/show.html.erb:9
+  Rendered consultas/show.html.erb within layouts/application (Duration: 35.8ms | Allocations: 2503)
+  Rendered layout layouts/application.html.erb (Duration: 63.6ms | Allocations: 3995)
+Completed 200 OK in 85ms (Views: 64.4ms | ActiveRecord: 6.3ms | Allocations: 4885)
+
+
+Started GET "/pacientes/2/prescricoes_do_paciente/new" for 127.0.0.1 at 2024-02-22 00:56:21 -0300
+Processing by PrescricoesController#new as HTML
+  Parameters: {"paciente_id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/new.html.erb within layouts/application
+  [1m[36mPaciente Load (2.5ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/prescricoes/_form.html.erb:16
+  Rendered prescricoes/_form.html.erb (Duration: 21.3ms | Allocations: 3076)
+  Rendered prescricoes/new.html.erb within layouts/application (Duration: 28.6ms | Allocations: 3314)
+  Rendered layout layouts/application.html.erb (Duration: 63.3ms | Allocations: 4875)
+Completed 200 OK in 141ms (Views: 75.5ms | ActiveRecord: 11.8ms | Allocations: 10799)
+
+
+Started GET "/pacientes/2/prescricoes_do_paciente/new" for 127.0.0.1 at 2024-02-22 00:59:58 -0300
+Processing by PrescricoesController#new as HTML
+  Parameters: {"paciente_id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering prescricoes/new.html.erb within layouts/application
+  Rendered prescricoes/_form.html.erb (Duration: 28.9ms | Allocations: 1736)
+  Rendered prescricoes/new.html.erb within layouts/application (Duration: 36.3ms | Allocations: 1973)
+  Rendered layout layouts/application.html.erb (Duration: 38.2ms | Allocations: 2055)
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 0.0ms | Allocations: 2863)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"prescricoes", :paciente_id=>nil}, missing required keys: [:id], possible unmatched constraints: [:paciente_id]):
+    1: <%= form_with(model: prescricao, url: paciente_prescricoes_do_paciente_path(@paciente)) do |form| %>
+    2:   <% if prescricao.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(prescricao.errors.count, "error") %> prohibited this prescricao from being saved:</h2>
+  
+app/views/prescricoes/_form.html.erb:1
+app/views/prescricoes/new.html.erb:4
+Started GET "/pacientes/2/prescricoes_do_paciente/new" for 127.0.0.1 at 2024-02-22 01:01:39 -0300
+Processing by PrescricoesController#new as HTML
+  Parameters: {"paciente_id"=>"2"}
+  [1m[36mPaciente Load (3.7ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:15:in `new'
+Completed 500 Internal Server Error in 589ms (ActiveRecord: 39.9ms | Allocations: 12630)
+
+
+  
+NameError (Rails couldn't find a valid model for Prescrico association. Please provide the :class_name option on the association declaration. If :class_name is already provided, make sure it's an ActiveRecord::Base subclass.):
+  
+app/controllers/prescricoes_controller.rb:16:in `new'
+Started GET "/pacientes/2/prescricoes_do_paciente/new" for 127.0.0.1 at 2024-02-22 01:06:52 -0300
+Processing by PrescricoesController#new as HTML
+  Parameters: {"paciente_id"=>"2"}
+Completed 404 Not Found in 335ms (ActiveRecord: 87.4ms | Allocations: 2492)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Prontuario without an ID):
+  
+app/controllers/prescricoes_controller.rb:15:in `new'
+Started GET "/pacientes/2/prescricoes_do_paciente/new" for 127.0.0.1 at 2024-02-22 01:11:11 -0300
+Processing by PrescricoesController#new as HTML
+  Parameters: {"paciente_id"=>"2"}
+Completed 404 Not Found in 36ms (ActiveRecord: 0.0ms | Allocations: 488)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Prontuario without an ID):
+  
+app/controllers/prescricoes_controller.rb:15:in `new'
+Started GET "/pacientes/2/prescricoes_do_paciente/new" for 127.0.0.1 at 2024-02-22 01:12:30 -0300
+Processing by PrescricoesController#new as HTML
+  Parameters: {"paciente_id"=>"2"}
+Completed 404 Not Found in 11ms (ActiveRecord: 0.0ms | Allocations: 488)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Prontuario without an ID):
+  
+app/controllers/prescricoes_controller.rb:15:in `new'
+Started GET "/pacientes/2/prescricoes_do_paciente/new" for 127.0.0.1 at 2024-02-22 01:12:33 -0300
+Processing by PrescricoesController#new as HTML
+  Parameters: {"paciente_id"=>"2"}
+Completed 404 Not Found in 2ms (ActiveRecord: 0.0ms | Allocations: 488)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Prontuario without an ID):
+  
+app/controllers/prescricoes_controller.rb:15:in `new'
+Started GET "/pacientes/2/prescricoes_do_paciente/new" for 127.0.0.1 at 2024-02-22 01:15:09 -0300
+Processing by PrescricoesController#new as HTML
+  Parameters: {"paciente_id"=>"2"}
+Completed 404 Not Found in 898ms (ActiveRecord: 77.6ms | Allocations: 5377)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Prontuario without an ID):
+  
+app/controllers/prescricoes_controller.rb:15:in `new'
+Started GET "/exames/new.2" for 127.0.0.1 at 2024-02-22 01:17:57 -0300
+Processing by ExamesController#new as */*
+Completed 404 Not Found in 57ms (ActiveRecord: 0.0ms | Allocations: 521)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Prontuario without an ID):
+  
+app/controllers/exames_controller.rb:15:in `new'
+Started GET "/pacientes/2/prescricoes_do_paciente/new" for 127.0.0.1 at 2024-02-22 01:22:39 -0300
+Processing by PrescricoesController#new as HTML
+  Parameters: {"paciente_id"=>"2"}
+  [1m[36mPaciente Load (7.0ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes" WHERE "pacientes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/prescricoes_controller.rb:15:in `new'
+Completed 500 Internal Server Error in 369ms (ActiveRecord: 38.9ms | Allocations: 11133)
+
+
+  
+NoMethodError (undefined method `prontuarios' for #<Paciente id: 2, nome_completo: "Luke Alves", data_nascimento: "2001-06-19", cpf: "12345678901", email: "lukeanjos@gmail.com", telefone: "87987564125", user_id: nil, endereco_id: 4, created_at: "2024-02-20 19:33:37.589551000 +0000", updated_at: "2024-02-20 19:33:37.589551000 +0000", encrypted_password: [FILTERED], reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil>):
+  
+app/controllers/prescricoes_controller.rb:16:in `new'

@@ -4,14 +4,14 @@
 
     <%= form_tag(search_consultas_path, method: :get, id: "search-form") do %>
       <div>
-        <%= label_tag :inicio_data, "Período de Início:" %>
+        <%= label_tag :inicio_data, "Período de Início:", class: "field" %>
         <%= date_field_tag :inicio_data, params[:inicio_data] %>
       </div>
       <div>
-        <%= label_tag :fim_data, "Período de Término:" %>
+        <%= label_tag :fim_data, "Período de Término:", class: "field" %>
         <%= date_field_tag :fim_data, params[:fim_data] %>
       </div>
-      <%= submit_tag "Pesquisar" %>
+      <%= submit_tag "Pesquisar", class: "btn" %>
     <% end %>
 
     <div id="consultas-list">
@@ -28,11 +28,11 @@
        <p><span class="consulta-medico">
           <%= consulta.medico.present? ? consulta.medico.nome : "Médico não associado" %>
        </span></p>
+       <p><%= link_to "Detalhes do Agendamento", consulta_path(consulta), class: "btn" %></p>
       <% end %>
     </div>
     <div class="links">
-        <p><%= link_to "Detalhes do Agendamento", consultas_path %></p>
-        <p><%= link_to "Voltar para a página inicial", root_path %></p>
-        <%= link_to "Nova consulta", new_consulta_path %>
+        <p><%= link_to "Voltar para a página inicial", root_path, class: "btn btn-secondary"  %></p>
+        <%= link_to "Nova consulta", new_consulta_path, class: "btn" %>
     </div>
 

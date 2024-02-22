@@ -1,10 +1,10 @@
-<h1>Editing prontuario</h1>
+<h1>Editar Prontuário</h1>
 
 <%= render "form", prontuario: @prontuario %>
 
 <br>
 
-<div>
-  <%= link_to "Mostrar esse prontuário", @prontuario %> |
-  <%= link_to "Voltar para prontuários", prontuarios_path %>
+<div class: "links">
+  <%= link_to "Mostrar esse prontuário", paciente_prontuario_path(@prontuario.paciente, @prontuario), class: "btn" %>
+  <%= link_to "Voltar para prontuários", paciente_prontuarios_path, class: "btn" %>
 </div>

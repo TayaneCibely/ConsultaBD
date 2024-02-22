@@ -1,4 +1,4 @@
-<%= form_with(model: prescricao, url: prescricoes_path) do |form| %>
+<%= form_with(model: prescricao, url: paciente_prescricoes_do_paciente_path(@paciente)) do |form| %>
   <% if prescricao.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(prescricao.errors.count, "error") %> prohibited this prescricao from being saved:</h2>
@@ -12,8 +12,7 @@
   <% end %>
 
   <div class="field">
-     <%= form.label :paciente_id %>
-     <%= form.collection_select :paciente_id, Paciente.all, :id, :nome_completo, prompt: "Selecione um paciente" %>
+     <%= form.hidden_field :prontuario_id, value: @prontuario.id %>
   </div>
 
   <div class="field">

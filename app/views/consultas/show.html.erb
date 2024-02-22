@@ -6,12 +6,19 @@
  
     <p><span class="label">Horário</span>:<span class="value"><%= @consulta.horario.present? ? @consulta.horario.strftime("%H:%M") : "Horário não definido " %></span></p>
 
-    <p><span class="label">Médico</span><span class="value"><%= @consulta.medico.present? ? @consulta.medico.nome_medico : "Médico não associado"%></span></p>
+    <p><span class="label">Médico</span><span class="value"><%= @consulta.medico.nome.present? ? @consulta.medico.nome : "Médico não associado"%></span></p>
 
-    <div>
-      <%= link_to "Editar Consulta", edit_consulta_path(@consulta) %>
-      <%= button_to "Apagar Consulta", @consulta, method: :delete, data: { confirm: "Tem certeza que deseja apagar essa consulta? "} %>
-      <%= link_to "Voltar a lista de agendamentos", consultas_path %>
+    <div class: "actions">
+      <%= link_to "Editar Consulta", edit_consulta_path(@consulta) , class: "btn" %>
+      <%= button_to "Apagar Consulta", consulta_path(@consulta), method: :delete, data: { confirm: "Tem certeza que deseja apagar essa consulta? "}, class: "btn" %>
+      <%= link_to "Voltar a lista de agendamentos", consultas_path, class: "btn" %>
     </div>
+
+    <div class: "actions">
+       <%= link_to "Ver  Prontuário do Paciente", paciente_prontuario_path(@consulta.paciente), class: "btn" %>
+       <%= link_to 'Adicionar uma Prescrição', new_prescricao_path(prontuario_id: @prontuario.id) %>
+       <%= link_to "Adicionar Exame", new_exame_path(@consulta), class: "btn" %>
+    </div>
+
 
 </div>

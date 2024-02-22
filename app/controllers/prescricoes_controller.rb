@@ -12,7 +12,9 @@ class PrescricoesController < ApplicationController
 
   # GET /prescricoes/new
   def new
-    @prescricao = Prescricao.new
+    @paciente = Paciente.find(params[:paciente_id])
+    @prontuario = @paciente.prontuario
+    @prescricao = @prontuario.prescricoes.build
   end
 
   # GET /prescricoes/1/edit
@@ -21,7 +23,8 @@ class PrescricoesController < ApplicationController
 
   # POST /prescricoes or /prescricoes.json
   def create
-    @prescricao = Prescricao.new(prescricao_params)
+    @prontuario = Prontuario.find(params[:prontuario_id])
+    @prescricao = @prontuario.prescricoes.build(prescricao_params)
 
     respond_to do |format|
       if @prescricao.save
@@ -33,6 +36,7 @@ class PrescricoesController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /prescricoes/1 or /prescricoes/1.json
   def update

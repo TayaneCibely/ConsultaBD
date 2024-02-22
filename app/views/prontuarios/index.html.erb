@@ -14,13 +14,12 @@
   <% @prontuarios.each do |prontuario| %>
     <div class="record-card">
       <div>Nome do paciente: <%= prontuario.paciente.nome_completo %></div>
-      <div>Prontuário: <%= prontuario.numero %></div>
-      <p><%= link_to "Ver detalhes", prontuario, class: "btn" %></p>
+      <div>Prontuário: <%= prontuario.codigo %></div>
+      <p><%= link_to "Ver detalhes", paciente_prontuario_path(prontuario.paciente, prontuario), class: "btn" %></p>
     </div>
   <% end %>
 
   <div class="links">
-    <%= link_to "Novo Prontuário", new_prontuario_path, class: "btn" %>
     <%= link_to "Voltar para a página principal", root_path, class: "btn" %>
   </div>
 </div>

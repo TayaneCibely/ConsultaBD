@@ -57,7 +57,7 @@ class ConsultasController < ApplicationController
   end
 
   def search
-    @consulta = search_consultas
+    @consultas = search_consultas
     render :index
   end
 
